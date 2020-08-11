@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472CC37D24E2FFEB009C6890 /* UIView+Ext.swift */; };
 		4765A45F24E06BFA00585E27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4765A45E24E06BFA00585E27 /* AppDelegate.swift */; };
 		4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4765A46024E06BFA00585E27 /* SceneDelegate.swift */; };
 		4765A46824E06BFB00585E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4765A46724E06BFB00585E27 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		472CC37D24E2FFEB009C6890 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		4765A45B24E06BFA00585E27 /* MakeLifeStyles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeLifeStyles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4765A45E24E06BFA00585E27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4765A46024E06BFA00585E27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +35,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		472CC37C24E2FFDB009C6890 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				472CC37D24E2FFEB009C6890 /* UIView+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4760BFF724E194BB00B2B936 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 		4765A45D24E06BFA00585E27 /* MakeLifeStyles */ = {
 			isa = PBXGroup;
 			children = (
+				472CC37C24E2FFDB009C6890 /* Extensions */,
 				4760BFF824E194C800B2B936 /* Models */,
 				4760BFF724E194BB00B2B936 /* Scenes */,
 				4760BFF924E194D300B2B936 /* Support Files */,
@@ -157,6 +168,7 @@
 			files = (
 				4765A45F24E06BFA00585E27 /* AppDelegate.swift in Sources */,
 				4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */,
+				472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
