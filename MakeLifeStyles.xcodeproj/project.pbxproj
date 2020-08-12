@@ -49,6 +49,7 @@
 		4760BFF724E194BB00B2B936 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				47C9A0A224E44B4100353E80 /* Home */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -97,6 +98,13 @@
 				472CC37C24E2FFDB009C6890 /* Extensions */,
 			);
 			path = MakeLifeStyles;
+			sourceTree = "<group>";
+		};
+		47C9A0A224E44B4100353E80 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
