@@ -93,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				4760BFF824E194C800B2B936 /* Models */,
+				47C9A0A324E44B7300353E80 /* View Models */,
 				4760BFF724E194BB00B2B936 /* Scenes */,
 				4760BFF924E194D300B2B936 /* Support Files */,
 				472CC37C24E2FFDB009C6890 /* Extensions */,
@@ -105,6 +106,13 @@
 			children = (
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		47C9A0A324E44B7300353E80 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
