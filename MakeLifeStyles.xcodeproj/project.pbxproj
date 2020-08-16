@@ -105,8 +105,16 @@
 		4798926F24E980AA00767383 /* Onboading */ = {
 			isa = PBXGroup;
 			children = (
+				4798927024E9929200767383 /* Get Started */,
 			);
 			path = Onboading;
+			sourceTree = "<group>";
+		};
+		4798927024E9929200767383 /* Get Started */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Get Started";
 			sourceTree = "<group>";
 		};
 		47C9A0A224E44B4100353E80 /* Home */ = {
