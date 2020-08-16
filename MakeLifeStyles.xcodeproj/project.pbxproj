@@ -49,6 +49,7 @@
 		4760BFF724E194BB00B2B936 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4798926F24E980AA00767383 /* Onboading */,
 				47C9A0A224E44B4100353E80 /* Home */,
 			);
 			path = Scenes;
@@ -99,6 +100,13 @@
 				472CC37C24E2FFDB009C6890 /* Extensions */,
 			);
 			path = MakeLifeStyles;
+			sourceTree = "<group>";
+		};
+		4798926F24E980AA00767383 /* Onboading */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboading;
 			sourceTree = "<group>";
 		};
 		47C9A0A224E44B4100353E80 /* Home */ = {
