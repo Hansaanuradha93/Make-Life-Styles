@@ -99,6 +99,22 @@ extension UIView {
     }
     
     
+    func centerHorizontallyInSuperView(padding: CGFloat = .zero, size: CGSize = .zero) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superviewCenterXAnchor = superview?.centerXAnchor {
+            centerXAnchor.constraint(equalTo: superviewCenterXAnchor, constant: padding).isActive = true
+        }
+        
+        if size.width != 0 {
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        }
+        
+        if size.height != 0 {
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        }
+    }
+    
+    
     @discardableResult
     func alignLeadingInSuperView(leading: NSLayoutXAxisAnchor?, paddingLeading: CGFloat = .zero) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
@@ -128,22 +144,6 @@ extension UIView {
         anchoredConstraints.trailing?.isActive = true
                 
         return anchoredConstraints
-    }
-    
-    
-    func centerHorizontallyInSuperView(size: CGSize = .zero) {
-        translatesAutoresizingMaskIntoConstraints = false
-        if let superviewCenterXAnchor = superview?.centerXAnchor {
-            centerXAnchor.constraint(equalTo: superviewCenterXAnchor).isActive = true
-        }
-        
-        if size.width != 0 {
-            widthAnchor.constraint(equalToConstant: size.width).isActive = true
-        }
-        
-        if size.height != 0 {
-            heightAnchor.constraint(equalToConstant: size.height).isActive = true
-        }
     }
     
     
