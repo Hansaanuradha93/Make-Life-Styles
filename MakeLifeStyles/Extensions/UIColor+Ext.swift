@@ -8,6 +8,7 @@ enum AssertColor: String {
     case lightYellow = "light_yellow"
     case pinkishRed = "pinkish_red"
     case teal = "teal"
+    case lightBlack = "light_black"
 }
 
 
