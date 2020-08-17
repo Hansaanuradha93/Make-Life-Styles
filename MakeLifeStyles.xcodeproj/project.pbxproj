@@ -17,6 +17,7 @@
 		4798D12E24EA325200267A89 /* NSMutableAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D12D24EA325200267A89 /* NSMutableAttributedString+Ext.swift */; };
 		4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13124EA4B4100267A89 /* LSTitleLabel.swift */; };
 		4798D13424EA4CF600267A89 /* LSBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13324EA4CF600267A89 /* LSBodyLabel.swift */; };
+		4798D13724EA512000267A89 /* LSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13624EA512000267A89 /* LSButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4798D12D24EA325200267A89 /* NSMutableAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Ext.swift"; sourceTree = "<group>"; };
 		4798D13124EA4B4100267A89 /* LSTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTitleLabel.swift; sourceTree = "<group>"; };
 		4798D13324EA4CF600267A89 /* LSBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBodyLabel.swift; sourceTree = "<group>"; };
+		4798D13624EA512000267A89 /* LSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +108,8 @@
 				4760BFF824E194C800B2B936 /* Models */,
 				47C9A0A324E44B7300353E80 /* View Models */,
 				4760BFF724E194BB00B2B936 /* Scenes */,
-				4760BFF924E194D300B2B936 /* Support Files */,
 				472CC37C24E2FFDB009C6890 /* Extensions */,
+				4760BFF924E194D300B2B936 /* Support Files */,
 			);
 			path = MakeLifeStyles;
 			sourceTree = "<group>";
@@ -131,6 +133,7 @@
 		4798D12F24EA4A7F00267A89 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				4798D13524EA511100267A89 /* Buttons */,
 				4798D13024EA4AB300267A89 /* Labels */,
 			);
 			path = "Custom Views";
@@ -143,6 +146,14 @@
 				4798D13324EA4CF600267A89 /* LSBodyLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		4798D13524EA511100267A89 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				4798D13624EA512000267A89 /* LSButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		47C9A0A224E44B4100353E80 /* Home */ = {
@@ -237,6 +248,7 @@
 				472CC38024E30083009C6890 /* UIColor+Ext.swift in Sources */,
 				4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */,
 				472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */,
+				4798D13724EA512000267A89 /* LSButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
