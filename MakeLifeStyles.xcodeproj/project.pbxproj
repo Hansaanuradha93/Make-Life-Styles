@@ -18,6 +18,8 @@
 		4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13124EA4B4100267A89 /* LSTitleLabel.swift */; };
 		4798D13424EA4CF600267A89 /* LSBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13324EA4CF600267A89 /* LSBodyLabel.swift */; };
 		4798D13724EA512000267A89 /* LSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13624EA512000267A89 /* LSButton.swift */; };
+		4798D13A24EA539D00267A89 /* LSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13924EA539D00267A89 /* LSImageView.swift */; };
+		4798D13D24EA547F00267A89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13C24EA547F00267A89 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		4798D13124EA4B4100267A89 /* LSTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTitleLabel.swift; sourceTree = "<group>"; };
 		4798D13324EA4CF600267A89 /* LSBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSBodyLabel.swift; sourceTree = "<group>"; };
 		4798D13624EA512000267A89 /* LSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSButton.swift; sourceTree = "<group>"; };
+		4798D13924EA539D00267A89 /* LSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSImageView.swift; sourceTree = "<group>"; };
+		4798D13C24EA547F00267A89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		4765A45D24E06BFA00585E27 /* MakeLifeStyles */ = {
 			isa = PBXGroup;
 			children = (
+				4798D13B24EA546E00267A89 /* Constants */,
 				4798D12F24EA4A7F00267A89 /* Custom Views */,
 				4760BFF824E194C800B2B936 /* Models */,
 				47C9A0A324E44B7300353E80 /* View Models */,
@@ -133,6 +138,7 @@
 		4798D12F24EA4A7F00267A89 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				4798D13824EA535200267A89 /* ImageViews */,
 				4798D13524EA511100267A89 /* Buttons */,
 				4798D13024EA4AB300267A89 /* Labels */,
 			);
@@ -154,6 +160,22 @@
 				4798D13624EA512000267A89 /* LSButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		4798D13824EA535200267A89 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				4798D13924EA539D00267A89 /* LSImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		4798D13B24EA546E00267A89 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				4798D13C24EA547F00267A89 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		47C9A0A224E44B4100353E80 /* Home */ = {
@@ -241,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */,
+				4798D13D24EA547F00267A89 /* Constants.swift in Sources */,
 				4798D13424EA4CF600267A89 /* LSBodyLabel.swift in Sources */,
 				4798927224E995EA00767383 /* GetStartedVC.swift in Sources */,
 				4765A45F24E06BFA00585E27 /* AppDelegate.swift in Sources */,
@@ -249,6 +272,7 @@
 				4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */,
 				472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */,
 				4798D13724EA512000267A89 /* LSButton.swift in Sources */,
+				4798D13A24EA539D00267A89 /* LSImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
