@@ -4,6 +4,7 @@ struct Asserts {
     static let placeHolder = UIImage(named: "")!
     static let personOnBicycle = UIImage(named: "person_on_bicycle")!
     static let circle = UIImage(named: "circle")!
+    static let personOnScooter = UIImage(named: "person_on_scooter")!
 }
 
 
