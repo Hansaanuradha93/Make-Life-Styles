@@ -36,7 +36,7 @@ extension GetStartedVC {
         circleImageView.centerHorizontallyInSuperView()
         
         view.addSubview(heroImageView)
-        heroImageView.anchor(top: circleImageView.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: view.frame.height / 2))
+        heroImageView.anchor(top: circleImageView.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: view.frame.height / 2))
         
         titleLabel.attributedText = NSMutableAttributedString().normal(Strings.itsTimeToBuild, 40).bold(Strings.someHabits, 40)
         view.addSubview(titleLabel)
