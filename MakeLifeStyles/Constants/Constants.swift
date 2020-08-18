@@ -13,4 +13,8 @@ struct Strings {
     static let continueString = "Continue"
     static let itsTimeToBuild = "It's time to build\n"
     static let someHabits = "some habits!"
+    static let back = "Back"
+    static let one = "1."
+    static let nameQuestion = "Okay firstly,\n how can I call you?"
+    static let enterYourName = "Enter your name"
 }
