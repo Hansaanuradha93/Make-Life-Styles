@@ -11,6 +11,8 @@ class UserDetailsVC: UIViewController {
     let questionNumberLabel = LSBodyLabel(text: Strings.one, textColor: .white, fontSize: 25, textAlignment: .left)
     let questionLabel = LSBodyLabel(text: Strings.nameQuestion, textColor: .white, fontSize: 25, textAlignment: .left, numberOfLines: 2)
     let placeholderLabel = LSBodyLabel(text: Strings.enterYourName, textColor: UIColor.appColor(color: .lightAsh), fontSize: 16, textAlignment: .left)
+    
+    let nameTextField = UITextField()
 
     
     override func viewDidLoad() {
@@ -42,6 +44,10 @@ class UserDetailsVC: UIViewController {
         
         detailsContainer.addSubview(placeholderLabel)
         placeholderLabel.anchor(top: questionLabel.bottomAnchor, leading: questionLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 5, bottom: 0, right: 0))
+        
+        nameTextField.backgroundColor = .white
+        detailsContainer.addSubview(nameTextField)
+        nameTextField.anchor(top: placeholderLabel.bottomAnchor, leading: questionNumberLabel.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 10, bottom: 0, right: 0), size: .init(width: view.frame.width - 100, height: 50))
         
         detailsContainer.addSubview(nextButton)
         nextButton.anchor(top: nil, leading: view.centerXAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 10, right: 20), size: .init(width: 0, height: 60))
