@@ -14,6 +14,7 @@
 		4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4765A46024E06BFA00585E27 /* SceneDelegate.swift */; };
 		4765A46824E06BFB00585E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4765A46724E06BFB00585E27 /* Assets.xcassets */; };
 		4765A46B24E06BFB00585E27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4765A46924E06BFB00585E27 /* LaunchScreen.storyboard */; };
+		47822B2124EEE17B005B44A3 /* LSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47822B2024EEE17B005B44A3 /* LSTextField.swift */; };
 		4798927224E995EA00767383 /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798927124E995EA00767383 /* GetStartedVC.swift */; };
 		4798D12E24EA325200267A89 /* NSMutableAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D12D24EA325200267A89 /* NSMutableAttributedString+Ext.swift */; };
 		4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13124EA4B4100267A89 /* LSTitleLabel.swift */; };
@@ -33,6 +34,7 @@
 		4765A46724E06BFB00585E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4765A46A24E06BFB00585E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4765A46C24E06BFB00585E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47822B2024EEE17B005B44A3 /* LSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTextField.swift; sourceTree = "<group>"; };
 		4798927124E995EA00767383 /* GetStartedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedVC.swift; sourceTree = "<group>"; };
 		4798D12D24EA325200267A89 /* NSMutableAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Ext.swift"; sourceTree = "<group>"; };
 		4798D13124EA4B4100267A89 /* LSTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTitleLabel.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 			path = MakeLifeStyles;
 			sourceTree = "<group>";
 		};
+		47822B1F24EEE155005B44A3 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				47822B2024EEE17B005B44A3 /* LSTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
 		4798926F24E980AA00767383 /* Onboading */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +159,7 @@
 		4798D12F24EA4A7F00267A89 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				47822B1F24EEE155005B44A3 /* TextFields */,
 				4798D13824EA535200267A89 /* ImageViews */,
 				4798D13524EA511100267A89 /* Buttons */,
 				4798D13024EA4AB300267A89 /* Labels */,
@@ -283,6 +294,7 @@
 				472CC38024E30083009C6890 /* UIColor+Ext.swift in Sources */,
 				4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */,
 				472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */,
+				47822B2124EEE17B005B44A3 /* LSTextField.swift in Sources */,
 				4798D13724EA512000267A89 /* LSButton.swift in Sources */,
 				4798D13A24EA539D00267A89 /* LSImageView.swift in Sources */,
 			);
