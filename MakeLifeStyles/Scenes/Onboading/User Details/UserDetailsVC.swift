@@ -35,7 +35,9 @@ class UserDetailsVC: UIViewController {
 extension UserDetailsVC {
     
     @objc fileprivate func handleNext() {
-        print(123)
+        guard let name = nameTextField.text, !name.isEmpty else { return }
+        let controller = HomeVC()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     
