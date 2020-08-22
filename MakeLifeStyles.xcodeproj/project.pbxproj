@@ -17,6 +17,7 @@
 		4765A46824E06BFB00585E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4765A46724E06BFB00585E27 /* Assets.xcassets */; };
 		4765A46B24E06BFB00585E27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4765A46924E06BFB00585E27 /* LaunchScreen.storyboard */; };
 		47822B2124EEE17B005B44A3 /* LSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47822B2024EEE17B005B44A3 /* LSTextField.swift */; };
+		478DBB0024F1837200D37F39 /* LSTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DBAFF24F1837200D37F39 /* LSTabBar.swift */; };
 		4798927224E995EA00767383 /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798927124E995EA00767383 /* GetStartedVC.swift */; };
 		4798D12E24EA325200267A89 /* NSMutableAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D12D24EA325200267A89 /* NSMutableAttributedString+Ext.swift */; };
 		4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13124EA4B4100267A89 /* LSTitleLabel.swift */; };
@@ -39,6 +40,7 @@
 		4765A46A24E06BFB00585E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4765A46C24E06BFB00585E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47822B2024EEE17B005B44A3 /* LSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTextField.swift; sourceTree = "<group>"; };
+		478DBAFF24F1837200D37F39 /* LSTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTabBar.swift; sourceTree = "<group>"; };
 		4798927124E995EA00767383 /* GetStartedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedVC.swift; sourceTree = "<group>"; };
 		4798D12D24EA325200267A89 /* NSMutableAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Ext.swift"; sourceTree = "<group>"; };
 		4798D13124EA4B4100267A89 /* LSTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTitleLabel.swift; sourceTree = "<group>"; };
@@ -144,12 +146,20 @@
 			path = MakeLifeStyles;
 			sourceTree = "<group>";
 		};
-		47822B1F24EEE155005B44A3 /* TextFields */ = {
+		47822B1F24EEE155005B44A3 /* Text Fields */ = {
 			isa = PBXGroup;
 			children = (
 				47822B2024EEE17B005B44A3 /* LSTextField.swift */,
 			);
-			path = TextFields;
+			path = "Text Fields";
+			sourceTree = "<group>";
+		};
+		478DBAFE24F1830400D37F39 /* Tab  Bar */ = {
+			isa = PBXGroup;
+			children = (
+				478DBAFF24F1837200D37F39 /* LSTabBar.swift */,
+			);
+			path = "Tab  Bar";
 			sourceTree = "<group>";
 		};
 		4798926F24E980AA00767383 /* Onboading */ = {
@@ -172,8 +182,9 @@
 		4798D12F24EA4A7F00267A89 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				47822B1F24EEE155005B44A3 /* TextFields */,
-				4798D13824EA535200267A89 /* ImageViews */,
+				478DBAFE24F1830400D37F39 /* Tab  Bar */,
+				47822B1F24EEE155005B44A3 /* Text Fields */,
+				4798D13824EA535200267A89 /* Image Views */,
 				4798D13524EA511100267A89 /* Buttons */,
 				4798D13024EA4AB300267A89 /* Labels */,
 			);
@@ -197,12 +208,12 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		4798D13824EA535200267A89 /* ImageViews */ = {
+		4798D13824EA535200267A89 /* Image Views */ = {
 			isa = PBXGroup;
 			children = (
 				4798D13924EA539D00267A89 /* LSImageView.swift */,
 			);
-			path = ImageViews;
+			path = "Image Views";
 			sourceTree = "<group>";
 		};
 		4798D13B24EA546E00267A89 /* Constants */ = {
@@ -302,6 +313,7 @@
 				47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */,
 				4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */,
 				4798D13D24EA547F00267A89 /* Constants.swift in Sources */,
+				478DBB0024F1837200D37F39 /* LSTabBar.swift in Sources */,
 				4798D13424EA4CF600267A89 /* LSBodyLabel.swift in Sources */,
 				4798927224E995EA00767383 /* GetStartedVC.swift in Sources */,
 				4765A45F24E06BFA00585E27 /* AppDelegate.swift in Sources */,
