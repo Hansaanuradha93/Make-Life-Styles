@@ -36,8 +36,7 @@ extension UserDetailsVC {
     
     @objc fileprivate func handleNext() {
         guard let name = nameTextField.text, !name.isEmpty else { return }
-        let controller = LSTabBar()
-        navigationController?.pushViewController(controller, animated: true)
+        UIApplication.shared.windows.first?.rootViewController = LSTabBar()
     }
     
     

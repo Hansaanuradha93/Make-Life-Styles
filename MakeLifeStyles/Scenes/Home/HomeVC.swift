@@ -13,6 +13,7 @@ class HomeVC: UIViewController {
 extension HomeVC {
     
     fileprivate func setupUI() {
+        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
     }
 }
