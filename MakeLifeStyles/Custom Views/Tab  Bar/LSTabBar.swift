@@ -22,7 +22,7 @@ extension LSTabBar {
     
     
     fileprivate func createHomeNC() -> UINavigationController {
-        let homeVC = HomeVC()
+        let homeVC = HomeVC(collectionViewLayout: UICollectionViewFlowLayout())
         homeVC.tabBarItem = UITabBarItem(title: Strings.empty, image: Asserts.home, tag: 1)
         return UINavigationController(rootViewController: homeVC)
     }
