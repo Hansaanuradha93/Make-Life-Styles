@@ -29,7 +29,7 @@ extension LSTabBar {
     
     
     fileprivate func createLifeStylesListNC() -> UINavigationController {
-        let lifeStylesListVC = UIViewController()
+        let lifeStylesListVC = LifeStylesListVC()
         lifeStylesListVC.tabBarItem = UITabBarItem(title: Strings.empty, image: Asserts.star, tag: 2)
         return UINavigationController(rootViewController: lifeStylesListVC)
     }
