@@ -5,7 +5,7 @@ struct Asserts {
     static let personOnBicycle = UIImage(named: "person_on_bicycle")!
     static let circle = UIImage(named: "circle")!
     static let personOnScooter = UIImage(named: "person_on_scooter")!
-    static let settings = UIImage(named: "settings")!
+    static let add = UIImage(named: "add")!
     static let home = UIImage(named: "home")!
     static let star = UIImage(named: "star")!
 

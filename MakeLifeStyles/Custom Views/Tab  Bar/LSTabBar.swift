@@ -6,7 +6,7 @@ class LSTabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = UIColor.appColor(color: .pinkishRed)
-        viewControllers = [createSettingsNC(), createHomeNC(), createLifeStylesListNC()]
+        viewControllers = [createHomeNC(), createMakeHabbitsNC(), createLifeStylesListNC()]
     }
 }
 
@@ -14,10 +14,10 @@ class LSTabBar: UITabBarController {
 // MARK: - Methods
 extension LSTabBar {
     
-    fileprivate func createSettingsNC() -> UINavigationController {
-        let settingsVC = UIViewController()
-        settingsVC.tabBarItem = UITabBarItem(title: Strings.empty, image: Asserts.settings, tag: 0)
-        return UINavigationController(rootViewController: settingsVC)
+    fileprivate func createMakeHabbitsNC() -> UINavigationController {
+        let makeHabitsVC = MakeHabitsVC()
+        makeHabitsVC.tabBarItem = UITabBarItem(title: Strings.empty, image: Asserts.add, tag: 0)
+        return UINavigationController(rootViewController: makeHabitsVC)
     }
     
     
