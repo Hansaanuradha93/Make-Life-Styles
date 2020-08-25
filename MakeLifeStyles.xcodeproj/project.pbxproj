@@ -26,6 +26,7 @@
 		4798D13724EA512000267A89 /* LSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13624EA512000267A89 /* LSButton.swift */; };
 		4798D13A24EA539D00267A89 /* LSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13924EA539D00267A89 /* LSImageView.swift */; };
 		4798D13D24EA547F00267A89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13C24EA547F00267A89 /* Constants.swift */; };
+		47F34FC324F56DF900DA4F64 /* MakeHabbitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F34FC224F56DF900DA4F64 /* MakeHabbitsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		4798D13624EA512000267A89 /* LSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSButton.swift; sourceTree = "<group>"; };
 		4798D13924EA539D00267A89 /* LSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSImageView.swift; sourceTree = "<group>"; };
 		4798D13C24EA547F00267A89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		47F34FC224F56DF900DA4F64 /* MakeHabbitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeHabbitsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				4798926F24E980AA00767383 /* Onboading */,
 				47C9A0A224E44B4100353E80 /* Home */,
+				47F34FC124F56DA200DA4F64 /* Settings */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -250,6 +253,14 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		47F34FC124F56DA200DA4F64 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				47F34FC224F56DF900DA4F64 /* MakeHabbitsVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -326,6 +337,7 @@
 				47934B7F24F400C400EF5451 /* HabbitCell.swift in Sources */,
 				4798D13D24EA547F00267A89 /* Constants.swift in Sources */,
 				478DBB0024F1837200D37F39 /* LSTabBar.swift in Sources */,
+				47F34FC324F56DF900DA4F64 /* MakeHabbitsVC.swift in Sources */,
 				4798D13424EA4CF600267A89 /* LSBodyLabel.swift in Sources */,
 				4798927224E995EA00767383 /* GetStartedVC.swift in Sources */,
 				4765A45F24E06BFA00585E27 /* AppDelegate.swift in Sources */,
