@@ -26,7 +26,7 @@ extension HomeVC {
 
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension HomeVC {
+extension HomeVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let dimenstions = (collectionView.frame.width - 10) / 2
