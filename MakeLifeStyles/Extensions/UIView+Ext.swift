@@ -115,6 +115,22 @@ extension UIView {
     }
     
     
+    func center(in view: UIView, size: CGSize = .zero) {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        if size.width != 0 {
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        }
+        
+        if size.height != 0 {
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        }
+    }
+    
+    
     @discardableResult
     func alignLeadingInSuperView(leading: NSLayoutXAxisAnchor?, paddingLeading: CGFloat = .zero) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
