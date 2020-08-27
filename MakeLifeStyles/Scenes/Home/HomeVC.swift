@@ -19,7 +19,7 @@ extension HomeVC {
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HabbitCell.reuseID, for: indexPath) as! HabbitCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitCell.reuseID, for: indexPath) as! HabitCell
         return cell
     }
 }
@@ -43,6 +43,6 @@ extension HomeVC {
         collectionView.backgroundColor = .white
         
         collectionView.contentInset.top = 70
-        collectionView.register(HabbitCell.self, forCellWithReuseIdentifier: HabbitCell.reuseID)
+        collectionView.register(HabitCell.self, forCellWithReuseIdentifier: HabitCell.reuseID)
     }
 }
