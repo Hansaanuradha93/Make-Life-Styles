@@ -9,11 +9,6 @@ class HabitCell: UICollectionViewCell {
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
         setupViews()
     }
     
