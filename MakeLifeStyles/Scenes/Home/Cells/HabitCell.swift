@@ -24,6 +24,11 @@ class HabitCell: UICollectionViewCell {
 // MARK: - Methods
 extension HabitCell {
     
+    func setup(habit: Habit) {
+        iconImageView.image = UIImage(named: habit.icon)
+        habitNameLabel.text = habit.name
+    }
+    
     fileprivate func setupViews() {
         backgroundColor = UIColor.appColor(color: .pinkishRed)
         
