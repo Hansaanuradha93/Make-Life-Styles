@@ -26,12 +26,10 @@ extension HabitCell {
     
     func setup(habit: Habit) {
         iconImageView.image = UIImage(named: habit.icon)
-        habitNameLabel.text = habit.name
+        habitNameLabel.text = habit.name.uppercased()
     }
     
-    fileprivate func setupViews() {
-        backgroundColor = UIColor.appColor(color: .pinkishRed)
-        
+    fileprivate func setupViews() {        
         iconContainer.backgroundColor = .clear
         addSubview(iconContainer)
         iconContainer.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, size: .init(width: 0, height: frame.width - 40))
