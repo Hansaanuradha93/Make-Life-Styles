@@ -8,12 +8,7 @@ class HomeVC: UICollectionViewController {
         Habit(icon: "smoke", name: "don't smoke", days: 22),
         Habit(icon: "carrot", name: "eat a healthy meal", days: 55),
         Habit(icon: "dog", name: "walk the dog", days: 66),
-        Habit(icon: "temple", name: "worship", days: 72),
-        Habit(icon: "runner", name: "run 2.3 km", days: 7),
-        Habit(icon: "smoke", name: "don't smoke", days: 22),
-        Habit(icon: "carrot", name: "eat a healthy meal", days: 55),
-        Habit(icon: "dog", name: "walk the dog", days: 66),
-        Habit(icon: "temple", name: "worship", days: 72),
+        Habit(icon: "temple", name: "worship", days: 72)
     ]
 
     

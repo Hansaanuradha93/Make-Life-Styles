@@ -5,9 +5,12 @@ class HabitCell: UICollectionViewCell {
     // MARK: Properties
     static let reuseID = "HabitCell"
     
-    let iconContainer = UIView()
-    let iconImageView = LSImageView(image: UIImage(named: "runner")!)
-    let habitNameLabel = LSBodyLabel(text: "RUN 2.3 KM", textColor: .white, fontSize: 18)
+    fileprivate let iconContainer = UIView()
+    fileprivate let iconImageView = LSImageView(image: UIImage(named: "runner")!)
+    fileprivate let habitNameLabel = LSBodyLabel(text: "RUN 2.3 KM", textColor: .white, fontSize: 18)
+    
+    var shapeRing = CAShapeLayer()
+    
     
     
     // MARK: Initializers
@@ -27,7 +30,17 @@ extension HabitCell {
     func setup(habit: Habit) {
         iconImageView.image = UIImage(named: habit.icon)
         habitNameLabel.text = habit.name.uppercased()
+        setupShapeRing(days: habit.days)
     }
+    
+    
+    fileprivate func setupShapeRing(days: Int) {
+        let strokeEndValue = CGFloat(Double(days) / 66.0)
+        let radius = frame.width / 2 - 30
+        shapeRing = addRing(radius: radius, strokeColor: UIColor.appColor(color: .lightBlack), fillColor: .clear, strokeEnd: strokeEndValue)
+        layer.addSublayer(shapeRing)
+    }
+    
     
     fileprivate func setupViews() {        
         iconContainer.backgroundColor = .clear
@@ -40,11 +53,9 @@ extension HabitCell {
         iconImageView.center(in: iconContainer, size: .init(width: iconDimensions, height: iconDimensions))
         
         let radius = width / 2 - 30
-        let shapeRing = addRing(radius: radius, strokeColor: UIColor.appColor(color: .lightBlack), fillColor: .clear, strokeEnd: 0.5)
         let trackRing = addRing(radius: radius, strokeColor:  .white, fillColor: .clear)
         
         layer.addSublayer(trackRing)
-        layer.addSublayer(shapeRing)
         
         addSubview(habitNameLabel)
         habitNameLabel.anchor(top: iconContainer.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 4, left: 4, bottom: 0, right: 4))
