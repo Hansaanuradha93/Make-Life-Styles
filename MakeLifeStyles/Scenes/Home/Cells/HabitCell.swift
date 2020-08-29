@@ -6,8 +6,8 @@ class HabitCell: UICollectionViewCell {
     static let reuseID = "HabitCell"
     
     fileprivate let iconContainer = UIView()
-    fileprivate let iconImageView = LSImageView(image: UIImage(named: "runner")!)
-    fileprivate let habitNameLabel = LSBodyLabel(text: "RUN 2.3 KM", textColor: .white, fontSize: 18)
+    fileprivate let iconImageView = LSImageView()
+    fileprivate let habitNameLabel = LSBodyLabel(textColor: .white, fontSize: 16)
     
     var shapeRing = CAShapeLayer()
     
