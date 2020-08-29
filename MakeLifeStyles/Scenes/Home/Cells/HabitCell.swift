@@ -29,6 +29,8 @@ extension HabitCell {
     
     func setup(habit: Habit) {
         iconImageView.image = UIImage(named: habit.icon)
+        iconImageView.image = iconImageView.image?.withRenderingMode(.alwaysTemplate)
+        iconImageView.tintColor = UIColor.appColor(color: .lightBlack)
         habitNameLabel.text = habit.name.uppercased()
         setupShapeRing(days: habit.days)
     }
