@@ -16,6 +16,7 @@ class HomeVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        addGestures()
     }
 }
 
@@ -33,17 +34,30 @@ extension HomeVC {
         cell.setup(habit: habits[indexPath.item])
         return cell
     }
-    
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        habits[indexPath.item].days = habits[indexPath.item].days + 1
-        collectionView.reloadItems(at: [indexPath])
-    }
 }
 
 
 // MARK: - Methods
 extension HomeVC {
+    
+    @objc fileprivate func handleDoubleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            let point = sender.location(in: collectionView)
+            guard let indexPath = collectionView.indexPathForItem(at: point) else { return }
+            habits[indexPath.item].days = habits[indexPath.item].days + 1
+            collectionView.reloadItems(at: [indexPath])
+        }
+    }
+    
+    
+    fileprivate func addGestures() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
+        gestureRecognizer.numberOfTapsRequired = 2
+        gestureRecognizer.numberOfTouchesRequired = 1
+        gestureRecognizer.delaysTouchesBegan = true
+        view.addGestureRecognizer(gestureRecognizer)
+    }
+    
     
     fileprivate func setupUI() {
         navigationController?.navigationBar.isHidden = true
