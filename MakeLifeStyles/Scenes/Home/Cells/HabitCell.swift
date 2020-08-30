@@ -7,7 +7,8 @@ class HabitCell: UICollectionViewCell {
     
     fileprivate let iconContainer = UIView()
     fileprivate let iconImageView = LSImageView()
-    fileprivate let habitNameLabel = LSBodyLabel(textColor: .white, fontSize: 16)
+    fileprivate let habitNameLabel = LSTitleLabel(textColor: UIColor.appColor(color: .lighestGreen), fontSize: 15)
+    fileprivate let habitDaysLabel = LSBodyLabel(textColor: UIColor.appColor(color: .lighestGreen), fontSize: 16)
     
     var shapeRing: CAShapeLayer?
     
@@ -30,6 +31,7 @@ extension HabitCell {
         iconImageView.image = UIImage(named: habit.icon)
         iconImageView.image = iconImageView.image?.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = UIColor.appColor(color: .lightBlack)
+        habitDaysLabel.text = "\(habit.days) Days"
         habitNameLabel.text = habit.name.uppercased()
         setupShapeRing(days: habit.days)
     }
@@ -46,23 +48,23 @@ extension HabitCell {
     }
     
     
-    fileprivate func setupViews() {        
-        iconContainer.backgroundColor = .clear
+    fileprivate func setupViews() {
         addSubview(iconContainer)
-        iconContainer.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, size: .init(width: 0, height: frame.width - 40))
-        
-        let width = frame.width
-        let iconDimensions = width / 2 - 30
         addSubview(iconImageView)
+        addSubview(habitDaysLabel)
+        addSubview(habitNameLabel)
+
+        let width = frame.width
+        let iconDimensions = width / 2 - 50
+        iconContainer.backgroundColor = .clear
+        iconContainer.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, size: .init(width: 0, height: frame.width - 40))
         iconImageView.center(in: iconContainer, size: .init(width: iconDimensions, height: iconDimensions))
+        habitDaysLabel.anchor(top: iconImageView.bottomAnchor, leading: iconContainer.leadingAnchor, bottom: nil, trailing: iconContainer.trailingAnchor, padding: .init(top: 4, left: 4, bottom: 0, right: 4))
+        habitNameLabel.anchor(top: iconContainer.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 4, left: 4, bottom: 0, right: 4))
         
         let radius = width / 2 - 30
-        let trackRing = addRing(radius: radius, strokeColor:  .white, fillColor: .clear)
-        
+        let trackRing = addRing(radius: radius, strokeColor:  UIColor.appColor(color: .lighestGreen), fillColor: .clear)
         layer.addSublayer(trackRing)
-        
-        addSubview(habitNameLabel)
-        habitNameLabel.anchor(top: iconContainer.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 4, left: 4, bottom: 0, right: 4))
     }
     
     
