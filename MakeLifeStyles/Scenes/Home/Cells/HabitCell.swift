@@ -9,8 +9,7 @@ class HabitCell: UICollectionViewCell {
     fileprivate let iconImageView = LSImageView()
     fileprivate let habitNameLabel = LSBodyLabel(textColor: .white, fontSize: 16)
     
-    var shapeRing = CAShapeLayer()
-    
+    var shapeRing: CAShapeLayer?
     
     
     // MARK: Initializers
@@ -39,8 +38,11 @@ extension HabitCell {
     fileprivate func setupShapeRing(days: Int) {
         let strokeEndValue = CGFloat(Double(days) / 66.0)
         let radius = frame.width / 2 - 30
+        if let shapeRing = shapeRing {
+            shapeRing.removeFromSuperlayer()
+        }
         shapeRing = addRing(radius: radius, strokeColor: UIColor.appColor(color: .lightBlack), fillColor: .clear, strokeEnd: strokeEndValue)
-        layer.addSublayer(shapeRing)
+        layer.addSublayer(shapeRing!)
     }
     
     
