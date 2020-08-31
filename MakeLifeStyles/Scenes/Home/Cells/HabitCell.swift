@@ -17,6 +17,7 @@ class HabitCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+        addStrokeEndAnimation()
     }
     
     
@@ -36,6 +37,11 @@ extension HabitCell {
         setupShapeRing(days: habit.days)
     }
     
+    fileprivate func addStrokeEndAnimation() {
+//        shapeRing?.strokeEndAnimation(fromValue: 0, toValue: 0, duration: 15)
+    }
+
+    
     
     fileprivate func setupShapeRing(days: Int) {
         let strokeEndValue = CGFloat(Double(days) / 66.0)
@@ -45,6 +51,9 @@ extension HabitCell {
         }
         shapeRing = addRing(radius: radius, strokeColor: UIColor.appColor(color: .lightBlack), fillColor: .clear, strokeEnd: strokeEndValue)
         layer.addSublayer(shapeRing!)
+        
+        shapeRing!.strokeEndAnimation(fromValue: 0, toValue: strokeEndValue, duration: 0.5)
+
     }
     
     
@@ -81,5 +90,20 @@ extension HabitCell {
         ring.strokeEnd = strokeEnd
         
         return ring
+    }
+}
+
+extension CAShapeLayer {
+    
+    func strokeEndAnimation(fromValue: CGFloat, toValue: CGFloat, duration: CFTimeInterval) {
+        let strokeAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        strokeAnimation.fromValue = fromValue
+        strokeAnimation.toValue = toValue
+        strokeAnimation.duration = duration
+        
+        strokeAnimation.fillMode = CAMediaTimingFillMode.forwards
+        strokeAnimation.isRemovedOnCompletion = false
+        
+        self.add(strokeAnimation, forKey: "strokeEnd")
     }
 }
