@@ -10,6 +10,7 @@
 		4715773724EC3B0E001652A8 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715773624EC3B0E001652A8 /* UserDetailsVC.swift */; };
 		472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472CC37D24E2FFEB009C6890 /* UIView+Ext.swift */; };
 		472CC38024E30083009C6890 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472CC37F24E30083009C6890 /* UIColor+Ext.swift */; };
+		472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */; };
 		474787FD24F96BA500D07091 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474787FC24F96BA500D07091 /* Habit.swift */; };
 		47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47643E2B24F0361500F133F6 /* HomeVC.swift */; };
 		47643E2F24F039B900F133F6 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47643E2D24F039B900F133F6 /* Data.xcdatamodeld */; };
@@ -35,6 +36,7 @@
 		4715773624EC3B0E001652A8 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
 		472CC37D24E2FFEB009C6890 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		472CC37F24E30083009C6890 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAShapeLayer+Ext.swift"; sourceTree = "<group>"; };
 		474787FC24F96BA500D07091 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		47643E2B24F0361500F133F6 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		47643E2E24F039B900F133F6 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				472CC37D24E2FFEB009C6890 /* UIView+Ext.swift */,
 				472CC37F24E30083009C6890 /* UIColor+Ext.swift */,
 				4798D12D24EA325200267A89 /* NSMutableAttributedString+Ext.swift */,
+				472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				47F34FC624F5710F00DA4F64 /* LifeStylesListVC.swift in Sources */,
 				47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */,
 				4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */,
+				472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */,
 				47934B7F24F400C400EF5451 /* HabitCell.swift in Sources */,
 				4798D13D24EA547F00267A89 /* Constants.swift in Sources */,
 				474787FD24F96BA500D07091 /* Habit.swift in Sources */,
