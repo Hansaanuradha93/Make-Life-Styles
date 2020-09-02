@@ -95,7 +95,7 @@
 			children = (
 				4798926F24E980AA00767383 /* Onboading */,
 				47C9A0A224E44B4100353E80 /* Home */,
-				47F34FC124F56DA200DA4F64 /* Settings */,
+				47F34FC124F56DA200DA4F64 /* Make Habits */,
 				47F34FC424F570E600DA4F64 /* LifeStylesList */,
 			);
 			path = Scenes;
@@ -262,12 +262,12 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
-		47F34FC124F56DA200DA4F64 /* Settings */ = {
+		47F34FC124F56DA200DA4F64 /* Make Habits */ = {
 			isa = PBXGroup;
 			children = (
 				47F34FC224F56DF900DA4F64 /* MakeHabitsVC.swift */,
 			);
-			path = Settings;
+			path = "Make Habits";
 			sourceTree = "<group>";
 		};
 		47F34FC424F570E600DA4F64 /* LifeStylesList */ = {

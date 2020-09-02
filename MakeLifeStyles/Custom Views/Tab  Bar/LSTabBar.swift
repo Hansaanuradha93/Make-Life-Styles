@@ -6,7 +6,7 @@ class LSTabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = UIColor.appColor(color: .pinkishRed)
-        viewControllers = [createHomeNC(), createMakeHabbitsNC(), createLifeStylesListNC()]
+        viewControllers = [createMakeHabbitsNC(), createHomeNC(), createLifeStylesListNC()]
     }
 }
 
