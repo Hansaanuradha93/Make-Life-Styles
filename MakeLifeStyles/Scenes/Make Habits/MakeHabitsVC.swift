@@ -4,7 +4,6 @@ class MakeHabitsVC: UIViewController {
 
     // MARK: Properties
     let titleLabel = LSTitleLabel(textColor: .white, fontSize: 28, textAlignment: .left)
-    let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: "SAVE", titleColor: .white, radius: 16, fontSize: 12)
     let nameLabel = LSBodyLabel(text: "Name your habit:", textColor: .white, fontSize: 20, textAlignment: .left)
     let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: .white, textSize: 20, borderStyle: .none, padding: 16)
     let typeLabel = LSBodyLabel(text: "Build or Quit this habit?", textColor: .white, fontSize: 20, textAlignment: .left)
@@ -13,6 +12,7 @@ class MakeHabitsVC: UIViewController {
     let numberOfDaysLabel = LSBodyLabel(text: "How many days you have been doing this?", textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
     let numberOfDaysValueLabel = LSBodyLabel(text: "1 Day", textColor: .white, fontSize: 18, textAlignment: .left, numberOfLines: 0)
     let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
+    let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: "SAVE", titleColor: .white, radius: 25, fontSize: 12)
 
 
     let scrollView: UIScrollView = {
@@ -77,12 +77,12 @@ extension MakeHabitsVC {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
         view.addSubview(titleLabel)
-        view.addSubview(saveButton)
+//        view.addSubview(saveButton)
         view.addSubview(scrollView)
         
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 36, left: 20, bottom: 0, right: 0))
-        saveButton.anchor(top: nil, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 20), size: .init(width: 80, height: 32))
-        saveButton.centerVertically(in: titleLabel)
+//        saveButton.anchor(top: nil, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 20), size: .init(width: 80, height: 32))
+//        saveButton.centerVertically(in: titleLabel)
         
         
         let attributedString = NSMutableAttributedString(string: "CREATE")
@@ -100,10 +100,12 @@ extension MakeHabitsVC {
         scrollView.addSubview(numberOfDaysLabel)
         scrollView.addSubview(numberOfDaysValueLabel)
         scrollView.addSubview(numberOfDaysIncrementStepper)
+        scrollView.addSubview(saveButton)
         
         let textFieldsDimensions = CGSize(width: view.frame.width - 40, height: 50)
         let controlButtonsDimensions = CGSize(width: 100, height: 40)
         
+        nameTextField.tintColor = UIColor.appColor(color: .lightAsh)
         nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
         
         buildButton.addTarget(self, action: #selector(buildButtonTapped), for: .touchUpInside)
@@ -124,7 +126,9 @@ extension MakeHabitsVC {
         
         numberOfDaysLabel.anchor(top: buildButton.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nameTextField.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: textFieldsDimensions)
         numberOfDaysValueLabel.anchor(top: numberOfDaysLabel.bottomAnchor, leading: numberOfDaysLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0))
-        numberOfDaysIncrementStepper.anchor(top: nil, leading: numberOfDaysValueLabel.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 24, bottom: 0, right: 0))
+        numberOfDaysIncrementStepper.anchor(top: nil, leading: nil, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 0, left: 24, bottom: 0, right: 20))
         numberOfDaysIncrementStepper.centerVertically(in: numberOfDaysValueLabel)
+        
+        saveButton.anchor(top: numberOfDaysIncrementStepper.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 24, left: 20, bottom: 0, right: 20), size: textFieldsDimensions)
     }
 }
