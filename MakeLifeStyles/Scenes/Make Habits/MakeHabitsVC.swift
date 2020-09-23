@@ -15,8 +15,6 @@ class MakeHabitsVC: UIViewController {
     let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
 
 
-
-    
     let scrollView: UIScrollView = {
         let view = UIScrollView()
         view.backgroundColor = UIColor.appColor(color: .darkestAsh)
@@ -36,6 +34,16 @@ class MakeHabitsVC: UIViewController {
 // MARK: - Methods
 extension MakeHabitsVC {
     
+    @objc func quitButtonTapped() {
+        changeButtons(isBuildClicked: false)
+    }
+    
+    
+    @objc func buildButtonTapped() {
+        changeButtons(isBuildClicked: true)
+    }
+    
+    
     @objc fileprivate func handleDaysIncrement(_ sender: UIStepper) {
         let value = Int(sender.value)
         if value == 1 {
@@ -47,6 +55,19 @@ extension MakeHabitsVC {
     
     @objc fileprivate func handleTap() {
         view.endEditing(true)
+    }
+    
+    
+    fileprivate func changeButtons(isBuildClicked: Bool) {
+        UIView.animate(withDuration: 0.3) {
+            if isBuildClicked {
+                self.quitButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
+                self.buildButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+            } else {
+                self.buildButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
+                self.quitButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+            }
+        }
     }
     
     
@@ -84,6 +105,9 @@ extension MakeHabitsVC {
         let controlButtonsDimensions = CGSize(width: 100, height: 40)
         
         nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+        
+        buildButton.addTarget(self, action: #selector(buildButtonTapped), for: .touchUpInside)
+        quitButton.addTarget(self, action: #selector(quitButtonTapped), for: .touchUpInside)
         
         numberOfDaysIncrementStepper.autorepeat = true
         numberOfDaysIncrementStepper.value = 1
