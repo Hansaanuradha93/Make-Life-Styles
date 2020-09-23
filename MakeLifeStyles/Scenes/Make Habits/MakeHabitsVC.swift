@@ -11,7 +11,10 @@ class MakeHabitsVC: UIViewController {
     let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: "Build", titleColor: .white, radius: 20, fontSize: 14)
     let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "Quit", titleColor: .white, radius: 20, fontSize: 14)
     let numberOfDaysLabel = LSBodyLabel(text: "How many days you have been doing this?", textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
-    let numberOfDaysTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: .white, textSize: 20, borderStyle: .none, padding: 16)
+    let numberOfDaysValueLabel = LSBodyLabel(text: "1 Day", textColor: .white, fontSize: 18, textAlignment: .left, numberOfLines: 0)
+    let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
+
+
 
     
     let scrollView: UIScrollView = {
@@ -32,6 +35,15 @@ class MakeHabitsVC: UIViewController {
 
 // MARK: - Methods
 extension MakeHabitsVC {
+    
+    @objc fileprivate func handleDaysIncrement(_ sender: UIStepper) {
+        let value = Int(sender.value)
+        if value == 1 {
+            numberOfDaysValueLabel.text = "1 Day"
+        } else if value > 1 {
+            numberOfDaysValueLabel.text = "\(value) Days"
+        }
+    }
     
     @objc fileprivate func handleTap() {
         view.endEditing(true)
@@ -65,13 +77,18 @@ extension MakeHabitsVC {
         scrollView.addSubview(buildButton)
         scrollView.addSubview(quitButton)
         scrollView.addSubview(numberOfDaysLabel)
-        scrollView.addSubview(numberOfDaysTextField)
+        scrollView.addSubview(numberOfDaysValueLabel)
+        scrollView.addSubview(numberOfDaysIncrementStepper)
         
         let textFieldsDimensions = CGSize(width: view.frame.width - 40, height: 50)
         let controlButtonsDimensions = CGSize(width: 100, height: 40)
         
         nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
-        numberOfDaysTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+        
+        numberOfDaysIncrementStepper.autorepeat = true
+        numberOfDaysIncrementStepper.value = 1
+        numberOfDaysIncrementStepper.minimumValue = 1
+        numberOfDaysIncrementStepper.addTarget(self, action: #selector(handleDaysIncrement), for: .valueChanged)
         
         scrollView.anchor(top: titleLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         nameLabel.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 50, left: 20, bottom: 0, right: 20))
@@ -82,6 +99,8 @@ extension MakeHabitsVC {
         quitButton.anchor(top: buildButton.topAnchor, leading: buildButton.trailingAnchor, bottom: buildButton.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 24, bottom: 0, right: 0), size: controlButtonsDimensions)
         
         numberOfDaysLabel.anchor(top: buildButton.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nameTextField.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: textFieldsDimensions)
-        numberOfDaysTextField.anchor(top: numberOfDaysLabel.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nameTextField.trailingAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 0), size: textFieldsDimensions)
+        numberOfDaysValueLabel.anchor(top: numberOfDaysLabel.bottomAnchor, leading: numberOfDaysLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0))
+        numberOfDaysIncrementStepper.anchor(top: nil, leading: numberOfDaysValueLabel.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 24, bottom: 0, right: 0))
+        numberOfDaysIncrementStepper.centerVertically(in: numberOfDaysValueLabel)
     }
 }
