@@ -19,6 +19,8 @@
 		4765A46824E06BFB00585E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4765A46724E06BFB00585E27 /* Assets.xcassets */; };
 		4765A46B24E06BFB00585E27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4765A46924E06BFB00585E27 /* LaunchScreen.storyboard */; };
 		47822B2124EEE17B005B44A3 /* LSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47822B2024EEE17B005B44A3 /* LSTextField.swift */; };
+		478BEC89251BA60400162592 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BEC88251BA60400162592 /* Bindable.swift */; };
+		478BEC8D251BA67300162592 /* MakeHabtisVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BEC8C251BA67300162592 /* MakeHabtisVM.swift */; };
 		478DBB0024F1837200D37F39 /* LSTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478DBAFF24F1837200D37F39 /* LSTabBar.swift */; };
 		47934B7F24F400C400EF5451 /* HabitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47934B7E24F400C400EF5451 /* HabitCell.swift */; };
 		4798927224E995EA00767383 /* GetStartedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798927124E995EA00767383 /* GetStartedVC.swift */; };
@@ -47,6 +49,8 @@
 		4765A46A24E06BFB00585E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4765A46C24E06BFB00585E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47822B2024EEE17B005B44A3 /* LSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTextField.swift; sourceTree = "<group>"; };
+		478BEC88251BA60400162592 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		478BEC8C251BA67300162592 /* MakeHabtisVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeHabtisVM.swift; sourceTree = "<group>"; };
 		478DBAFF24F1837200D37F39 /* LSTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTabBar.swift; sourceTree = "<group>"; };
 		47934B7E24F400C400EF5451 /* HabitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
 		4798927124E995EA00767383 /* GetStartedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedVC.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				4760BFF724E194BB00B2B936 /* Scenes */,
 				47643E3024F039CC00F133F6 /* Core Data */,
 				4798D13B24EA546E00267A89 /* Constants */,
+				478BEC87251BA5E400162592 /* Helper */,
 				472CC37C24E2FFDB009C6890 /* Extensions */,
 				4760BFF924E194D300B2B936 /* Support Files */,
 			);
@@ -166,6 +171,14 @@
 				47822B2024EEE17B005B44A3 /* LSTextField.swift */,
 			);
 			path = "Text Fields";
+			sourceTree = "<group>";
+		};
+		478BEC87251BA5E400162592 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				478BEC88251BA60400162592 /* Bindable.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		478DBAFE24F1830400D37F39 /* Tab  Bar */ = {
@@ -266,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				47F34FC224F56DF900DA4F64 /* MakeHabitsVC.swift */,
+				478BEC8C251BA67300162592 /* MakeHabtisVM.swift */,
 			);
 			path = "Make Habits";
 			sourceTree = "<group>";
@@ -352,8 +366,10 @@
 				47F34FC624F5710F00DA4F64 /* LifeStylesListVC.swift in Sources */,
 				47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */,
 				4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */,
+				478BEC89251BA60400162592 /* Bindable.swift in Sources */,
 				472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */,
 				47934B7F24F400C400EF5451 /* HabitCell.swift in Sources */,
+				478BEC8D251BA67300162592 /* MakeHabtisVM.swift in Sources */,
 				4798D13D24EA547F00267A89 /* Constants.swift in Sources */,
 				474787FD24F96BA500D07091 /* Habit.swift in Sources */,
 				478DBB0024F1837200D37F39 /* LSTabBar.swift in Sources */,

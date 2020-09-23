@@ -32,15 +32,3 @@ class LSTextField: UITextField {
     
     override func textRect(forBounds bounds: CGRect) -> CGRect { return bounds.insetBy(dx: padding, dy: 0) }
 }
-
-
-// MARK: - Methods
-extension LSTextField {
-    func setRoundedBorder(borderColor: UIColor, borderWidth: CGFloat, radius: CGFloat) {
-        self.layer.borderColor = borderColor.cgColor
-        self.layer.borderWidth = borderWidth
-        self.layer.cornerRadius = radius
-        self.clipsToBounds = true
-    }
-}
-
