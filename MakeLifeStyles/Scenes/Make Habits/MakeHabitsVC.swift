@@ -184,8 +184,8 @@ extension MakeHabitsVC {
         timePerWeekLabel.centerVertically(in: setGoalTextField)
         
         groupLabel.anchor(top: setGoalTextField.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 26, left: 20, bottom: 0, right: 0))
-        groupTextField.anchor(top: groupLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 20, bottom: 0, right: 0), size: .init(width: 100, height: 50))
-        arrowImage.anchor(top: nil, leading: groupTextField.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 16, bottom: 0, right: 0), size: .init(width: 20, height: 20))
+        groupTextField.anchor(top: groupLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 20, bottom: 0, right: 0), size: textFieldsDimensions)
+        arrowImage.anchor(top: nil, leading: nil, bottom: nil, trailing: groupTextField.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 20), size: .init(width: 15, height: 15))
         arrowImage.centerVertically(in: groupTextField)
 //        picker.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor)
         
