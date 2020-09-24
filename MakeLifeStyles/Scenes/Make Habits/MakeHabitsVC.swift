@@ -7,15 +7,21 @@ class MakeHabitsVC: UIViewController {
     
     let titleLabel = LSTitleLabel(textColor: .white, fontSize: 28, textAlignment: .left)
     let nameLabel = LSBodyLabel(text: "Name your habit:", textColor: .white, fontSize: 20, textAlignment: .left)
-    let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: .white, textSize: 20, borderStyle: .none, padding: 16)
-    let typeLabel = LSBodyLabel(text: "Build or Quit this habit?", textColor: .white, fontSize: 20, textAlignment: .left)
-    let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: "Build", titleColor: .white, radius: 20, fontSize: 14)
-    let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "Quit", titleColor: UIColor.appColor(color: .lightAsh), radius: 20, fontSize: 14)
-    let numberOfDaysLabel = LSBodyLabel(text: "How many days you have been doing this?", textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
-    let numberOfDaysValueLabel = LSBodyLabel(text: "1 Day", textColor: .white, fontSize: 18, textAlignment: .left, numberOfLines: 0)
-    let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
-    let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "SAVE", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 12)
+    let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
     
+    let typeLabel = LSBodyLabel(text: "Build or Quit this habit?", textColor: .white, fontSize: 20, textAlignment: .left)
+    let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: "Build", titleColor: UIColor.appColor(color: .lightAsh), radius: 20, fontSize: 14)
+    let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "Quit", titleColor: UIColor.appColor(color: .lightAsh), radius: 20, fontSize: 14)
+    
+    let numberOfDaysLabel = LSBodyLabel(text: "How many days you have been doing this?", textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
+    let numberOfDaysValueLabel = LSBodyLabel(text: "1 Day", textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left, numberOfLines: 0)
+    let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
+    
+    let setGoalLabel = LSBodyLabel(text: "Set your goal:", textColor: .white, fontSize: 20, textAlignment: .left)
+    let setGoalTextField = LSTextField(text: "1", backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
+    let timePerWeekLabel = LSBodyLabel(text: "Or more times per week", textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
+    
+    let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "SAVE", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 12)
 
     let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -29,6 +35,7 @@ class MakeHabitsVC: UIViewController {
         super.viewDidLoad()
         setupHeaders()
         setupScrollView()
+        customizeUIControlls()
         setupViewModelObserver()
     }
 }
@@ -39,6 +46,7 @@ extension MakeHabitsVC {
     
     @objc fileprivate func handleTextChange(textField: UITextField) {
         viewModel.habitName = nameTextField.text
+        viewModel.goal = setGoalTextField.text
     }
     
     
@@ -92,14 +100,10 @@ extension MakeHabitsVC {
         UIView.animate(withDuration: 0.3) {
             if isBuildClicked {
                 self.quitButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
-                self.quitButton.setTitleColor(UIColor.appColor(color: .lightAsh), for: .normal)
                 self.buildButton.backgroundColor = UIColor.appColor(color: .lightBlack)
-                self.buildButton.setTitleColor(.white, for: .normal)
             } else {
                 self.buildButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
-                self.buildButton.setTitleColor(UIColor.appColor(color: .lightAsh), for: .normal)
                 self.quitButton.backgroundColor = UIColor.appColor(color: .lightBlack)
-                self.quitButton.setTitleColor(.white, for: .normal)
             }
         }
     }
@@ -121,20 +125,7 @@ extension MakeHabitsVC {
     }
     
     
-    fileprivate func setupScrollView() {
-        scrollView.addSubview(nameLabel)
-        scrollView.addSubview(nameTextField)
-        scrollView.addSubview(typeLabel)
-        scrollView.addSubview(buildButton)
-        scrollView.addSubview(quitButton)
-        scrollView.addSubview(numberOfDaysLabel)
-        scrollView.addSubview(numberOfDaysValueLabel)
-        scrollView.addSubview(numberOfDaysIncrementStepper)
-        scrollView.addSubview(saveButton)
-        
-        let textFieldsDimensions = CGSize(width: view.frame.width - 40, height: 50)
-        let controlButtonsDimensions = CGSize(width: 100, height: 40)
-        
+    fileprivate func customizeUIControlls() {
         nameTextField.tintColor = UIColor.appColor(color: .lightAsh)
         nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
         nameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
@@ -147,8 +138,32 @@ extension MakeHabitsVC {
         numberOfDaysIncrementStepper.minimumValue = 1
         numberOfDaysIncrementStepper.addTarget(self, action: #selector(handleDaysIncrement), for: .valueChanged)
         
+        setGoalTextField.tintColor = UIColor.appColor(color: .lightAsh)
+        setGoalTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+        setGoalTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
+        setGoalTextField.keyboardType = .numberPad
+        
         saveButton.isEnabled = false
         saveButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+    }
+    
+    
+    fileprivate func setupScrollView() {
+        scrollView.addSubview(nameLabel)
+        scrollView.addSubview(nameTextField)
+        scrollView.addSubview(typeLabel)
+        scrollView.addSubview(buildButton)
+        scrollView.addSubview(quitButton)
+        scrollView.addSubview(numberOfDaysLabel)
+        scrollView.addSubview(numberOfDaysValueLabel)
+        scrollView.addSubview(numberOfDaysIncrementStepper)
+        scrollView.addSubview(setGoalLabel)
+        scrollView.addSubview(setGoalTextField)
+        scrollView.addSubview(timePerWeekLabel)
+        scrollView.addSubview(saveButton)
+        
+        let textFieldsDimensions = CGSize(width: view.frame.width - 40, height: 50)
+        let controlButtonsDimensions = CGSize(width: 70, height: 40)
         
         scrollView.anchor(top: titleLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         nameLabel.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 50, left: 20, bottom: 0, right: 20))
@@ -158,11 +173,16 @@ extension MakeHabitsVC {
         buildButton.anchor(top: typeLabel.bottomAnchor, leading: typeLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 0, bottom: 0, right: 0), size: controlButtonsDimensions)
         quitButton.anchor(top: buildButton.topAnchor, leading: buildButton.trailingAnchor, bottom: buildButton.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 24, bottom: 0, right: 0), size: controlButtonsDimensions)
         
-        numberOfDaysLabel.anchor(top: buildButton.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nameTextField.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: textFieldsDimensions)
-        numberOfDaysValueLabel.anchor(top: numberOfDaysLabel.bottomAnchor, leading: numberOfDaysLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0))
+        numberOfDaysLabel.anchor(top: buildButton.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nameTextField.trailingAnchor, padding: .init(top: 26, left: 0, bottom: 0, right: 0))
+        numberOfDaysValueLabel.anchor(top: numberOfDaysLabel.bottomAnchor, leading: numberOfDaysLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 16, bottom: 0, right: 0))
         numberOfDaysIncrementStepper.anchor(top: nil, leading: nil, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 0, left: 24, bottom: 0, right: 20))
         numberOfDaysIncrementStepper.centerVertically(in: numberOfDaysValueLabel)
         
-        saveButton.anchor(top: numberOfDaysIncrementStepper.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 24, left: 20, bottom: 0, right: 20), size: textFieldsDimensions)
+        setGoalLabel.anchor(top: numberOfDaysIncrementStepper.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 26, left: 20, bottom: 0, right: 0))
+        setGoalTextField.anchor(top: setGoalLabel.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 0, bottom: 0, right: 0), size: .init(width: 70, height: 50))
+        timePerWeekLabel.anchor(top: nil, leading: setGoalTextField.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 24, bottom: 0, right: 0))
+        timePerWeekLabel.centerVertically(in: setGoalTextField)
+        
+        saveButton.anchor(top: setGoalTextField.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 26, left: 20, bottom: 0, right: 20), size: textFieldsDimensions)
     }
 }

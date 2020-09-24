@@ -6,6 +6,7 @@ class MakeHabitsVM {
     var habitName: String? { didSet { checkFormValidity() } }
     var isBuildHabit: Bool? = true
     var numberOfDays: Int? = 1
+    var goal: String? = "1" { didSet { checkFormValidity() } }
     
     
     // MARK: Bindlable
@@ -17,7 +18,7 @@ class MakeHabitsVM {
 extension MakeHabitsVM {
     
     func checkFormValidity() {
-        let isFormValid = habitName?.isEmpty == false && habitName?.count ?? 0 >= 4
+        let isFormValid = habitName?.isEmpty == false && habitName?.count ?? 0 >= 4 && goal?.isEmpty == false
         bindalbeIsFormValid.value = isFormValid
     }
 }
