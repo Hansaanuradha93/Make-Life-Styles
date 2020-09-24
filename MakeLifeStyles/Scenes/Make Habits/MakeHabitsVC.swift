@@ -114,9 +114,7 @@ extension MakeHabitsVC {
         view.backgroundColor = UIColor.appColor(color: .darkestAsh)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
-        view.addSubview(titleLabel)
-        view.addSubview(scrollView)
-        
+        view.addSubviews(titleLabel, scrollView)
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 36, left: 20, bottom: 0, right: 0))
         
         let attributedString = NSMutableAttributedString(string: "CREATE")
@@ -149,18 +147,7 @@ extension MakeHabitsVC {
     
     
     fileprivate func setupScrollView() {
-        scrollView.addSubview(nameLabel)
-        scrollView.addSubview(nameTextField)
-        scrollView.addSubview(typeLabel)
-        scrollView.addSubview(buildButton)
-        scrollView.addSubview(quitButton)
-        scrollView.addSubview(numberOfDaysLabel)
-        scrollView.addSubview(numberOfDaysValueLabel)
-        scrollView.addSubview(numberOfDaysIncrementStepper)
-        scrollView.addSubview(setGoalLabel)
-        scrollView.addSubview(setGoalTextField)
-        scrollView.addSubview(timePerWeekLabel)
-        scrollView.addSubview(saveButton)
+        scrollView.addSubviews(nameLabel, nameTextField, typeLabel, buildButton, quitButton, numberOfDaysLabel, numberOfDaysValueLabel, numberOfDaysIncrementStepper, setGoalLabel, setGoalTextField, timePerWeekLabel, saveButton)
         
         let textFieldsDimensions = CGSize(width: view.frame.width - 40, height: 50)
         let controlButtonsDimensions = CGSize(width: 70, height: 40)

@@ -15,6 +15,11 @@ extension UIView {
     }
     
     
+    func addSubviews(_ views: UIView...) {
+        for view in views {addSubview(view) }
+    }
+    
+    
     @discardableResult
     func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
         
