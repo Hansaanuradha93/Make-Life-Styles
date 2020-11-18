@@ -12,9 +12,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         if isNewUser {
             DataStore.shared.setUserStatus(isNewUser: false)
-            controller = LSTabBar()
-        } else {
             controller = UINavigationController(rootViewController: GetStartedVC())
+        } else {
+            controller = LSTabBar()
         }
         
         let window = UIWindow(windowScene: windowScene)
