@@ -12,6 +12,7 @@
 		472CC38024E30083009C6890 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472CC37F24E30083009C6890 /* UIColor+Ext.swift */; };
 		472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */; };
 		474787FD24F96BA500D07091 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474787FC24F96BA500D07091 /* Habit.swift */; };
+		474FE6222565463000F3FDFC /* DateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE6212565463000F3FDFC /* DateStore.swift */; };
 		47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47643E2B24F0361500F133F6 /* HomeVC.swift */; };
 		47643E2F24F039B900F133F6 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47643E2D24F039B900F133F6 /* Data.xcdatamodeld */; };
 		4765A45F24E06BFA00585E27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4765A45E24E06BFA00585E27 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		472CC37F24E30083009C6890 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAShapeLayer+Ext.swift"; sourceTree = "<group>"; };
 		474787FC24F96BA500D07091 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		474FE6212565463000F3FDFC /* DateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStore.swift; sourceTree = "<group>"; };
 		47643E2B24F0361500F133F6 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		47643E2E24F039B900F133F6 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		4765A45B24E06BFA00585E27 /* MakeLifeStyles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeLifeStyles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				478BEC88251BA60400162592 /* Bindable.swift */,
+				474FE6212565463000F3FDFC /* DateStore.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				478DBB0024F1837200D37F39 /* LSTabBar.swift in Sources */,
 				47F34FC324F56DF900DA4F64 /* MakeHabitsVC.swift in Sources */,
 				4798D13424EA4CF600267A89 /* LSBodyLabel.swift in Sources */,
+				474FE6222565463000F3FDFC /* DateStore.swift in Sources */,
 				4798927224E995EA00767383 /* GetStartedVC.swift in Sources */,
 				4765A45F24E06BFA00585E27 /* AppDelegate.swift in Sources */,
 				47643E2F24F039B900F133F6 /* Data.xcdatamodeld in Sources */,
