@@ -23,9 +23,20 @@ struct Strings {
     static let someHabits = "some habits!"
     
     // User Details Screen
-    static let one = "1."
+    static let oneDot = "1."
     static let nameQuestion = "Okay firstly,\n how can I call you?"
     static let enterYourName = "Enter your name"
+    
+    // Make Habbits Screen
+    static let create = "Create"
+    static let nameYourHabbit = "Name your habit:"
+    static let buildOrQuitHabbit = "Build or Quit this habit?"
+    static let howManyDays = "How many days you have been doing this?"
+    static let oneDay = "1 Day"
+    static let setYourGoal = "Set your goal:"
+    static let one = "1"
+    static let moreTimesPerWeek = "Or more times per week"
+    static let days = "Days"
     
     // Common
     static let empty = ""
@@ -33,4 +44,7 @@ struct Strings {
     // Buttons
     static let back = "Back"
     static let continueString = "Continue"
+    static let build = "Build"
+    static let quit = "Quit"
+    static let save = "Save"
 }

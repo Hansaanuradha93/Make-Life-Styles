@@ -9,7 +9,7 @@ class UserDetailsVC: UIViewController {
     let heroImageView = LSImageView(image: Asserts.personOnScooter)
     let nextButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.continueString, titleColor: .white, radius: 30)
     let backButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.back, titleColor: UIColor.appColor(color: .lightAsh), radius: 30)
-    let questionNumberLabel = LSBodyLabel(text: Strings.one, textColor: .white, fontSize: 25, textAlignment: .left)
+    let questionNumberLabel = LSBodyLabel(text: Strings.oneDot, textColor: .white, fontSize: 25, textAlignment: .left)
     let questionLabel = LSBodyLabel(text: Strings.nameQuestion, textColor: .white, fontSize: 25, textAlignment: .left, numberOfLines: 2)
     let placeholderLabel = LSBodyLabel(text: Strings.enterYourName, textColor: UIColor.appColor(color: .lightAsh), fontSize: 16, textAlignment: .left)
     let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: .white, textSize: 20, borderStyle: .none

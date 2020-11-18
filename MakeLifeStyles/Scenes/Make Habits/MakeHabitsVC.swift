@@ -6,22 +6,22 @@ class MakeHabitsVC: UIViewController {
     private let viewModel = MakeHabitsVM()
     
     private let titleLabel = LSTitleLabel(textColor: .white, fontSize: 28, textAlignment: .left)
-    private let nameLabel = LSBodyLabel(text: "Name your habit:", textColor: .white, fontSize: 20, textAlignment: .left)
+    private let nameLabel = LSBodyLabel(text: Strings.nameYourHabbit, textColor: .white, fontSize: 20, textAlignment: .left)
     private let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
     
-    private let typeLabel = LSBodyLabel(text: "Build or Quit this habit?", textColor: .white, fontSize: 20, textAlignment: .left)
-    private let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: "Build", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
-    private let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "Quit", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
+    private let typeLabel = LSBodyLabel(text: Strings.buildOrQuitHabbit, textColor: .white, fontSize: 20, textAlignment: .left)
+    private let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.build, titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
+    private let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.quit, titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
     
-    private let numberOfDaysLabel = LSBodyLabel(text: "How many days you have been doing this?", textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
-    private let numberOfDaysValueLabel = LSBodyLabel(text: "1 Day", textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left, numberOfLines: 0)
+    private let numberOfDaysLabel = LSBodyLabel(text: Strings.howManyDays, textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
+    private let numberOfDaysValueLabel = LSBodyLabel(text: Strings.oneDay, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left, numberOfLines: 0)
     private let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
     
-    private let setGoalLabel = LSBodyLabel(text: "Set your goal:", textColor: .white, fontSize: 20, textAlignment: .left)
-    private let setGoalTextField = LSTextField(text: "1", backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
-    private let timePerWeekLabel = LSBodyLabel(text: "Or more times per week", textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
+    private let setGoalLabel = LSBodyLabel(text: Strings.setYourGoal, textColor: .white, fontSize: 20, textAlignment: .left)
+    private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
+    private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerWeek, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
     
-    private let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "SAVE", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 12)
+    private let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.save, titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 12)
 
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -70,9 +70,9 @@ private extension MakeHabitsVC {
         viewModel.numberOfDays = value
         
         if value == 1 {
-            numberOfDaysValueLabel.text = "1 Day"
+            numberOfDaysValueLabel.text = Strings.oneDay
         } else if value > 1 {
-            numberOfDaysValueLabel.text = "\(value) Days"
+            numberOfDaysValueLabel.text = "\(value) \(Strings.days)"
         }
     }
     
@@ -124,7 +124,7 @@ private extension MakeHabitsVC {
         view.addSubviews(titleLabel)
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 36, left: 20, bottom: 0, right: 0))
         
-        let attributedString = NSMutableAttributedString(string: "CREATE")
+        let attributedString = NSMutableAttributedString(string: Strings.create)
         attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2.5), range: NSRange(location: 0, length: attributedString.length))
         titleLabel.attributedText = attributedString
     }
