@@ -8,8 +8,8 @@ class DataStore {
     private init(){}
     
     
-    func setUserStatus() {
-        UserDefaults.standard.setValue(true, forKey: "user-status")
+    func setUserStatus(isNewUser: Bool) {
+        UserDefaults.standard.setValue(isNewUser, forKey: "user-status")
     }
     
      
