@@ -3,37 +3,39 @@ import UIKit
 class MakeHabitsVC: UIViewController {
 
     // MARK: Properties
-    let viewModel = MakeHabitsVM()
+    private let viewModel = MakeHabitsVM()
     
-    let titleLabel = LSTitleLabel(textColor: .white, fontSize: 28, textAlignment: .left)
-    let nameLabel = LSBodyLabel(text: "Name your habit:", textColor: .white, fontSize: 20, textAlignment: .left)
-    let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
+    private let titleLabel = LSTitleLabel(textColor: .white, fontSize: 28, textAlignment: .left)
+    private let nameLabel = LSBodyLabel(text: "Name your habit:", textColor: .white, fontSize: 20, textAlignment: .left)
+    private let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
     
-    let typeLabel = LSBodyLabel(text: "Build or Quit this habit?", textColor: .white, fontSize: 20, textAlignment: .left)
-    let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: "Build", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
-    let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "Quit", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
+    private let typeLabel = LSBodyLabel(text: "Build or Quit this habit?", textColor: .white, fontSize: 20, textAlignment: .left)
+    private let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: "Build", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
+    private let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "Quit", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
     
-    let numberOfDaysLabel = LSBodyLabel(text: "How many days you have been doing this?", textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
-    let numberOfDaysValueLabel = LSBodyLabel(text: "1 Day", textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left, numberOfLines: 0)
-    let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
+    private let numberOfDaysLabel = LSBodyLabel(text: "How many days you have been doing this?", textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
+    private let numberOfDaysValueLabel = LSBodyLabel(text: "1 Day", textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left, numberOfLines: 0)
+    private let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
     
-    let setGoalLabel = LSBodyLabel(text: "Set your goal:", textColor: .white, fontSize: 20, textAlignment: .left)
-    let setGoalTextField = LSTextField(text: "1", backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
-    let timePerWeekLabel = LSBodyLabel(text: "Or more times per week", textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
+    private let setGoalLabel = LSBodyLabel(text: "Set your goal:", textColor: .white, fontSize: 20, textAlignment: .left)
+    private let setGoalTextField = LSTextField(text: "1", backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
+    private let timePerWeekLabel = LSBodyLabel(text: "Or more times per week", textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
     
-    let groupLabel = LSBodyLabel(text: "Group:", textColor: .white, fontSize: 20, textAlignment: .left)
+    private let groupLabel = LSBodyLabel(text: "Group:", textColor: .white, fontSize: 20, textAlignment: .left)
 //    let picker = UIPickerView()
-    let groupTextField = LSTextField(text: "None", backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
-    let arrowImage = LSImageView(image: UIImage(systemName: "arrow.down")!)
+    private let groupTextField = LSTextField(text: "None", backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
+    private let arrowImage = LSImageView(image: UIImage(systemName: "arrow.down")!)
 
     
-    let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "SAVE", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 12)
+    private let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "SAVE", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 12)
 
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let view = UIScrollView()
         view.backgroundColor = UIColor.appColor(color: .darkestAsh)
         return view
     }()
+    
+    private let contentView = UIView()
     
     
     // MARK: View Controller
@@ -120,7 +122,7 @@ extension MakeHabitsVC {
         view.backgroundColor = UIColor.appColor(color: .darkestAsh)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
-        view.addSubviews(titleLabel, scrollView)
+        view.addSubviews(titleLabel)
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 36, left: 20, bottom: 0, right: 0))
         
         let attributedString = NSMutableAttributedString(string: "CREATE")
@@ -160,12 +162,23 @@ extension MakeHabitsVC {
     
     
     fileprivate func setupScrollView() {
-        scrollView.addSubviews(nameLabel, nameTextField, typeLabel, buildButton, quitButton, numberOfDaysLabel, numberOfDaysValueLabel, numberOfDaysIncrementStepper, setGoalLabel, setGoalTextField, timePerWeekLabel, groupLabel, groupTextField, arrowImage, saveButton)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
         
         let textFieldsDimensions = CGSize(width: view.frame.width - 40, height: 50)
         let controlButtonsDimensions = CGSize(width: 70, height: 50)
         
         scrollView.anchor(top: titleLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+        contentView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor)
+        
+        NSLayoutConstraint.activate([
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 800)
+        ])
+        
+        contentView.addSubviews(nameLabel, nameTextField, typeLabel, buildButton, quitButton, numberOfDaysLabel, numberOfDaysValueLabel, numberOfDaysIncrementStepper, setGoalLabel, setGoalTextField, timePerWeekLabel, groupLabel, groupTextField, arrowImage, saveButton)
+        
         nameLabel.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 30, left: 20, bottom: 0, right: 20))
         nameTextField.anchor(top: nameLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 20, bottom: 0, right: 0), size: textFieldsDimensions)
         
