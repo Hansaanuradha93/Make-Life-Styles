@@ -21,12 +21,6 @@ class MakeHabitsVC: UIViewController {
     private let setGoalTextField = LSTextField(text: "1", backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
     private let timePerWeekLabel = LSBodyLabel(text: "Or more times per week", textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
     
-    private let groupLabel = LSBodyLabel(text: "Group:", textColor: .white, fontSize: 20, textAlignment: .left)
-//    let picker = UIPickerView()
-    private let groupTextField = LSTextField(text: "None", backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
-    private let arrowImage = LSImageView(image: UIImage(systemName: "arrow.down")!)
-
-    
     private let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "SAVE", titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 12)
 
     private let scrollView: UIScrollView = {
@@ -43,16 +37,17 @@ class MakeHabitsVC: UIViewController {
         super.viewDidLoad()
         setupHeaders()
         setupScrollView()
+        setupViews()
         customizeUIControlls()
         setupViewModelObserver()
     }
 }
 
 
-// MARK: - Methods
-extension MakeHabitsVC {
+// MARK: - Objc Methods
+private extension MakeHabitsVC {
     
-    @objc fileprivate func handleTextChange(textField: UITextField) {
+    @objc func handleTextChange(textField: UITextField) {
         viewModel.habitName = nameTextField.text
         viewModel.goal = setGoalTextField.text
     }
@@ -70,7 +65,7 @@ extension MakeHabitsVC {
     }
     
     
-    @objc fileprivate func handleDaysIncrement(_ sender: UIStepper) {
+    @objc func handleDaysIncrement(_ sender: UIStepper) {
         let value = Int(sender.value)
         viewModel.numberOfDays = value
         
@@ -82,12 +77,16 @@ extension MakeHabitsVC {
     }
     
     
-    @objc fileprivate func handleTap() {
+    @objc func handleTap() {
         view.endEditing(true)
     }
+}
+
+
+// MARK: - Private Methods
+private extension MakeHabitsVC {
     
-    
-    fileprivate func setupViewModelObserver() {
+    func setupViewModelObserver() {
         viewModel.bindalbeIsFormValid.bind { [weak self] isFormValid in
             guard let self = self, let isFormValid = isFormValid else { return }
             if isFormValid {
@@ -104,7 +103,7 @@ extension MakeHabitsVC {
     }
     
     
-    fileprivate func changeButtons(isBuildClicked: Bool) {
+    func changeButtons(isBuildClicked: Bool) {
         UIView.animate(withDuration: 0.3) {
             if isBuildClicked {
                 self.quitButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
@@ -117,7 +116,7 @@ extension MakeHabitsVC {
     }
     
     
-    fileprivate func setupHeaders() {
+    func setupHeaders() {
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = UIColor.appColor(color: .darkestAsh)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
@@ -131,7 +130,7 @@ extension MakeHabitsVC {
     }
     
     
-    fileprivate func customizeUIControlls() {
+    func customizeUIControlls() {
         nameTextField.tintColor = UIColor.appColor(color: .lightAsh)
         nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
         nameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
@@ -148,36 +147,17 @@ extension MakeHabitsVC {
         setGoalTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
         setGoalTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         setGoalTextField.keyboardType = .numberPad
-        
-        groupTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
-        arrowImage.image = arrowImage.image?.withRenderingMode(.alwaysTemplate)
-        arrowImage.tintColor = UIColor.appColor(color: .lightAsh)
-        
-//        picker.dataSource = self
-//        picker.delegate = self
-        
+                
         saveButton.isEnabled = false
         saveButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
     }
     
     
-    fileprivate func setupScrollView() {
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        
-        
+    func setupViews() {
         let textFieldsDimensions = CGSize(width: view.frame.width - 40, height: 50)
         let controlButtonsDimensions = CGSize(width: 70, height: 50)
         
-        scrollView.anchor(top: titleLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
-        contentView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor)
-        
-        NSLayoutConstraint.activate([
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 800)
-        ])
-        
-        contentView.addSubviews(nameLabel, nameTextField, typeLabel, buildButton, quitButton, numberOfDaysLabel, numberOfDaysValueLabel, numberOfDaysIncrementStepper, setGoalLabel, setGoalTextField, timePerWeekLabel, groupLabel, groupTextField, arrowImage, saveButton)
+        contentView.addSubviews(nameLabel, nameTextField, typeLabel, buildButton, quitButton, numberOfDaysLabel, numberOfDaysValueLabel, numberOfDaysIncrementStepper, setGoalLabel, setGoalTextField, timePerWeekLabel, saveButton)
         
         nameLabel.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 30, left: 20, bottom: 0, right: 20))
         nameTextField.anchor(top: nameLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 20, bottom: 0, right: 0), size: textFieldsDimensions)
@@ -196,27 +176,20 @@ extension MakeHabitsVC {
         timePerWeekLabel.anchor(top: nil, leading: setGoalTextField.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 16, bottom: 0, right: 0))
         timePerWeekLabel.centerVertically(in: setGoalTextField)
         
-        groupLabel.anchor(top: setGoalTextField.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 26, left: 20, bottom: 0, right: 0))
-        groupTextField.anchor(top: groupLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 20, bottom: 0, right: 0), size: textFieldsDimensions)
-        arrowImage.anchor(top: nil, leading: nil, bottom: nil, trailing: groupTextField.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 20), size: .init(width: 15, height: 15))
-        arrowImage.centerVertically(in: groupTextField)
-//        picker.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor)
+        saveButton.anchor(top: setGoalTextField.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 26, left: 20, bottom: 0, right: 20), size: textFieldsDimensions)
+    }
+    
+    
+    func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
         
-        saveButton.anchor(top: groupTextField.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 26, left: 20, bottom: 0, right: 20), size: textFieldsDimensions)
-    }
-}
-
-// MARK: -
-extension MakeHabitsVC: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(row)"
+        scrollView.anchor(top: titleLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+        contentView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor)
+        
+        NSLayoutConstraint.activate([
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 800)
+        ])
     }
 }
