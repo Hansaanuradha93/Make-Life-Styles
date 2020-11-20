@@ -1,9 +1,13 @@
 import UIKit
+import CoreData
 
 class MakeHabitsVC: UIViewController {
 
     // MARK: Properties
     private let viewModel = MakeHabitsVM()
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private let titleLabel = LSTitleLabel(textColor: .white, fontSize: 28, textAlignment: .left)
     private let nameLabel = LSBodyLabel(text: Strings.nameYourHabbit, textColor: .white, fontSize: 20, textAlignment: .left)
@@ -41,11 +45,22 @@ class MakeHabitsVC: UIViewController {
         customizeUIControlls()
         setupViewModelObserver()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+    }
 }
 
 
 // MARK: - Objc Methods
 private extension MakeHabitsVC {
+    
+    @objc func saveButtonTapped() {
+        viewModel.saveHabit()
+    }
+    
     
     @objc func handleTextChange(textField: UITextField) {
         viewModel.habitName = nameTextField.text
@@ -85,6 +100,15 @@ private extension MakeHabitsVC {
 
 // MARK: - Private Methods
 private extension MakeHabitsVC {
+    
+    func fetchData() {
+        do {
+            let habits = try context.fetch(Habit.fetchRequest())
+        } catch let error as NSError {
+            print("Could not fetch data. \(error), \(error.userInfo)")
+        }
+    }
+    
     
     func setupViewModelObserver() {
         viewModel.bindalbeIsFormValid.bind { [weak self] isFormValid in
@@ -150,6 +174,7 @@ private extension MakeHabitsVC {
                 
         saveButton.isEnabled = false
         saveButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
     

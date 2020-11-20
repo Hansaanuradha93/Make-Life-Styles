@@ -28,12 +28,12 @@ class HabitCell: UICollectionViewCell {
 extension HabitCell {
     
     func setup(habit: Habit) {
-        iconImageView.image = UIImage(named: habit.icon)
+//        iconImageView.image = UIImage(named: habit.icon)
         iconImageView.image = iconImageView.image?.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = UIColor.appColor(color: .lightBlack)
         habitDaysLabel.text = "\(habit.days) Days"
-        habitNameLabel.text = habit.name.uppercased()
-        setupShapeRing(days: habit.days)
+//        habitNameLabel.text = habit.name.uppercased()
+//        setupShapeRing(days: habit.days)
     }
 
     
