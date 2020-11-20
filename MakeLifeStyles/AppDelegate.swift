@@ -1,31 +1,30 @@
 import UIKit
 import CoreData
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    // MARK: Properties
+    // MARK: Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Data")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                print("Unresolved error \(error), \(error.userInfo)")
+                return
             }
         })
         return container
     }()
     
 
-    // MARK: Methods
+    // MARK: Application Delegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
     }
 }
 
-
 // MARK: - Core Data Saving support
 extension AppDelegate {
-    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -33,7 +32,7 @@ extension AppDelegate {
                 try context.save()
             } catch {
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                print("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
