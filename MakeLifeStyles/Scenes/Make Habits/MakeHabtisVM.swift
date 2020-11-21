@@ -22,7 +22,6 @@ extension MakeHabitsVM {
     
     func saveHabit() {
         let habit = Habit(entity: Habit.entity(), insertInto: context)
-        habit.id = 1
         habit.name = "Test Habit"
         habit.category = "Category"
         habit.type = "Build"

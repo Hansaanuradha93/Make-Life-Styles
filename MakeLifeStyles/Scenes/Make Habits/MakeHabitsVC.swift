@@ -45,12 +45,6 @@ class MakeHabitsVC: UIViewController {
         customizeUIControlls()
         setupViewModelObserver()
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchData()
-    }
 }
 
 
@@ -100,15 +94,6 @@ private extension MakeHabitsVC {
 
 // MARK: - Private Methods
 private extension MakeHabitsVC {
-    
-    func fetchData() {
-        do {
-            let habits = try context.fetch(Habit.fetchRequest())
-        } catch let error as NSError {
-            print("Could not fetch data. \(error), \(error.userInfo)")
-        }
-    }
-    
     
     func setupViewModelObserver() {
         viewModel.bindalbeIsFormValid.bind { [weak self] isFormValid in
