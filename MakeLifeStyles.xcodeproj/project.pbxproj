@@ -18,8 +18,6 @@
 		4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4765A46024E06BFA00585E27 /* SceneDelegate.swift */; };
 		4765A46824E06BFB00585E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4765A46724E06BFB00585E27 /* Assets.xcassets */; };
 		4765A46B24E06BFB00585E27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4765A46924E06BFB00585E27 /* LaunchScreen.storyboard */; };
-		477EAF522567A0B000075B58 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477EAF502567A0B000075B58 /* Habit+CoreDataClass.swift */; };
-		477EAF532567A0B000075B58 /* Habit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477EAF512567A0B000075B58 /* Habit+CoreDataProperties.swift */; };
 		47822B2124EEE17B005B44A3 /* LSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47822B2024EEE17B005B44A3 /* LSTextField.swift */; };
 		478BEC89251BA60400162592 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BEC88251BA60400162592 /* Bindable.swift */; };
 		478BEC8D251BA67300162592 /* MakeHabtisVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478BEC8C251BA67300162592 /* MakeHabtisVM.swift */; };
@@ -33,6 +31,8 @@
 		4798D13A24EA539D00267A89 /* LSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13924EA539D00267A89 /* LSImageView.swift */; };
 		4798D13D24EA547F00267A89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13C24EA547F00267A89 /* Constants.swift */; };
 		47B8E07225697DEE00F395C3 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B8E07125697DEE00F395C3 /* HomeVM.swift */; };
+		47B8E08E2569889E00F395C3 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B8E08C2569889E00F395C3 /* Habit+CoreDataClass.swift */; };
+		47B8E08F2569889E00F395C3 /* Habit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B8E08D2569889E00F395C3 /* Habit+CoreDataProperties.swift */; };
 		47F34FC324F56DF900DA4F64 /* MakeHabitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F34FC224F56DF900DA4F64 /* MakeHabitsVC.swift */; };
 		47F34FC624F5710F00DA4F64 /* LifeStylesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F34FC524F5710F00DA4F64 /* LifeStylesListVC.swift */; };
 /* End PBXBuildFile section */
@@ -51,8 +51,6 @@
 		4765A46724E06BFB00585E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4765A46A24E06BFB00585E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4765A46C24E06BFB00585E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		477EAF502567A0B000075B58 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
-		477EAF512567A0B000075B58 /* Habit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		47822B2024EEE17B005B44A3 /* LSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTextField.swift; sourceTree = "<group>"; };
 		478BEC88251BA60400162592 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		478BEC8C251BA67300162592 /* MakeHabtisVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeHabtisVM.swift; sourceTree = "<group>"; };
@@ -66,6 +64,8 @@
 		4798D13924EA539D00267A89 /* LSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSImageView.swift; sourceTree = "<group>"; };
 		4798D13C24EA547F00267A89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		47B8E07125697DEE00F395C3 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		47B8E08C2569889E00F395C3 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
+		47B8E08D2569889E00F395C3 /* Habit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		47F34FC224F56DF900DA4F64 /* MakeHabitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeHabitsVC.swift; sourceTree = "<group>"; };
 		47F34FC524F5710F00DA4F64 /* LifeStylesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStylesListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,8 +114,8 @@
 		4760BFF824E194C800B2B936 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				477EAF502567A0B000075B58 /* Habit+CoreDataClass.swift */,
-				477EAF512567A0B000075B58 /* Habit+CoreDataProperties.swift */,
+				47B8E08C2569889E00F395C3 /* Habit+CoreDataClass.swift */,
+				47B8E08D2569889E00F395C3 /* Habit+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,12 +371,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				477EAF522567A0B000075B58 /* Habit+CoreDataClass.swift in Sources */,
 				4715773724EC3B0E001652A8 /* UserDetailsVC.swift in Sources */,
 				47F34FC624F5710F00DA4F64 /* LifeStylesListVC.swift in Sources */,
 				47B8E07225697DEE00F395C3 /* HomeVM.swift in Sources */,
 				47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */,
 				4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */,
+				47B8E08E2569889E00F395C3 /* Habit+CoreDataClass.swift in Sources */,
 				478BEC89251BA60400162592 /* Bindable.swift in Sources */,
 				472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */,
 				47934B7F24F400C400EF5451 /* HabitCell.swift in Sources */,
@@ -390,10 +390,10 @@
 				4765A45F24E06BFA00585E27 /* AppDelegate.swift in Sources */,
 				47643E2F24F039B900F133F6 /* Data.xcdatamodeld in Sources */,
 				4798D12E24EA325200267A89 /* NSMutableAttributedString+Ext.swift in Sources */,
+				47B8E08F2569889E00F395C3 /* Habit+CoreDataProperties.swift in Sources */,
 				472CC38024E30083009C6890 /* UIColor+Ext.swift in Sources */,
 				4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */,
 				472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */,
-				477EAF532567A0B000075B58 /* Habit+CoreDataProperties.swift in Sources */,
 				47822B2124EEE17B005B44A3 /* LSTextField.swift in Sources */,
 				4798D13724EA512000267A89 /* LSButton.swift in Sources */,
 				4798D13A24EA539D00267A89 /* LSImageView.swift in Sources */,
