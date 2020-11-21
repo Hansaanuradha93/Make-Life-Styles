@@ -23,7 +23,7 @@ class MakeHabitsVC: UIViewController {
     
     private let setGoalLabel = LSBodyLabel(text: Strings.setYourGoal, textColor: .white, fontSize: 20, textAlignment: .left)
     private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
-    private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerWeek, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
+    private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
     
     private let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.save, titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 12)
 

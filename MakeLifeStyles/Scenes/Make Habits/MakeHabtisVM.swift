@@ -14,6 +14,20 @@ class MakeHabitsVM {
     
     // MARK: Bindlable
     var bindalbeIsFormValid = Bindable<Bool>()
+    
+    
+    // MARK: Computed Properties
+    var habitType: String {
+        return (isBuildHabit ?? true) ? "Build" : "Quit"
+    }
+    
+    var initialDays: Int16 {
+        return Int16(numberOfDays ?? 0)
+    }
+    
+    var repetitions: Int16 {
+        return Int16(goal ?? "1") ?? Int16(1)
+    }
 }
 
 
@@ -22,12 +36,12 @@ extension MakeHabitsVM {
     
     func saveHabit() {
         let habit = Habit(entity: Habit.entity(), insertInto: context)
-        habit.name = "Test Habit"
+        habit.name = habitName ?? ""
         habit.category = "Category"
-        habit.type = "Build"
-        habit.days = 1
-        habit.initialDays = 1
-        habit.repetitions = 10
+        habit.type = habitType
+        habit.days = initialDays
+        habit.initialDays = initialDays
+        habit.repetitions = repetitions
         habit.startDate = Date()
         
         appDelegate.saveContext()

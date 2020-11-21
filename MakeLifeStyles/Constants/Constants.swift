@@ -35,7 +35,7 @@ struct Strings {
     static let oneDay = "1 Day"
     static let setYourGoal = "Set your goal:"
     static let one = "1"
-    static let moreTimesPerWeek = "Or more times per week"
+    static let moreTimesPerDay = "Or more times per day"
     static let days = "Days"
     
     // Common
