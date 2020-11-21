@@ -32,9 +32,8 @@ extension HabitCell {
         iconImageView.image = iconImageView.image?.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = UIColor.appColor(color: .lightBlack)
         habitDaysLabel.text = "\(habit.days) Days"
-        print(habit)
-//        habitNameLabel.text = habit.name.uppercased()
-//        setupShapeRing(days: habit.days)
+        habitNameLabel.text = (habit.name ?? "").uppercased()
+        setupShapeRing(days: Int(habit.days))
     }
 
     
