@@ -3,13 +3,20 @@ import UIKit
 class HomeVC: UICollectionViewController {
     
     // MARK: Properties
-
+    private let viewModel = HomeVM()
+    
     
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         addGestures()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchHabits()
     }
 }
 
@@ -18,14 +25,13 @@ class HomeVC: UICollectionViewController {
 extension HomeVC {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return habits.count
-        return 0
+        return viewModel.habits.count
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitCell.reuseID, for: indexPath) as! HabitCell
-//        cell.setup(habit: habits[indexPath.item])
+        cell.setup(habit: viewModel.habits[indexPath.item])
         return cell
     }
 }
@@ -40,6 +46,16 @@ extension HomeVC {
             guard let indexPath = collectionView.indexPathForItem(at: point) else { return }
 //            habits[indexPath.item].days = habits[indexPath.item].days + 1
             collectionView.reloadItems(at: [indexPath])
+        }
+    }
+    
+    
+    fileprivate func fetchHabits() {
+        viewModel.fetchHabits { [weak self] status in
+            guard let self = self else { return }
+            if status {
+                DispatchQueue.main.async { self.collectionView.reloadData() }
+            }
         }
     }
     
