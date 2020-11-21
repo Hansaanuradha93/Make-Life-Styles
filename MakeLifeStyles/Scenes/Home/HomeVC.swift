@@ -44,7 +44,7 @@ extension HomeVC {
         if sender.state == .ended {
             let point = sender.location(in: collectionView)
             guard let indexPath = collectionView.indexPathForItem(at: point) else { return }
-//            habits[indexPath.item].days = habits[indexPath.item].days + 1
+            viewModel.habits[indexPath.item].days = viewModel.habits[indexPath.item].days + 1
             collectionView.reloadItems(at: [indexPath])
         }
     }
