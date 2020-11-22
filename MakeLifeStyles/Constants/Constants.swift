@@ -48,3 +48,10 @@ struct Strings {
     static let quit = "Quit"
     static let save = "Save"
 }
+
+
+struct GlobalDimensions {
+    static let height: CGFloat = 50
+    static let cornerRadius: CGFloat = height / 2
+    static let borderWidth: CGFloat = 0.5
+}

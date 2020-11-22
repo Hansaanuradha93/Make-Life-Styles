@@ -14,8 +14,8 @@ class MakeHabitsVC: UIViewController {
     private let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
     
     private let typeLabel = LSBodyLabel(text: Strings.buildOrQuitHabbit, textColor: .white, fontSize: 20, textAlignment: .left)
-    private let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.build, titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
-    private let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.quit, titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 14)
+    private let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.build, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius, fontSize: 14)
+    private let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.quit, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius, fontSize: 14)
     
     private let numberOfDaysLabel = LSBodyLabel(text: Strings.howManyDays, textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
     private let numberOfDaysValueLabel = LSBodyLabel(text: Strings.oneDay, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left, numberOfLines: 0)
@@ -25,7 +25,7 @@ class MakeHabitsVC: UIViewController {
     private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
     private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
     
-    private let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.save, titleColor: UIColor.appColor(color: .lightAsh), radius: 25, fontSize: 12)
+    private let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.save, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius)
 
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -156,7 +156,7 @@ private extension MakeHabitsVC {
     
     func customizeUIControlls() {
         nameTextField.tintColor = UIColor.appColor(color: .lightAsh)
-        nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+        nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: GlobalDimensions.cornerRadius)
         nameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         
         buildButton.addTarget(self, action: #selector(buildButtonTapped), for: .touchUpInside)
@@ -168,19 +168,19 @@ private extension MakeHabitsVC {
         numberOfDaysIncrementStepper.addTarget(self, action: #selector(handleDaysIncrement), for: .valueChanged)
         
         setGoalTextField.tintColor = UIColor.appColor(color: .lightAsh)
-        setGoalTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+        setGoalTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         setGoalTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         setGoalTextField.keyboardType = .numberPad
                 
         saveButton.isEnabled = false
-        saveButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+        saveButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
     
     func setupViews() {
         let textFieldsDimensions = CGSize(width: view.frame.width - 40, height: 50)
-        let controlButtonsDimensions = CGSize(width: 70, height: 50)
+        let controlButtonsDimensions = CGSize(width: 70, height: GlobalDimensions.height)
         
         contentView.addSubviews(nameLabel, nameTextField, typeLabel, buildButton, quitButton, numberOfDaysLabel, numberOfDaysValueLabel, numberOfDaysIncrementStepper, setGoalLabel, setGoalTextField, timePerWeekLabel, saveButton)
         
@@ -197,7 +197,7 @@ private extension MakeHabitsVC {
         numberOfDaysIncrementStepper.centerVertically(in: numberOfDaysValueLabel)
         
         setGoalLabel.anchor(top: numberOfDaysIncrementStepper.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 26, left: 20, bottom: 0, right: 0))
-        setGoalTextField.anchor(top: setGoalLabel.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 0, bottom: 0, right: 0), size: .init(width: 70, height: 50))
+        setGoalTextField.anchor(top: setGoalLabel.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 0, bottom: 0, right: 0), size: .init(width: 70, height: GlobalDimensions.height))
         timePerWeekLabel.anchor(top: nil, leading: setGoalTextField.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 16, bottom: 0, right: 0))
         timePerWeekLabel.centerVertically(in: setGoalTextField)
         
