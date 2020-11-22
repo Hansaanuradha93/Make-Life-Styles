@@ -1,5 +1,6 @@
 import UIKit
 
+// MARK: Asserts
 struct Asserts {
     // Tab Bar
     static let add = UIImage(named: "add")!
@@ -16,6 +17,7 @@ struct Asserts {
 }
 
 
+// MARK: Strings
 struct Strings {
     // Get Started Screen
     static let areYouReady = "Are you ready?\nNow we gonna build your\n morning routine!"
@@ -39,9 +41,15 @@ struct Strings {
     static let days = "Days"
     
     // Common
+    static let successful = "Successful"
+    static let failed = "Failed"
     static let empty = ""
+    static let somethingWentWrong = "Something went wront"
+    static let habitSavedSucessfully = "Habit Saved Successfully"
+    static let unableToCompleteRequest = "Unable to complete request"
 
     // Buttons
+    static let ok = "Ok"
     static let back = "Back"
     static let continueString = "Continue"
     static let build = "Build"
@@ -50,6 +58,7 @@ struct Strings {
 }
 
 
+// MARK: GlobalDimensions
 struct GlobalDimensions {
     static let height: CGFloat = 50
     static let cornerRadius: CGFloat = height / 2

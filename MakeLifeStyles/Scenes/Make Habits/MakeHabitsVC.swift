@@ -114,7 +114,7 @@ private extension MakeHabitsVC {
         
         nameTextField.text = ""
         changeButtons(isBuildClicked: true)
-        numberOfDaysValueLabel.text = "1 Day"
+        numberOfDaysValueLabel.text = Strings.oneDay
         numberOfDaysIncrementStepper.value = 1
         setGoalTextField.text = "1"
     }
