@@ -52,8 +52,13 @@ class MakeHabitsVC: UIViewController {
 private extension MakeHabitsVC {
     
     @objc func saveButtonTapped() {
-        viewModel.saveHabit { [weak self] status in
+        viewModel.saveHabit { [weak self] status, message in
             guard let self = self else { return }
+            if status {
+                self.presentLSAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok)
+            } else {
+                self.presentLSAlertOnMainTread(title: Strings.failed, message: message, buttonTitle: Strings.ok)
+            }
         }
         resetUI()
     }

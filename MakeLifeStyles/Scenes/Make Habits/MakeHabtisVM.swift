@@ -26,7 +26,7 @@ class MakeHabitsVM {
 // MARK: - Methods
 extension MakeHabitsVM {
     
-    func saveHabit() {
+    func saveHabit(completion: @escaping (Bool, String) -> ()) {
         let habit = Habit(entity: Habit.entity(), insertInto: context)
         habit.id = UUID()
         habit.name = habitName ?? ""
@@ -37,7 +37,13 @@ extension MakeHabitsVM {
         habit.repetitionsValue = Int(goal ?? "1") ?? 1
         habit.startDate = Date()
         
-        appDelegate.saveContext()
+        do {
+            try context.save()
+            completion(true, Strings.habitSavedSucessfully)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+            completion(false, Strings.somethingWentWrong)
+        }
     }
     
     
