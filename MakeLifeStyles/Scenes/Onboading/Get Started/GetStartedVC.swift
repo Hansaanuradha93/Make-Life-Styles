@@ -7,7 +7,7 @@ class GetStartedVC: UIViewController {
     let heroImageView = LSImageView(image: Asserts.personOnBicycle)
     let titleLabel = LSTitleLabel(textColor: UIColor.appColor(color: .lightBlack), numberOfLines: 2)
     let descriptionLabel = LSBodyLabel(text: Strings.areYouReady, textColor: UIColor.appColor(color: .greenishBlue), numberOfLines: 3)
-    let callToActionButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.continueString, titleColor: .white, radius: 30)
+    let callToActionButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.continueString, titleColor: .white, radius: GlobalDimensions.cornerRadius)
 
     
     // MARK: View Controller
@@ -47,6 +47,6 @@ extension GetStartedVC {
         
         callToActionButton.addTarget(self, action: #selector(handleCallToAction), for: .touchUpInside)
         view.addSubview(callToActionButton)
-        callToActionButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 20, bottom: 10, right: 20), size: .init(width: 0, height: 60))
+        callToActionButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 20, bottom: 10, right: 20), size: .init(width: 0, height: GlobalDimensions.height))
     }
 }
