@@ -20,14 +20,6 @@ class MakeHabitsVM {
     var habitType: String {
         return (isBuildHabit ?? true) ? "Build" : "Quit"
     }
-    
-    var initialDays: Int16 {
-        return Int16(numberOfDays ?? 0)
-    }
-    
-    var repetitions: Int16 {
-        return Int16(goal ?? "1") ?? Int16(1)
-    }
 }
 
 
@@ -36,12 +28,13 @@ extension MakeHabitsVM {
     
     func saveHabit() {
         let habit = Habit(entity: Habit.entity(), insertInto: context)
+        habit.id = UUID()
         habit.name = habitName ?? ""
         habit.category = "Category"
         habit.type = habitType
-        habit.days = initialDays
-        habit.initialDays = initialDays
-        habit.repetitions = repetitions
+        habit.daysValue = numberOfDays ?? 1
+        habit.initialDaysValue = numberOfDays ?? 1
+        habit.repetitionsValue = Int(goal ?? "1") ?? 1
         habit.startDate = Date()
         
         appDelegate.saveContext()
