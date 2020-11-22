@@ -44,9 +44,16 @@ extension HomeVC {
         if sender.state == .ended {
             let point = sender.location(in: collectionView)
             guard let indexPath = collectionView.indexPathForItem(at: point) else { return }
-            viewModel.habits[indexPath.item].days = viewModel.habits[indexPath.item].days + 1
-            collectionView.reloadItems(at: [indexPath])
+            updateHabit(at: indexPath)
         }
+    }
+    
+    
+    func updateHabit(at indexPath: IndexPath) {
+        let habit = viewModel.habits[indexPath.item]
+        habit.days = habit.days + 1
+        viewModel.update(habit)
+        collectionView.reloadItems(at: [indexPath])
     }
     
     

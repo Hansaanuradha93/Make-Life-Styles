@@ -13,6 +13,15 @@ final class HomeVM {
 // MARK: Public Methods
 extension HomeVM {
     
+    func update(_ habit: Habit) {
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
     func fetchHabits(completion: @escaping (Bool) -> ()) {
         do {
             let habits = try context.fetch(Habit.fetchRequest())
