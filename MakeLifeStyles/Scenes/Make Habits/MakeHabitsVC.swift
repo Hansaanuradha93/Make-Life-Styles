@@ -52,7 +52,9 @@ class MakeHabitsVC: UIViewController {
 private extension MakeHabitsVC {
     
     @objc func saveButtonTapped() {
-        viewModel.saveHabit()
+        viewModel.saveHabit { [weak self] status in
+            guard let self = self else { return }
+        }
         resetUI()
     }
     
@@ -97,6 +99,8 @@ private extension MakeHabitsVC {
 private extension MakeHabitsVC {
     
     func resetUI() {
+        view.endEditing(true)
+        
         viewModel.habitName = ""
         viewModel.isBuildHabit = true
         viewModel.numberOfDays = 1
@@ -105,6 +109,7 @@ private extension MakeHabitsVC {
         
         nameTextField.text = ""
         changeButtons(isBuildClicked: true)
+        numberOfDaysValueLabel.text = "1 Day"
         numberOfDaysIncrementStepper.value = 1
         setGoalTextField.text = "1"
     }
