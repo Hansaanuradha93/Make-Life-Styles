@@ -53,6 +53,7 @@ private extension MakeHabitsVC {
     
     @objc func saveButtonTapped() {
         viewModel.saveHabit()
+        resetUI()
     }
     
     
@@ -94,6 +95,20 @@ private extension MakeHabitsVC {
 
 // MARK: - Private Methods
 private extension MakeHabitsVC {
+    
+    func resetUI() {
+        viewModel.habitName = ""
+        viewModel.isBuildHabit = true
+        viewModel.numberOfDays = 1
+        viewModel.goal = "1"
+
+        
+        nameTextField.text = ""
+        changeButtons(isBuildClicked: true)
+        numberOfDaysIncrementStepper.value = 1
+        setGoalTextField.text = "1"
+    }
+    
     
     func setupViewModelObserver() {
         viewModel.bindalbeIsFormValid.bind { [weak self] isFormValid in

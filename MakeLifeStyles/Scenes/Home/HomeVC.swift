@@ -73,7 +73,7 @@ extension HomeVC {
         navigationController?.navigationBar.isHidden = true
         collectionView.backgroundColor = UIColor.appColor(color: .pinkishRed)
         
-        collectionView.contentInset.top = 70
+        collectionView.contentInset.top = 40
         collectionView.register(HabitCell.self, forCellWithReuseIdentifier: HabitCell.reuseID)
         
         guard let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
