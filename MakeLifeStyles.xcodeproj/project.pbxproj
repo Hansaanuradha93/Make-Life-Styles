@@ -107,6 +107,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4743464F257283C7000474B2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				47643E2B24F0361500F133F6 /* HomeVC.swift */,
+				47B8E07125697DEE00F395C3 /* HomeVM.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		47434650257283D6000474B2 /* Habit Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Habit Details";
+			sourceTree = "<group>";
+		};
 		4760BFF724E194BB00B2B936 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				4760BFF824E194C800B2B936 /* Models */,
-				47C9A0A324E44B7300353E80 /* View Models */,
 				4798D12F24EA4A7F00267A89 /* Custom Views */,
 				4760BFF724E194BB00B2B936 /* Scenes */,
 				47643E3024F039CC00F133F6 /* Core Data */,
@@ -296,17 +311,10 @@
 			isa = PBXGroup;
 			children = (
 				47934B7D24F4009C00EF5451 /* Cells */,
-				47643E2B24F0361500F133F6 /* HomeVC.swift */,
-				47B8E07125697DEE00F395C3 /* HomeVM.swift */,
+				47434650257283D6000474B2 /* Habit Details */,
+				4743464F257283C7000474B2 /* Home */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		47C9A0A324E44B7300353E80 /* View Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Models";
 			sourceTree = "<group>";
 		};
 		47F34FC124F56DA200DA4F64 /* Make Habits */ = {

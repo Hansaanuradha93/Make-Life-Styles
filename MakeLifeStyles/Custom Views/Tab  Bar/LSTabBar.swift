@@ -5,8 +5,7 @@ class LSTabBar: UITabBarController {
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
-        UITabBar.appearance().tintColor = UIColor.appColor(color: .pinkishRed)
-        viewControllers = [createHomeNC(), createMakeHabbitsNC(), createLifeStylesListNC()]
+        setupUI()
     }
 }
 
@@ -32,5 +31,28 @@ private extension LSTabBar {
         let lifeStylesListVC = LifeStylesListVC()
         lifeStylesListVC.tabBarItem = UITabBarItem(title: Strings.empty, image: Asserts.star, tag: 2)
         return UINavigationController(rootViewController: lifeStylesListVC)
+    }
+    
+    
+    func setupUI() {
+        UITabBar.appearance().tintColor = UIColor.appColor(color: .lightBlack)
+        viewControllers = [createHomeNC(), createMakeHabbitsNC(), createLifeStylesListNC()]
+        
+        let traits = [UIFontDescriptor.TraitKey.weight: UIFont.Weight.semibold]
+        var descriptor = UIFontDescriptor(fontAttributes: [UIFontDescriptor.AttributeName.family: Fonts.avenirNext])
+        descriptor = descriptor.addingAttributes([UIFontDescriptor.AttributeName.traits: traits])
+        
+        let attributesForTitle = [
+            NSAttributedString.Key.font: UIFont(descriptor: descriptor, size: 18),
+            NSAttributedString.Key.foregroundColor : UIColor.appColor(color: .lightBlack)
+        ]
+        
+        let attributesForLargeTitle = [
+            NSAttributedString.Key.font: UIFont(descriptor: descriptor, size: 35),
+            NSAttributedString.Key.foregroundColor : UIColor.appColor(color: .lightBlack)
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = attributesForTitle
+        UINavigationBar.appearance().largeTitleTextAttributes = attributesForLargeTitle
     }
 }
