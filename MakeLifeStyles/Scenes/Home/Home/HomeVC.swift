@@ -34,6 +34,13 @@ extension HomeVC {
         cell.setup(habit: viewModel.habits[indexPath.item])
         return cell
     }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(viewModel.habits[indexPath.item])
+        let controller = UIViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 
@@ -77,10 +84,12 @@ extension HomeVC {
     
     
     fileprivate func setupUI() {
-        navigationController?.navigationBar.isHidden = true
-        collectionView.backgroundColor = UIColor.appColor(color: .pinkishRed)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = Strings.home
+        tabBarItem?.title = ""
         
-        collectionView.contentInset.top = 40
+        collectionView.backgroundColor = UIColor.appColor(color: .pinkishRed)
+        collectionView.contentInset.top = 30
         collectionView.register(HabitCell.self, forCellWithReuseIdentifier: HabitCell.reuseID)
         
         guard let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }

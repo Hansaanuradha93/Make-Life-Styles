@@ -9,7 +9,7 @@ class MakeHabitsVC: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    private let titleLabel = LSTitleLabel(textColor: .white, fontSize: 28, textAlignment: .left)
+//    private let titleLabel = LSTitleLabel(textColor: .white, fontSize: 28, textAlignment: .left)
     private let nameLabel = LSBodyLabel(text: Strings.nameYourHabbit, textColor: .white, fontSize: 20, textAlignment: .left)
     private let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
     
@@ -151,16 +151,15 @@ private extension MakeHabitsVC {
     
     
     func setupHeaders() {
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = Strings.create
+        tabBarItem?.title = ""
         view.backgroundColor = UIColor.appColor(color: .darkestAsh)
+        
+        let attributesForLargeTitle = [ NSAttributedString.Key.foregroundColor : UIColor.white ]
+        navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
+        
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
-        
-        view.addSubviews(titleLabel)
-        titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 36, left: 20, bottom: 0, right: 0))
-        
-        let attributedString = NSMutableAttributedString(string: Strings.create)
-        attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(2.5), range: NSRange(location: 0, length: attributedString.length))
-        titleLabel.attributedText = attributedString
     }
     
     
@@ -219,7 +218,7 @@ private extension MakeHabitsVC {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        scrollView.anchor(top: titleLabel.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+        scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         contentView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor)
         
         NSLayoutConstraint.activate([

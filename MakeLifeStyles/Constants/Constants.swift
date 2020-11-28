@@ -40,6 +40,9 @@ struct Strings {
     static let moreTimesPerDay = "Or more times per day"
     static let days = "Days"
     
+    // Home Screen
+    static let home = "Home"
+    
     // Common
     static let successful = "Successful"
     static let failed = "Failed"
@@ -63,4 +66,10 @@ struct GlobalDimensions {
     static let height: CGFloat = 50
     static let cornerRadius: CGFloat = height / 2
     static let borderWidth: CGFloat = 0.5
+}
+
+
+// MARK: Fonts
+struct Fonts {
+    static let avenirNext = "Avenir Next"
 }
