@@ -37,8 +37,8 @@ extension HomeVC {
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(viewModel.habits[indexPath.item])
-        let controller = UIViewController()
+        let habit = viewModel.habits[indexPath.item]
+        let controller = HabitDetailsVC(viewModel: HabitDetailsVM(habit: habit))
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
