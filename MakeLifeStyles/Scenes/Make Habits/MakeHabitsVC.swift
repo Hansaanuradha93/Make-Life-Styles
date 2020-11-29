@@ -142,9 +142,15 @@ private extension MakeHabitsVC {
             if isBuildClicked {
                 self.quitButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
                 self.buildButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+                self.setGoalTextField.text = "1"
+                self.setGoalTextField.setWidth(70)
+                self.timePerWeekLabel.text = Strings.moreTimesPerDay
             } else {
                 self.buildButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
                 self.quitButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+                self.setGoalTextField.text = ""
+                self.setGoalTextField.setWidth(0)
+                self.timePerWeekLabel.text = "Get rid of this habit"
             }
         }
     }
