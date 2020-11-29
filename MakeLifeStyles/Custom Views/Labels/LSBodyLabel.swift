@@ -16,9 +16,14 @@ class LSBodyLabel: UILabel {
     
     convenience init(text: String = "", textColor: UIColor = .black, fontSize: CGFloat = 18, textAlignment: NSTextAlignment = .center, numberOfLines: Int = 1) {
         self.init(frame: .zero)
+        
+        let traits = [UIFontDescriptor.TraitKey.weight: UIFont.Weight.regular]
+        var descriptor = UIFontDescriptor(fontAttributes: [UIFontDescriptor.AttributeName.family: Fonts.avenirNext])
+        descriptor = descriptor.addingAttributes([UIFontDescriptor.AttributeName.traits: traits])
+        
         self.text = text
         self.textColor = textColor
-        self.font = UIFont(name: "AvenirNext-Regular", size: fontSize)
+        self.font = UIFont(descriptor: descriptor, size: fontSize)
         self.textAlignment = textAlignment
         self.numberOfLines = numberOfLines
     }
