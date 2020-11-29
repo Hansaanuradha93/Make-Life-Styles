@@ -88,7 +88,7 @@ extension HomeVC {
         title = Strings.home
         tabBarItem?.title = ""
         
-        collectionView.backgroundColor = UIColor.appColor(color: .pinkishRed)
+        collectionView.backgroundColor = UIColor.white
         collectionView.contentInset.top = 30
         collectionView.register(HabitCell.self, forCellWithReuseIdentifier: HabitCell.reuseID)
         

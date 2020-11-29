@@ -7,8 +7,8 @@ class HabitCell: UICollectionViewCell {
     
     fileprivate let iconContainer = UIView()
     fileprivate let iconImageView = LSImageView()
-    fileprivate let habitNameLabel = LSTitleLabel(textColor: UIColor.appColor(color: .lighestGreen), fontSize: 15)
-    fileprivate let habitDaysLabel = LSBodyLabel(textColor: UIColor.appColor(color: .lighestGreen), fontSize: 16)
+    fileprivate let habitNameLabel = LSTitleLabel(textColor: UIColor.appColor(color: .darkestAsh), fontSize: 15)
+    fileprivate let habitDaysLabel = LSBodyLabel(textColor: UIColor.appColor(color: .darkestAsh), fontSize: 16)
     
     var shapeRing: CAShapeLayer?
     
