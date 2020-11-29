@@ -18,4 +18,8 @@ public class Habit: NSManagedObject {
         get { return Int(repetitions) }
         set { repetitions = Int16(newValue) }
     }
+    
+    var habitType: Bool {
+        get { return ((type == "Build") ? true : false) }
+    }
 }
