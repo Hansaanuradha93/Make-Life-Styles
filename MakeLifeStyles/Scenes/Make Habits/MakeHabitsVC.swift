@@ -9,7 +9,6 @@ class MakeHabitsVC: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-//    private let titleLabel = LSTitleLabel(textColor: .white, fontSize: 28, textAlignment: .left)
     private let nameLabel = LSBodyLabel(text: Strings.nameYourHabbit, textColor: .white, fontSize: 20, textAlignment: .left)
     private let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
     
@@ -34,6 +33,8 @@ class MakeHabitsVC: UIViewController {
     }()
     
     private let contentView = UIView()
+    private var overrallStackView = UIStackView()
+    private var goalStackView = UIStackView()
     
     
     // MARK: View Controller
@@ -142,17 +143,19 @@ private extension MakeHabitsVC {
             if isBuildClicked {
                 self.quitButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
                 self.buildButton.backgroundColor = UIColor.appColor(color: .lightBlack)
-                self.setGoalTextField.text = "1"
-                self.setGoalTextField.setWidth(70)
-                self.timePerWeekLabel.text = Strings.moreTimesPerDay
+                self.setupViews()
             } else {
                 self.buildButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
                 self.quitButton.backgroundColor = UIColor.appColor(color: .lightBlack)
-                self.setGoalTextField.text = ""
-                self.setGoalTextField.setWidth(0)
-                self.timePerWeekLabel.text = "Get rid of this habit"
+                self.removeGoalView()
             }
         }
+    }
+    
+    
+    func removeGoalView() {
+        overrallStackView.removeFully(view: setGoalLabel)
+        overrallStackView.removeFully(view: goalStackView)
     }
     
     
@@ -194,41 +197,45 @@ private extension MakeHabitsVC {
     
     
     func setupViews() {
-        nameTextField.setHeight(GlobalDimensions.height)
-        setGoalTextField.setWidth(70)
-        setGoalTextField.setHeight(GlobalDimensions.height)
-        buildButton.setWidth(70)
-        quitButton.setWidth(70)
-        saveButton.setHeight(GlobalDimensions.height)
+        let spacing: CGFloat = 20
+        let width: CGFloat = 70
+        let height: CGFloat = GlobalDimensions.height
+        
+        nameTextField.setHeight(height)
+        setGoalTextField.setWidth(width)
+        setGoalTextField.setHeight(height)
+        buildButton.setWidth(width)
+        quitButton.setWidth(width)
+        saveButton.setHeight(height)
 
         let buttonSpacingView = UIView()
         buttonSpacingView.backgroundColor = UIColor.appColor(color: .darkestAsh)
                 
         let buttonStackView = UIStackView(arrangedSubviews: [buildButton, quitButton, buttonSpacingView])
-        buttonStackView.spacing = 20
+        buttonStackView.spacing = spacing
         buttonStackView.alignment = .fill
-        buttonStackView.setHeight(GlobalDimensions.height)
+        buttonStackView.setHeight(height)
         
         let initialDaysSpacingView = UIView()
         initialDaysSpacingView.backgroundColor = UIColor.appColor(color: .darkestAsh)
         
         let initialDaysStackView = UIStackView(arrangedSubviews: [numberOfDaysValueLabel, initialDaysSpacingView, numberOfDaysIncrementStepper])
-        initialDaysStackView.spacing = 20
+        initialDaysStackView.spacing = spacing
         initialDaysStackView.alignment = .fill
         
         let goalSpacingView = UIView()
         goalSpacingView.backgroundColor = UIColor.appColor(color: .darkestAsh)
         
-        let goalStackView = UIStackView(arrangedSubviews: [setGoalTextField, timePerWeekLabel, goalSpacingView])
-        goalStackView.spacing = 20
+        goalStackView = UIStackView(arrangedSubviews: [setGoalTextField, timePerWeekLabel, goalSpacingView])
+        goalStackView.spacing = spacing
         goalStackView.alignment = .fill
         
-        let overrallStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, typeLabel, buttonStackView, numberOfDaysLabel, initialDaysStackView, setGoalLabel, goalStackView, saveButton])
+        overrallStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, typeLabel, buttonStackView, numberOfDaysLabel, initialDaysStackView, setGoalLabel, goalStackView, saveButton])
         overrallStackView.axis = .vertical
-        overrallStackView.spacing = 20
+        overrallStackView.spacing = spacing
         
         contentView.addSubview(overrallStackView)
-        overrallStackView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 30, left: 20, bottom: 0, right: 20))
+        overrallStackView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 30, left: spacing, bottom: 0, right: spacing))
     }
     
     
@@ -236,7 +243,7 @@ private extension MakeHabitsVC {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+        scrollView.fillSuperview()
         contentView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor)
         
         NSLayoutConstraint.activate([
