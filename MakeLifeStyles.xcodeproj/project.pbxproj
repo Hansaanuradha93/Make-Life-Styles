@@ -13,6 +13,7 @@
 		472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */; };
 		4743466B2572947C000474B2 /* HabitDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4743466A2572947C000474B2 /* HabitDetailsVC.swift */; };
 		4743466E25729493000474B2 /* HabitDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4743466D25729493000474B2 /* HabitDetailsVM.swift */; };
+		4746339425755AA700E68F08 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4746339325755AA700E68F08 /* UIStackView+Ext.swift */; };
 		474FE6222565463000F3FDFC /* DateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE6212565463000F3FDFC /* DateStore.swift */; };
 		47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47643E2B24F0361500F133F6 /* HomeVC.swift */; };
 		47643E2F24F039B900F133F6 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47643E2D24F039B900F133F6 /* Data.xcdatamodeld */; };
@@ -49,6 +50,7 @@
 		472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAShapeLayer+Ext.swift"; sourceTree = "<group>"; };
 		4743466A2572947C000474B2 /* HabitDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsVC.swift; sourceTree = "<group>"; };
 		4743466D25729493000474B2 /* HabitDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsVM.swift; sourceTree = "<group>"; };
+		4746339325755AA700E68F08 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 		474FE6212565463000F3FDFC /* DateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStore.swift; sourceTree = "<group>"; };
 		47643E2B24F0361500F133F6 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		47643E2E24F039B900F133F6 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				4798D12D24EA325200267A89 /* NSMutableAttributedString+Ext.swift */,
 				472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */,
 				47BD3979256AB97400DBB2FC /* UIViewController+Ext.swift */,
+				4746339325755AA700E68F08 /* UIStackView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				47BD3976256AB65700DBB2FC /* LSAlertContainerView.swift in Sources */,
 				4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */,
 				472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */,
+				4746339425755AA700E68F08 /* UIStackView+Ext.swift in Sources */,
 				47822B2124EEE17B005B44A3 /* LSTextField.swift in Sources */,
 				4798D13724EA512000267A89 /* LSButton.swift in Sources */,
 				47BD397A256AB97400DBB2FC /* UIViewController+Ext.swift in Sources */,
