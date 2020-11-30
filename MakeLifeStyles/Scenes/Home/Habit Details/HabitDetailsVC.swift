@@ -10,7 +10,7 @@ class HabitDetailsVC: UIViewController {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private let nameLabel = LSBodyLabel(text: "Habit", textColor: .white, fontSize: 20, textAlignment: .left)
-    private let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
+    private let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, padding: 16)
     
     private let typeLabel = LSBodyLabel(text: "Habit Type", textColor: .white, fontSize: 20, textAlignment: .left)
     private let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.build, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius, fontSize: 14)
@@ -21,7 +21,7 @@ class HabitDetailsVC: UIViewController {
     private let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
     
     private let setGoalLabel = LSBodyLabel(text: "Goal", textColor: .white, fontSize: 20, textAlignment: .left)
-    private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
+    private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, padding: 16)
     private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
     
     private let updateButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "Update", titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius)

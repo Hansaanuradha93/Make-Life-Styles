@@ -12,7 +12,7 @@ class LSTextField: UITextField {
     }
     
     
-    convenience init(text: String = "", backgroundColor: UIColor = .white, textColor: UIColor = .black, textSize: CGFloat, borderStyle: UITextField.BorderStyle = .line, padding: CGFloat = 0, placeholderText: String = "") {
+    convenience init(text: String = "", backgroundColor: UIColor = .white, textColor: UIColor = .black, textSize: CGFloat, borderStyle: UITextField.BorderStyle = .none, padding: CGFloat = 0, placeholderText: String = "") {
         self.init()
         self.text = text
         self.backgroundColor = backgroundColor
