@@ -17,3 +17,15 @@ extension UIColor {
         return UIColor(named: color.rawValue)!
     }
 }
+
+
+struct AppColor {
+    static let lightAsh = UIColor.appColor(color: .lightAsh)
+    static let darkestAsh = UIColor.appColor(color: .darkestAsh)
+    static let greenishBlue = UIColor.appColor(color: .greenishBlue)
+    static let lighestGreen = UIColor.appColor(color: .lighestGreen)
+    static let lightYellow = UIColor.appColor(color: .lightYellow)
+    static let pinkishRed = UIColor.appColor(color: .pinkishRed)
+    static let teal = UIColor.appColor(color: .teal)
+    static let lightBlack = UIColor.appColor(color: .lightBlack)
+}

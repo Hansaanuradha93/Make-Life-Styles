@@ -1,34 +1,30 @@
 import UIKit
-import CoreData
 
 class MakeHabitsVC: UIViewController {
 
     // MARK: Properties
     private let viewModel = MakeHabitsVM()
     
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     private let nameLabel = LSBodyLabel(text: Strings.nameYourHabbit, textColor: .white, fontSize: 20, textAlignment: .left)
-    private let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
+    private let nameTextField = LSTextField(backgroundColor: AppColor.darkestAsh, textColor: AppColor.lightAsh, textSize: 20, padding: 16)
     
     private let typeLabel = LSBodyLabel(text: Strings.buildOrQuitHabbit, textColor: .white, fontSize: 20, textAlignment: .left)
-    private let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.build, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius, fontSize: 14)
-    private let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.quit, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius, fontSize: 14)
+    private let buildButton = LSButton(backgroundColor: AppColor.lightBlack, title: Strings.build, titleColor: AppColor.lightAsh, radius: GlobalDimensions.cornerRadius, fontSize: 14)
+    private let quitButton = LSButton(backgroundColor: AppColor.darkestAsh, title: Strings.quit, titleColor: AppColor.lightAsh, radius: GlobalDimensions.cornerRadius, fontSize: 14)
     
     private let numberOfDaysLabel = LSBodyLabel(text: Strings.howManyDays, textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
-    private let numberOfDaysValueLabel = LSBodyLabel(text: Strings.oneDay, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left, numberOfLines: 0)
-    private let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
+    private let numberOfDaysValueLabel = LSBodyLabel(text: Strings.oneDay, textColor: AppColor.lightAsh, fontSize: 18, textAlignment: .left, numberOfLines: 0)
+    private let numberOfDaysIncrementStepper = UIStepper()
     
     private let setGoalLabel = LSBodyLabel(text: Strings.setYourGoal, textColor: .white, fontSize: 20, textAlignment: .left)
-    private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, borderStyle: .none, padding: 16)
-    private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
+    private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: AppColor.darkestAsh, textColor: AppColor.lightAsh, textSize: 20, padding: 16)
+    private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: AppColor.lightAsh, fontSize: 18, textAlignment: .left)
     
-    private let saveButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.save, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius)
+    private let saveButton = LSButton(backgroundColor: AppColor.darkestAsh, title: Strings.save, titleColor: AppColor.lightAsh, radius: GlobalDimensions.cornerRadius)
 
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
-        view.backgroundColor = UIColor.appColor(color: .darkestAsh)
+        view.backgroundColor = AppColor.darkestAsh
         return view
     }()
     
@@ -111,7 +107,6 @@ private extension MakeHabitsVC {
         viewModel.isBuildHabit = true
         viewModel.numberOfDays = 1
         viewModel.goal = "1"
-
         
         nameTextField.text = ""
         changeButtons(isBuildClicked: true)
@@ -125,13 +120,13 @@ private extension MakeHabitsVC {
         viewModel.bindalbeIsFormValid.bind { [weak self] isFormValid in
             guard let self = self, let isFormValid = isFormValid else { return }
             if isFormValid {
-                self.saveButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+                self.saveButton.backgroundColor = AppColor.lightBlack
                 self.saveButton.setTitleColor(.white, for: .normal)
                 self.saveButton.setRoundedBorder(radius: 25)
             } else {
-                self.saveButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
+                self.saveButton.backgroundColor = AppColor.darkestAsh
                 self.saveButton.setTitleColor(UIColor.appColor(color: .lightAsh), for: .normal)
-                self.saveButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+                self.saveButton.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: 0.5, radius: 25)
             }
             self.saveButton.isEnabled = isFormValid
         }
@@ -141,12 +136,12 @@ private extension MakeHabitsVC {
     func changeButtons(isBuildClicked: Bool) {
         UIView.animate(withDuration: 0.3) {
             if isBuildClicked {
-                self.quitButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
-                self.buildButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+                self.buildButton.backgroundColor = AppColor.lightBlack
+                self.quitButton.backgroundColor = AppColor.darkestAsh
                 self.setupViews()
             } else {
-                self.buildButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
-                self.quitButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+                self.buildButton.backgroundColor = AppColor.darkestAsh
+                self.quitButton.backgroundColor = AppColor.lightBlack
                 self.removeGoalView()
             }
         }
@@ -163,9 +158,9 @@ private extension MakeHabitsVC {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = Strings.create
         tabBarItem?.title = ""
-        view.backgroundColor = UIColor.appColor(color: .darkestAsh)
+        view.backgroundColor = AppColor.darkestAsh
         
-        let attributesForLargeTitle = [ NSAttributedString.Key.foregroundColor : UIColor.white ]
+        let attributesForLargeTitle = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
@@ -174,7 +169,7 @@ private extension MakeHabitsVC {
     
     func customizeUIControlls() {
         nameTextField.tintColor = UIColor.appColor(color: .lightAsh)
-        nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: GlobalDimensions.cornerRadius)
+        nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         nameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         
         buildButton.addTarget(self, action: #selector(buildButtonTapped), for: .touchUpInside)
@@ -185,13 +180,13 @@ private extension MakeHabitsVC {
         numberOfDaysIncrementStepper.minimumValue = 1
         numberOfDaysIncrementStepper.addTarget(self, action: #selector(handleDaysIncrement), for: .valueChanged)
         
-        setGoalTextField.tintColor = UIColor.appColor(color: .lightAsh)
-        setGoalTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
+        setGoalTextField.tintColor = AppColor.lightAsh
+        setGoalTextField.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         setGoalTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         setGoalTextField.keyboardType = .numberPad
                 
         saveButton.isEnabled = false
-        saveButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
+        saveButton.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
@@ -209,7 +204,7 @@ private extension MakeHabitsVC {
         saveButton.setHeight(height)
 
         let buttonSpacingView = UIView()
-        buttonSpacingView.backgroundColor = UIColor.appColor(color: .darkestAsh)
+        buttonSpacingView.backgroundColor = AppColor.darkestAsh
                 
         let buttonStackView = UIStackView(arrangedSubviews: [buildButton, quitButton, buttonSpacingView])
         buttonStackView.spacing = spacing
@@ -217,14 +212,14 @@ private extension MakeHabitsVC {
         buttonStackView.setHeight(height)
         
         let initialDaysSpacingView = UIView()
-        initialDaysSpacingView.backgroundColor = UIColor.appColor(color: .darkestAsh)
+        initialDaysSpacingView.backgroundColor = AppColor.darkestAsh
         
         let initialDaysStackView = UIStackView(arrangedSubviews: [numberOfDaysValueLabel, initialDaysSpacingView, numberOfDaysIncrementStepper])
         initialDaysStackView.spacing = spacing
         initialDaysStackView.alignment = .fill
         
         let goalSpacingView = UIView()
-        goalSpacingView.backgroundColor = UIColor.appColor(color: .darkestAsh)
+        goalSpacingView.backgroundColor = AppColor.darkestAsh
         
         goalStackView = UIStackView(arrangedSubviews: [setGoalTextField, timePerWeekLabel, goalSpacingView])
         goalStackView.spacing = spacing
