@@ -1,34 +1,30 @@
 import UIKit
-import CoreData
 
 class HabitDetailsVC: UIViewController {
 
     // MARK: Perperties
     private var viewModel: HabitDetailsVM!
     
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let nameLabel = LSBodyLabel(text: Strings.habit, textColor: .white, fontSize: 20, textAlignment: .left)
+    private let nameTextField = LSTextField(backgroundColor: AppColor.darkestAsh, textColor: AppColor.lightAsh, textSize: 20, padding: 16)
     
-    private let nameLabel = LSBodyLabel(text: "Habit", textColor: .white, fontSize: 20, textAlignment: .left)
-    private let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, padding: 16)
+    private let typeLabel = LSBodyLabel(text: Strings.habitType, textColor: .white, fontSize: 20, textAlignment: .left)
+    private let buildButton = LSButton(backgroundColor: AppColor.lightBlack, title: Strings.build, titleColor: AppColor.lightAsh, radius: GlobalDimensions.cornerRadius, fontSize: 14)
+    private let quitButton = LSButton(backgroundColor: AppColor.darkestAsh, title: Strings.quit, titleColor: AppColor.lightAsh, radius: GlobalDimensions.cornerRadius, fontSize: 14)
     
-    private let typeLabel = LSBodyLabel(text: "Habit Type", textColor: .white, fontSize: 20, textAlignment: .left)
-    private let buildButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.build, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius, fontSize: 14)
-    private let quitButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.quit, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius, fontSize: 14)
+    private let numberOfDaysLabel = LSBodyLabel(text: Strings.numberOfDays, textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
+    private let numberOfDaysValueLabel = LSBodyLabel(text: Strings.oneDay, textColor: AppColor.lightAsh, fontSize: 18, textAlignment: .left, numberOfLines: 0)
+    private let numberOfDaysIncrementStepper = UIStepper()
     
-    private let numberOfDaysLabel = LSBodyLabel(text: "Number of Days", textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
-    private let numberOfDaysValueLabel = LSBodyLabel(text: Strings.oneDay, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left, numberOfLines: 0)
-    private let numberOfDaysIncrementStepper = UIStepper (frame:CGRect(x: 10, y: 150, width: 0, height: 0))
+    private let setGoalLabel = LSBodyLabel(text: Strings.goal, textColor: .white, fontSize: 20, textAlignment: .left)
+    private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: AppColor.darkestAsh, textColor: AppColor.lightAsh, textSize: 20, padding: 16)
+    private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: AppColor.lightAsh, fontSize: 18, textAlignment: .left)
     
-    private let setGoalLabel = LSBodyLabel(text: "Goal", textColor: .white, fontSize: 20, textAlignment: .left)
-    private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: UIColor.appColor(color: .lightAsh), textSize: 20, padding: 16)
-    private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: UIColor.appColor(color: .lightAsh), fontSize: 18, textAlignment: .left)
-    
-    private let updateButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: "Update", titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius)
+    private let updateButton = LSButton(backgroundColor: AppColor.darkestAsh, title: Strings.update, titleColor: AppColor.lightAsh, radius: GlobalDimensions.cornerRadius)
 
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
-        view.backgroundColor = UIColor.appColor(color: .darkestAsh)
+        view.backgroundColor = AppColor.darkestAsh
         return view
     }()
     
@@ -145,13 +141,13 @@ private extension HabitDetailsVC {
         viewModel.bindalbeIsFormValid.bind { [weak self] isFormValid in
             guard let self = self, let isFormValid = isFormValid else { return }
             if isFormValid {
-                self.updateButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+                self.updateButton.backgroundColor = AppColor.lightBlack
                 self.updateButton.setTitleColor(.white, for: .normal)
                 self.updateButton.setRoundedBorder(radius: GlobalDimensions.cornerRadius)
             } else {
-                self.updateButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
-                self.updateButton.setTitleColor(UIColor.appColor(color: .lightAsh), for: .normal)
-                self.updateButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
+                self.updateButton.backgroundColor = AppColor.darkestAsh
+                self.updateButton.setTitleColor(AppColor.lightAsh, for: .normal)
+                self.updateButton.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
             }
             self.updateButton.isEnabled = isFormValid
         }
@@ -183,7 +179,7 @@ private extension HabitDetailsVC {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = Strings.create
         tabBarItem?.title = ""
-        view.backgroundColor = UIColor.appColor(color: .darkestAsh)
+        view.backgroundColor = AppColor.darkestAsh
         
         let attributesForLargeTitle = [ NSAttributedString.Key.foregroundColor : UIColor.white ]
         navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
@@ -193,8 +189,8 @@ private extension HabitDetailsVC {
     
     
     func customizeUIControlls() {
-        nameTextField.tintColor = UIColor.appColor(color: .lightAsh)
-        nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
+        nameTextField.tintColor = AppColor.lightAsh
+        nameTextField.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         nameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         
         buildButton.addTarget(self, action: #selector(buildButtonTapped), for: .touchUpInside)
@@ -205,13 +201,13 @@ private extension HabitDetailsVC {
         numberOfDaysIncrementStepper.minimumValue = 1
         numberOfDaysIncrementStepper.addTarget(self, action: #selector(handleDaysIncrement), for: .valueChanged)
         
-        setGoalTextField.tintColor = UIColor.appColor(color: .lightAsh)
-        setGoalTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
+        setGoalTextField.tintColor = AppColor.lightAsh
+        setGoalTextField.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         setGoalTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         setGoalTextField.keyboardType = .numberPad
                 
         updateButton.isEnabled = false
-        updateButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
+        updateButton.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
     }
     

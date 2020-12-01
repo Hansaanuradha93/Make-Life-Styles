@@ -43,6 +43,12 @@ struct Strings {
     // Home Screen
     static let home = "Home"
     
+    // Habit Details Screen
+    static let habit = "Habit"
+    static let habitType = "Habit Type"
+    static let numberOfDays = "Number of Days"
+    static let goal = "Goal"
+    
     // Common
     static let successful = "Successful"
     static let failed = "Failed"
@@ -58,6 +64,7 @@ struct Strings {
     static let build = "Build"
     static let quit = "Quit"
     static let save = "Save"
+    static let update = "Update"
 }
 
 
