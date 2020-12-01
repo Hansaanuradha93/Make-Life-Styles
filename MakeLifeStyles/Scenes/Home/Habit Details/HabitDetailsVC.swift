@@ -120,6 +120,11 @@ private extension HabitDetailsVC {
         } else if habit.daysValue > 1 {
             numberOfDaysValueLabel.text = "\(habit.daysValue) \(Strings.days)"
         }
+        
+        viewModel.habitName = habit.name
+        viewModel.isBuildHabit = habit.habitType
+        viewModel.numberOfDays = habit.daysValue
+        viewModel.goal = "\(habit.repetitionsValue)"
     }
     
     func resetUI() {

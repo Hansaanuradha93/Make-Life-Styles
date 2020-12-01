@@ -48,7 +48,7 @@ extension MakeHabitsVM {
     
     
     private func checkFormValidity() {
-        let isFormValid = habitName?.isEmpty == false && habitName?.count ?? 0 >= 4 && goal?.isEmpty == false
+        let isFormValid = habitName?.isEmpty == false && habitName?.count ?? 0 >= 3 && goal?.isEmpty == false
         bindalbeIsFormValid.value = isFormValid
     }
 }

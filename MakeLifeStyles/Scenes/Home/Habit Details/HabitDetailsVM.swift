@@ -35,6 +35,11 @@ extension HabitDetailsVM {
     
     func updateHabit() {
         do {
+            habit.name = habitName
+            habit.type = habitType
+            habit.daysValue = numberOfDays ?? habit.daysValue
+            habit.repetitionsValue = Int(goal ?? "") ?? habit.repetitionsValue
+            
             try context.save()
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -43,7 +48,7 @@ extension HabitDetailsVM {
     
     
     private func checkFormValidity() {
-        let isFormValid = habitName?.isEmpty == false && habitName?.count ?? 0 >= 4 && goal?.isEmpty == false
+        let isFormValid = habitName?.isEmpty == false && habitName?.count ?? 0 >= 3 && goal?.isEmpty == false
         bindalbeIsFormValid.value = isFormValid
     }
 }
