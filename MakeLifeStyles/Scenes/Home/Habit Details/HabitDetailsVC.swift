@@ -68,16 +68,8 @@ class HabitDetailsVC: UIViewController {
 // MARK: - Objc Methods
 private extension HabitDetailsVC {
     
-    @objc func saveButtonTapped() {
-//        viewModel.saveHabit { [weak self] status, message in
-//            guard let self = self else { return }
-//            if status {
-//                self.presentLSAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok)
-//            } else {
-//                self.presentLSAlertOnMainTread(title: Strings.failed, message: message, buttonTitle: Strings.ok)
-//            }
-//        }
-//        resetUI()
+    @objc func updateButtonTapped() {
+        print("update")
     }
     
     
@@ -140,7 +132,6 @@ private extension HabitDetailsVC {
         viewModel.isBuildHabit = true
         viewModel.numberOfDays = 1
         viewModel.goal = "1"
-
         
         nameTextField.text = ""
         changeButtons(isBuildClicked: true)
@@ -156,11 +147,11 @@ private extension HabitDetailsVC {
             if isFormValid {
                 self.updateButton.backgroundColor = UIColor.appColor(color: .lightBlack)
                 self.updateButton.setTitleColor(.white, for: .normal)
-                self.updateButton.setRoundedBorder(radius: 25)
+                self.updateButton.setRoundedBorder(radius: GlobalDimensions.cornerRadius)
             } else {
                 self.updateButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
                 self.updateButton.setTitleColor(UIColor.appColor(color: .lightAsh), for: .normal)
-                self.updateButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: 25)
+                self.updateButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
             }
             self.updateButton.isEnabled = isFormValid
         }
@@ -203,7 +194,7 @@ private extension HabitDetailsVC {
     
     func customizeUIControlls() {
         nameTextField.tintColor = UIColor.appColor(color: .lightAsh)
-        nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: GlobalDimensions.cornerRadius)
+        nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         nameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         
         buildButton.addTarget(self, action: #selector(buildButtonTapped), for: .touchUpInside)
@@ -221,7 +212,7 @@ private extension HabitDetailsVC {
                 
         updateButton.isEnabled = false
         updateButton.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
-        updateButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
     }
     
     
