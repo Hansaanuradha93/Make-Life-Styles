@@ -33,6 +33,8 @@ class HabitDetailsVC: UIViewController {
     }()
     
     private let contentView = UIView()
+    private var overrallStackView = UIStackView()
+    private var goalStackView = UIStackView()
     
     
     // MARK: Initializers
@@ -168,13 +170,21 @@ private extension HabitDetailsVC {
     func changeButtons(isBuildClicked: Bool) {
         UIView.animate(withDuration: 0.3) {
             if isBuildClicked {
-                self.quitButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
-                self.buildButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+                self.buildButton.backgroundColor = AppColor.lightBlack
+                self.quitButton.backgroundColor = AppColor.darkestAsh
+                self.setupViews()
             } else {
-                self.buildButton.backgroundColor = UIColor.appColor(color: .darkestAsh)
-                self.quitButton.backgroundColor = UIColor.appColor(color: .lightBlack)
+                self.buildButton.backgroundColor = AppColor.darkestAsh
+                self.quitButton.backgroundColor = AppColor.lightBlack
+                self.removeGoalView()
             }
         }
+    }
+    
+    
+    func removeGoalView() {
+        overrallStackView.removeFully(view: setGoalLabel)
+        overrallStackView.removeFully(view: goalStackView)
     }
     
     
@@ -200,7 +210,7 @@ private extension HabitDetailsVC {
         quitButton.addTarget(self, action: #selector(quitButtonTapped), for: .touchUpInside)
         
         numberOfDaysIncrementStepper.autorepeat = true
-        numberOfDaysIncrementStepper.value = 1
+        numberOfDaysIncrementStepper.value = Double(viewModel.habit.daysValue)
         numberOfDaysIncrementStepper.minimumValue = 1
         numberOfDaysIncrementStepper.addTarget(self, action: #selector(handleDaysIncrement), for: .valueChanged)
         
@@ -216,29 +226,45 @@ private extension HabitDetailsVC {
     
     
     func setupViews() {
-        let textFieldsDimensions = CGSize(width: view.frame.width - 40, height: 50)
-        let controlButtonsDimensions = CGSize(width: 70, height: GlobalDimensions.height)
+        let spacing: CGFloat = 20
+        let width: CGFloat = 70
+        let height: CGFloat = GlobalDimensions.height
         
-        contentView.addSubviews(nameLabel, nameTextField, typeLabel, buildButton, quitButton, numberOfDaysLabel, numberOfDaysValueLabel, numberOfDaysIncrementStepper, setGoalLabel, setGoalTextField, timePerWeekLabel, updateButton)
+        nameTextField.setHeight(height)
+        setGoalTextField.setWidth(width)
+        setGoalTextField.setHeight(height)
+        buildButton.setWidth(width)
+        quitButton.setWidth(width)
+        updateButton.setHeight(height)
+
+        let buttonSpacingView = UIView()
+        buttonSpacingView.backgroundColor = AppColor.darkestAsh
+                
+        let buttonStackView = UIStackView(arrangedSubviews: [buildButton, quitButton, buttonSpacingView])
+        buttonStackView.spacing = spacing
+        buttonStackView.alignment = .fill
+        buttonStackView.setHeight(height)
         
-        nameLabel.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 30, left: 20, bottom: 0, right: 20))
-        nameTextField.anchor(top: nameLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 20, bottom: 0, right: 0), size: textFieldsDimensions)
+        let initialDaysSpacingView = UIView()
+        initialDaysSpacingView.backgroundColor = AppColor.darkestAsh
         
-        typeLabel.anchor(top: nameTextField.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 26, left: 0, bottom: 0, right: 0))
-        buildButton.anchor(top: typeLabel.bottomAnchor, leading: typeLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 0, bottom: 0, right: 0), size: controlButtonsDimensions)
-        quitButton.anchor(top: buildButton.topAnchor, leading: buildButton.trailingAnchor, bottom: buildButton.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 24, bottom: 0, right: 0), size: controlButtonsDimensions)
+        let initialDaysStackView = UIStackView(arrangedSubviews: [numberOfDaysValueLabel, initialDaysSpacingView, numberOfDaysIncrementStepper])
+        initialDaysStackView.spacing = spacing
+        initialDaysStackView.alignment = .fill
         
-        numberOfDaysLabel.anchor(top: buildButton.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nameTextField.trailingAnchor, padding: .init(top: 26, left: 0, bottom: 0, right: 0))
-        numberOfDaysValueLabel.anchor(top: numberOfDaysLabel.bottomAnchor, leading: numberOfDaysLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 16, bottom: 0, right: 0))
-        numberOfDaysIncrementStepper.anchor(top: nil, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 20))
-        numberOfDaysIncrementStepper.centerVertically(in: numberOfDaysValueLabel)
+        let goalSpacingView = UIView()
+        goalSpacingView.backgroundColor = AppColor.darkestAsh
         
-        setGoalLabel.anchor(top: numberOfDaysIncrementStepper.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 26, left: 20, bottom: 0, right: 0))
-        setGoalTextField.anchor(top: setGoalLabel.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 0, bottom: 0, right: 0), size: .init(width: 70, height: GlobalDimensions.height))
-        timePerWeekLabel.anchor(top: nil, leading: setGoalTextField.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 16, bottom: 0, right: 0))
-        timePerWeekLabel.centerVertically(in: setGoalTextField)
+        goalStackView = UIStackView(arrangedSubviews: [setGoalTextField, timePerWeekLabel, goalSpacingView])
+        goalStackView.spacing = spacing
+        goalStackView.alignment = .fill
         
-        updateButton.anchor(top: setGoalTextField.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 26, left: 20, bottom: 0, right: 20), size: textFieldsDimensions)
+        overrallStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, typeLabel, buttonStackView, numberOfDaysLabel, initialDaysStackView, setGoalLabel, goalStackView, updateButton])
+        overrallStackView.axis = .vertical
+        overrallStackView.spacing = spacing
+        
+        contentView.addSubview(overrallStackView)
+        overrallStackView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 30, left: spacing, bottom: 0, right: spacing))
     }
     
     
