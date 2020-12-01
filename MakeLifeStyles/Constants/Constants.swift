@@ -54,7 +54,8 @@ struct Strings {
     static let failed = "Failed"
     static let empty = ""
     static let somethingWentWrong = "Something went wront"
-    static let habitSavedSucessfully = "Habit Saved Successfully"
+    static let habitSavedSuccessfully = "Habit Saved Successfully"
+    static let habitUpdatedSuccessfully = "Habit Updated Successfully"
     static let unableToCompleteRequest = "Unable to complete request"
 
     // Buttons

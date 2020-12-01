@@ -39,7 +39,7 @@ extension MakeHabitsVM {
         
         do {
             try context.save()
-            completion(true, Strings.habitSavedSucessfully)
+            completion(true, Strings.habitSavedSuccessfully)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
             completion(false, Strings.somethingWentWrong)

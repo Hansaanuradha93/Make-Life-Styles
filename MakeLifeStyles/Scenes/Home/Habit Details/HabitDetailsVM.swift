@@ -4,6 +4,7 @@ class HabitDetailsVM {
     
     // MARK: Prperties
     let habit: Habit
+    var isUpdating: Bool? { didSet { checkFormValidity() } }
     var habitName: String? { didSet { checkFormValidity() } }
     var isBuildHabit: Bool? = true
     var numberOfDays: Int? = 1
@@ -33,7 +34,7 @@ class HabitDetailsVM {
 // MARK: - Private Methods
 extension HabitDetailsVM {
     
-    func updateHabit() {
+    func updateHabit(completion: @escaping (Bool, String) -> ()) {
         do {
             habit.name = habitName
             habit.type = habitType
@@ -41,14 +42,16 @@ extension HabitDetailsVM {
             habit.repetitionsValue = Int(goal ?? "") ?? habit.repetitionsValue
             
             try context.save()
+            completion(true, Strings.habitUpdatedSuccessfully)
         } catch let error as NSError {
             print(error.localizedDescription)
+            completion(false, Strings.somethingWentWrong)
         }
     }
     
     
     private func checkFormValidity() {
-        let isFormValid = habitName?.isEmpty == false && habitName?.count ?? 0 >= 3 && goal?.isEmpty == false
+        let isFormValid = (isUpdating ?? false) && habitName?.isEmpty == false && habitName?.count ?? 0 >= 3 && goal?.isEmpty == false
         bindalbeIsFormValid.value = isFormValid
     }
 }

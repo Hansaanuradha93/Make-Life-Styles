@@ -65,12 +65,12 @@ class HabitDetailsVC: UIViewController {
 private extension HabitDetailsVC {
     
     @objc func updateButtonTapped() {
-        print("update")
-        viewModel.updateHabit()
+        updateHabit()
     }
     
     
     @objc func handleTextChange(textField: UITextField) {
+        viewModel.isUpdating = true
         viewModel.habitName = nameTextField.text
         viewModel.goal = setGoalTextField.text
     }
@@ -78,18 +78,21 @@ private extension HabitDetailsVC {
     
     @objc func quitButtonTapped() {
         changeButtons(isBuildClicked: false)
+        viewModel.isUpdating = true
         viewModel.isBuildHabit = false
     }
     
     
     @objc func buildButtonTapped() {
         changeButtons(isBuildClicked: true)
+        viewModel.isUpdating = true
         viewModel.isBuildHabit = true
     }
     
     
     @objc func handleDaysIncrement(_ sender: UIStepper) {
         let value = Int(sender.value)
+        viewModel.isUpdating = true
         viewModel.numberOfDays = value
         
         if value == 1 {
@@ -109,6 +112,18 @@ private extension HabitDetailsVC {
 // MARK: - Private Methods
 private extension HabitDetailsVC {
     
+    func updateHabit() {
+        viewModel.updateHabit { [weak self] status, message in
+            guard let self = self else { return }
+            if status {
+                self.presentLSAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok)
+            } else {
+                self.presentLSAlertOnMainTread(title: Strings.failed, message: message, buttonTitle: Strings.ok)
+            }
+        }
+    }
+    
+    
     func setData() {
         let habit = viewModel.habit
         
@@ -121,6 +136,7 @@ private extension HabitDetailsVC {
             numberOfDaysValueLabel.text = "\(habit.daysValue) \(Strings.days)"
         }
         
+        viewModel.isUpdating = false
         viewModel.habitName = habit.name
         viewModel.isBuildHabit = habit.habitType
         viewModel.numberOfDays = habit.daysValue
