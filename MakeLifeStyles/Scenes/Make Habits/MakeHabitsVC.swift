@@ -122,11 +122,11 @@ private extension MakeHabitsVC {
             if isFormValid {
                 self.saveButton.backgroundColor = AppColor.lightBlack
                 self.saveButton.setTitleColor(.white, for: .normal)
-                self.saveButton.setRoundedBorder(radius: 25)
+                self.saveButton.setRoundedBorder(radius: GlobalDimensions.cornerRadius)
             } else {
                 self.saveButton.backgroundColor = AppColor.darkestAsh
-                self.saveButton.setTitleColor(UIColor.appColor(color: .lightAsh), for: .normal)
-                self.saveButton.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: 0.5, radius: 25)
+                self.saveButton.setTitleColor(AppColor.lightAsh, for: .normal)
+                self.saveButton.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
             }
             self.saveButton.isEnabled = isFormValid
         }
