@@ -33,7 +33,16 @@ class HabitDetailsVM {
 // MARK: - Private Methods
 extension HabitDetailsVM {
     
-    func checkFormValidity() {
+    func updateHabit() {
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    private func checkFormValidity() {
         let isFormValid = habitName?.isEmpty == false && habitName?.count ?? 0 >= 4 && goal?.isEmpty == false
         bindalbeIsFormValid.value = isFormValid
     }

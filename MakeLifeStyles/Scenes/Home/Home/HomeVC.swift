@@ -59,7 +59,7 @@ extension HomeVC {
     func updateHabit(at indexPath: IndexPath) {
         let habit = viewModel.habits[indexPath.item]
         habit.days = habit.days + 1
-        viewModel.update(habit)
+        viewModel.updateHabit()
         collectionView.reloadItems(at: [indexPath])
     }
     

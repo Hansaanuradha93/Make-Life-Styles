@@ -66,6 +66,7 @@ private extension HabitDetailsVC {
     
     @objc func updateButtonTapped() {
         print("update")
+        viewModel.updateHabit()
     }
     
     

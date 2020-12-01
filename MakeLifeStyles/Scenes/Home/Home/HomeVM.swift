@@ -13,7 +13,7 @@ final class HomeVM {
 // MARK: Public Methods
 extension HomeVM {
     
-    func update(_ habit: Habit) {
+    func updateHabit() {
         do {
             try context.save()
         } catch let error as NSError {
