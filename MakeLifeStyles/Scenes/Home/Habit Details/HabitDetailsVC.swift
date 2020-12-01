@@ -121,6 +121,7 @@ private extension HabitDetailsVC {
                 self.presentLSAlertOnMainTread(title: Strings.failed, message: message, buttonTitle: Strings.ok)
             }
         }
+        resetUI()
     }
     
     
@@ -145,17 +146,7 @@ private extension HabitDetailsVC {
     
     func resetUI() {
         view.endEditing(true)
-        
-        viewModel.habitName = ""
-        viewModel.isBuildHabit = true
-        viewModel.numberOfDays = 1
-        viewModel.goal = "1"
-        
-        nameTextField.text = ""
-        changeButtons(isBuildClicked: true)
-        numberOfDaysValueLabel.text = Strings.oneDay
-        numberOfDaysIncrementStepper.value = 1
-        setGoalTextField.text = "1"
+        viewModel.isUpdating = false
     }
     
     
