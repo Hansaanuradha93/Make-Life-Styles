@@ -9,13 +9,13 @@ class HomeVC: UICollectionViewController {
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         addGestures()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupUI()
         fetchHabits()
     }
 }
@@ -85,6 +85,8 @@ extension HomeVC {
     
     fileprivate func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        let attributesForLargeTitle = [ NSAttributedString.Key.foregroundColor : AppColor.lightBlack ]
+        navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
         title = Strings.home
         tabBarItem?.title = ""
         

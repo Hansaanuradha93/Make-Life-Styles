@@ -35,7 +35,7 @@ private extension LSTabBar {
     
     
     func setupUI() {
-        UITabBar.appearance().tintColor = UIColor.appColor(color: .lightBlack)
+        UITabBar.appearance().tintColor = AppColor.lightBlack
         viewControllers = [createHomeNC(), createMakeHabbitsNC(), createLifeStylesListNC()]
         
         let traits = [UIFontDescriptor.TraitKey.weight: UIFont.Weight.semibold]
@@ -44,14 +44,15 @@ private extension LSTabBar {
         
         let attributesForTitle = [
             NSAttributedString.Key.font: UIFont(descriptor: descriptor, size: 18),
-            NSAttributedString.Key.foregroundColor : UIColor.appColor(color: .lightBlack)
+            NSAttributedString.Key.foregroundColor : AppColor.lightBlack
         ]
         
         let attributesForLargeTitle = [
             NSAttributedString.Key.font: UIFont(descriptor: descriptor, size: 35),
-            NSAttributedString.Key.foregroundColor : UIColor.appColor(color: .lightBlack)
+            NSAttributedString.Key.foregroundColor : AppColor.lightBlack
         ]
         
+        UINavigationBar.appearance().tintColor = AppColor.lightAsh
         UINavigationBar.appearance().titleTextAttributes = attributesForTitle
         UINavigationBar.appearance().largeTitleTextAttributes = attributesForLargeTitle
     }
