@@ -1,6 +1,6 @@
 import UIKit
 
-class LifeStylesListVC: UIViewController {
+class LifeStylesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
