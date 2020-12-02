@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4715773724EC3B0E001652A8 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715773624EC3B0E001652A8 /* UserDetailsVC.swift */; };
+		471D1FBA2577C66C002AB1AE /* LifeStylesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D1FB92577C66C002AB1AE /* LifeStylesVM.swift */; };
 		472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472CC37D24E2FFEB009C6890 /* UIView+Ext.swift */; };
 		472CC38024E30083009C6890 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472CC37F24E30083009C6890 /* UIColor+Ext.swift */; };
 		472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		4715773624EC3B0E001652A8 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
+		471D1FB92577C66C002AB1AE /* LifeStylesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStylesVM.swift; sourceTree = "<group>"; };
 		472CC37D24E2FFEB009C6890 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		472CC37F24E30083009C6890 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		472D159524FD60AA00B693DF /* CAShapeLayer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAShapeLayer+Ext.swift"; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				47F34FC524F5710F00DA4F64 /* LifeStylesVC.swift */,
+				471D1FB92577C66C002AB1AE /* LifeStylesVM.swift */,
 			);
 			path = LifeStylesList;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				47F34FC624F5710F00DA4F64 /* LifeStylesVC.swift in Sources */,
 				47B8E07225697DEE00F395C3 /* HomeVM.swift in Sources */,
 				47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */,
+				471D1FBA2577C66C002AB1AE /* LifeStylesVM.swift in Sources */,
 				47BD396A256A704000DBB2FC /* Habit+CoreDataClass.swift in Sources */,
 				4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */,
 				478BEC89251BA60400162592 /* Bindable.swift in Sources */,

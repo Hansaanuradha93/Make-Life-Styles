@@ -2,6 +2,11 @@ import UIKit
 
 class LifeStylesVC: UICollectionViewController {
     
+    // MARK: Properties
+    private let viewModel = LifeStylesVM()
+    
+    
+    // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
