@@ -9,6 +9,22 @@ class LifeStylesVC: UICollectionViewController {
 }
 
 
+// MARK: - Collection View
+extension LifeStylesVC {
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! UICollectionViewCell
+        cell.backgroundColor = .red
+        return cell
+    }
+}
+
+
 // MARK: - Private Methods
 private extension LifeStylesVC {
     
@@ -21,5 +37,6 @@ private extension LifeStylesVC {
         tabBarItem?.title = ""
         
         collectionView.backgroundColor = .white
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
     }
 }
