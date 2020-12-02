@@ -85,7 +85,7 @@ extension HomeVC {
     
     fileprivate func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        let attributesForLargeTitle = [ NSAttributedString.Key.foregroundColor : AppColor.lightBlack ]
+        let attributesForLargeTitle = [NSAttributedString.Key.foregroundColor : AppColor.lightBlack]
         navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
         title = Strings.home
         tabBarItem?.title = ""

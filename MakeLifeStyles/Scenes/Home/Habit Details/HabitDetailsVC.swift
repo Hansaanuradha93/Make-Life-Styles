@@ -189,7 +189,6 @@ private extension HabitDetailsVC {
     
     
     func setupHeaders() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         title = Strings.create
         tabBarItem?.title = ""
         view.backgroundColor = AppColor.darkestAsh
