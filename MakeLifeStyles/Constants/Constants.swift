@@ -49,6 +49,9 @@ struct Strings {
     static let numberOfDays = "Number of Days"
     static let goal = "Goal"
     
+    // Life Style Screen
+    static let lifeStyles = "Life Styles"
+    
     // Common
     static let successful = "Successful"
     static let failed = "Failed"
