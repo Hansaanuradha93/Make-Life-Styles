@@ -189,7 +189,7 @@ private extension HabitDetailsVC {
     
     
     func setupHeaders() {
-        title = Strings.create
+        title = viewModel.habit.name
         tabBarItem?.title = ""
         view.backgroundColor = AppColor.darkestAsh
         
