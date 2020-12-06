@@ -204,6 +204,8 @@ private extension HabitDetailsVC {
     
     
     func customizeUIControlls() {
+        nameTextField.smartInsertDeleteType = .no
+        nameTextField.delegate = self
         nameTextField.tintColor = AppColor.lightAsh
         nameTextField.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         nameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
@@ -282,5 +284,20 @@ private extension HabitDetailsVC {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.heightAnchor.constraint(equalToConstant: 800)
         ])
+    }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension HabitDetailsVC: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let textFieldText = textField.text,
+            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                return false
+        }
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+        return count <= GlobalConstants.charactorLimit
     }
 }

@@ -72,7 +72,13 @@ struct Strings {
 }
 
 
-// MARK: GlobalDimensions
+// MARK: Globle Constants
+struct GlobalConstants {
+    static let charactorLimit = 15
+}
+
+
+// MARK: Global Dimensions
 struct GlobalDimensions {
     static let height: CGFloat = 50
     static let cornerRadius: CGFloat = height / 2
