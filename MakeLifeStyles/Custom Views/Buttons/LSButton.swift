@@ -8,9 +8,7 @@ class LSButton: UIButton {
     }
     
     
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+    required init?(coder: NSCoder) {  fatalError() }
     
     
     convenience init(backgroundColor: UIColor = .white, title: String = "", titleColor: UIColor = .black, radius: CGFloat = 0, fontSize: CGFloat = 16) {

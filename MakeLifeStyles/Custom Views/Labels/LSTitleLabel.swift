@@ -9,9 +9,7 @@ class LSTitleLabel: UILabel {
     }
     
     
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+    required init?(coder: NSCoder) { fatalError() }
 
     
     convenience init(text: String = "", textColor: UIColor = .black, fontSize: CGFloat = 18, textAlignment: NSTextAlignment = .center, numberOfLines: Int = 1) {
