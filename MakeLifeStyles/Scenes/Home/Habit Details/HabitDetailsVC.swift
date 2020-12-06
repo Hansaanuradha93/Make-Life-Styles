@@ -58,6 +58,18 @@ class HabitDetailsVC: UIViewController {
         setupViewModelObserver()
         setData()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupHeaders()
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        resetNavigationBar()
+    }
 }
 
 
@@ -143,6 +155,13 @@ private extension HabitDetailsVC {
         viewModel.numberOfDays = habit.daysValue
         viewModel.goal = "\(habit.repetitionsValue)"
     }
+    
+    
+    func resetNavigationBar() {
+        let attributesForLargeTitle = [NSAttributedString.Key.foregroundColor : AppColor.lightBlack]
+        navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
+    }
+    
     
     func resetUI() {
         view.endEditing(true)
