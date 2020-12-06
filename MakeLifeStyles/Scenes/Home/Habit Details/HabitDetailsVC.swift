@@ -5,29 +5,24 @@ class HabitDetailsVC: UIViewController {
     // MARK: Perperties
     private var viewModel: HabitDetailsVM!
     
-    private let nameLabel = LSBodyLabel(text: Strings.habit, textColor: .white, fontSize: 20, textAlignment: .left)
-    private let nameTextField = LSTextField(backgroundColor: AppColor.darkestAsh, textColor: AppColor.lightAsh, textSize: 20, padding: 16)
+    private let nameLabel = LSBodyLabel(text: Strings.habit, textColor: AppColor.darkestAsh, fontSize: 20, textAlignment: .left)
+    private let nameTextField = LSTextField(textColor: AppColor.lightAsh, textSize: 20, padding: 16)
     
-    private let typeLabel = LSBodyLabel(text: Strings.habitType, textColor: .white, fontSize: 20, textAlignment: .left)
-    private let buildButton = LSButton(backgroundColor: AppColor.lightBlack, title: Strings.build, titleColor: AppColor.lightAsh, radius: GlobalDimensions.cornerRadius, fontSize: 14)
-    private let quitButton = LSButton(backgroundColor: AppColor.darkestAsh, title: Strings.quit, titleColor: AppColor.lightAsh, radius: GlobalDimensions.cornerRadius, fontSize: 14)
+    private let typeLabel = LSBodyLabel(text: Strings.habitType, textColor: AppColor.darkestAsh, fontSize: 20, textAlignment: .left)
+    private let buildButton = LSButton(backgroundColor: AppColor.lightBlack, title: Strings.build, titleColor: .white, radius: GlobalDimensions.cornerRadius, fontSize: 14)
+    private let quitButton = LSButton(backgroundColor: .white, title: Strings.quit, titleColor: AppColor.lightBlack, radius: GlobalDimensions.cornerRadius, fontSize: 14)
     
-    private let numberOfDaysLabel = LSBodyLabel(text: Strings.numberOfDays, textColor: .white, fontSize: 20, textAlignment: .left, numberOfLines: 0)
+    private let numberOfDaysLabel = LSBodyLabel(text: Strings.numberOfDays, textColor: AppColor.darkestAsh, fontSize: 20, textAlignment: .left, numberOfLines: 0)
     private let numberOfDaysValueLabel = LSBodyLabel(text: Strings.oneDay, textColor: AppColor.lightAsh, fontSize: 18, textAlignment: .left, numberOfLines: 0)
     private let numberOfDaysIncrementStepper = UIStepper()
     
-    private let setGoalLabel = LSBodyLabel(text: Strings.goal, textColor: .white, fontSize: 20, textAlignment: .left)
-    private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: AppColor.darkestAsh, textColor: AppColor.lightAsh, textSize: 20, padding: 16)
+    private let setGoalLabel = LSBodyLabel(text: Strings.goal, textColor: AppColor.darkestAsh, fontSize: 20, textAlignment: .left)
+    private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: .white, textColor: AppColor.lightAsh, textSize: 20, padding: 16)
     private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: AppColor.lightAsh, fontSize: 18, textAlignment: .left)
     
-    private let updateButton = LSButton(backgroundColor: AppColor.darkestAsh, title: Strings.update, titleColor: AppColor.lightAsh, radius: GlobalDimensions.cornerRadius)
+    private let updateButton = LSButton(backgroundColor: .white, title: Strings.update, titleColor: AppColor.darkestAsh, radius: GlobalDimensions.cornerRadius)
 
-    private let scrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.backgroundColor = AppColor.darkestAsh
-        return view
-    }()
-    
+    private let scrollView = UIScrollView()
     private let contentView = UIView()
     private var overrallStackView = UIStackView()
     private var goalStackView = UIStackView()
@@ -144,6 +139,13 @@ private extension HabitDetailsVC {
         viewModel.goal = "\(habit.repetitionsValue)"
     }
     
+    
+    func resetNavigationBar() {
+        let attributesForLargeTitle = [NSAttributedString.Key.foregroundColor : AppColor.lightBlack]
+        navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
+    }
+    
+    
     func resetUI() {
         view.endEditing(true)
         viewModel.isUpdating = false
@@ -158,9 +160,9 @@ private extension HabitDetailsVC {
                 self.updateButton.setTitleColor(.white, for: .normal)
                 self.updateButton.setRoundedBorder(radius: GlobalDimensions.cornerRadius)
             } else {
-                self.updateButton.backgroundColor = AppColor.darkestAsh
-                self.updateButton.setTitleColor(AppColor.lightAsh, for: .normal)
-                self.updateButton.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
+                self.updateButton.backgroundColor = .white
+                self.updateButton.setTitleColor(AppColor.lightBlack, for: .normal)
+                self.updateButton.setRoundedBorder(borderColor: AppColor.lightBlack, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
             }
             self.updateButton.isEnabled = isFormValid
         }
@@ -171,11 +173,15 @@ private extension HabitDetailsVC {
         UIView.animate(withDuration: 0.3) {
             if isBuildClicked {
                 self.buildButton.backgroundColor = AppColor.lightBlack
-                self.quitButton.backgroundColor = AppColor.darkestAsh
+                self.buildButton.setTitleColor(.white, for: .normal)
+                self.quitButton.backgroundColor = .white
+                self.quitButton.setTitleColor(AppColor.lightBlack, for: .normal)
                 self.setupViews()
             } else {
-                self.buildButton.backgroundColor = AppColor.darkestAsh
+                self.buildButton.backgroundColor = .white
+                self.buildButton.setTitleColor(AppColor.lightBlack, for: .normal)
                 self.quitButton.backgroundColor = AppColor.lightBlack
+                self.quitButton.setTitleColor(.white, for: .normal)
                 self.removeGoalView()
             }
         }
@@ -189,18 +195,17 @@ private extension HabitDetailsVC {
     
     
     func setupHeaders() {
-        title = Strings.create
+        title = viewModel.habit.name
         tabBarItem?.title = ""
-        view.backgroundColor = AppColor.darkestAsh
-        
-        let attributesForLargeTitle = [ NSAttributedString.Key.foregroundColor : UIColor.white ]
-        navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
+        view.backgroundColor = .white
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
     
     func customizeUIControlls() {
+        nameTextField.smartInsertDeleteType = .no
+        nameTextField.delegate = self
         nameTextField.tintColor = AppColor.lightAsh
         nameTextField.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         nameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
@@ -237,7 +242,7 @@ private extension HabitDetailsVC {
         updateButton.setHeight(height)
 
         let buttonSpacingView = UIView()
-        buttonSpacingView.backgroundColor = AppColor.darkestAsh
+        buttonSpacingView.backgroundColor = .white
                 
         let buttonStackView = UIStackView(arrangedSubviews: [buildButton, quitButton, buttonSpacingView])
         buttonStackView.spacing = spacing
@@ -245,14 +250,14 @@ private extension HabitDetailsVC {
         buttonStackView.setHeight(height)
         
         let initialDaysSpacingView = UIView()
-        initialDaysSpacingView.backgroundColor = AppColor.darkestAsh
+        initialDaysSpacingView.backgroundColor = .white
         
         let initialDaysStackView = UIStackView(arrangedSubviews: [numberOfDaysValueLabel, initialDaysSpacingView, numberOfDaysIncrementStepper])
         initialDaysStackView.spacing = spacing
         initialDaysStackView.alignment = .fill
         
         let goalSpacingView = UIView()
-        goalSpacingView.backgroundColor = AppColor.darkestAsh
+        goalSpacingView.backgroundColor = .white
         
         goalStackView = UIStackView(arrangedSubviews: [setGoalTextField, timePerWeekLabel, goalSpacingView])
         goalStackView.spacing = spacing
@@ -268,6 +273,7 @@ private extension HabitDetailsVC {
     
     
     func setupScrollView() {
+        scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
@@ -278,5 +284,20 @@ private extension HabitDetailsVC {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.heightAnchor.constraint(equalToConstant: 800)
         ])
+    }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension HabitDetailsVC: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let textFieldText = textField.text,
+            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                return false
+        }
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+        return count <= GlobalConstants.charactorLimit
     }
 }

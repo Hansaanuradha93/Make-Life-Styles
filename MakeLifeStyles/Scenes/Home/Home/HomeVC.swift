@@ -9,13 +9,13 @@ class HomeVC: UICollectionViewController {
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         addGestures()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupUI()
         fetchHabits()
     }
 }
