@@ -55,6 +55,8 @@ struct Strings {
     // Common
     static let successful = "Successful"
     static let failed = "Failed"
+    static let congradulations = "Congradulations"
+    static let youHaveNewLifeStyleNow = "You have a new lifestyle now 🏆🏆🏆"
     static let empty = ""
     static let somethingWentWrong = "Something went wront"
     static let habitSavedSuccessfully = "Habit Saved Successfully"
@@ -75,6 +77,7 @@ struct Strings {
 // MARK: Globle Constants
 struct GlobalConstants {
     static let charactorLimit = 15
+    static let lifeStyleDays = 66
 }
 
 
