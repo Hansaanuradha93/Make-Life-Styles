@@ -1,9 +1,11 @@
 import UIKit
 
-class LifeStylesVC: UICollectionViewController {
+class LifeStylesVC: UIViewController {
     
     // MARK: Properties
     private let viewModel = LifeStylesVM()
+    
+    private var collectionView: UICollectionView!
     
     
     // MARK: View Controller
@@ -15,14 +17,14 @@ class LifeStylesVC: UICollectionViewController {
 
 
 // MARK: - Collection View
-extension LifeStylesVC {
+extension LifeStylesVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
     
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LifeStyleCell.reuseID, for: indexPath) as! LifeStyleCell
         return cell
     }
@@ -39,6 +41,11 @@ private extension LifeStylesVC {
         navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
         title = Strings.lifeStyles
         tabBarItem?.title = ""
+        
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        view.addSubview(collectionView)
         
         collectionView.backgroundColor = .white
         collectionView.register(LifeStyleCell.self, forCellWithReuseIdentifier: LifeStyleCell.reuseID)
