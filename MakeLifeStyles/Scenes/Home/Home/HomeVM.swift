@@ -23,8 +23,11 @@ extension HomeVM {
     
     
     func fetchHabits(completion: @escaping (Bool) -> ()) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Habit")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: false)]
+        
         do {
-            let habits = try context.fetch(Habit.fetchRequest())
+            let habits = try context.fetch(fetchRequest)
             self.habits = habits as! [Habit]
             completion(true)
         } catch let error as NSError {
