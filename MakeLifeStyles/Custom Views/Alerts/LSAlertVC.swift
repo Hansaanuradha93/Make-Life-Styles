@@ -12,14 +12,16 @@ class LSAlertVC: UIViewController {
     private var message: String?
     private var buttonTitle: String?
     private let padding: CGFloat = 20
+    private var action: (() -> Void)? = nil
     
     
     // MARK: Initializers
-    init(title: String, message: String, buttonTitle: String) {
+    init(title: String, message: String, buttonTitle: String, action: (() -> Void)? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.alertTitle = title
         self.message = message
         self.buttonTitle = buttonTitle
+        self.action = action
     }
     
     
@@ -38,7 +40,7 @@ class LSAlertVC: UIViewController {
 private extension LSAlertVC {
     
     @objc func dismissAlert() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: action)
     }
     
     
