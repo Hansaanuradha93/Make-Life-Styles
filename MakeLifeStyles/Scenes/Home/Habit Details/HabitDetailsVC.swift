@@ -111,7 +111,9 @@ private extension HabitDetailsVC {
         viewModel.updateHabit { [weak self] status, message in
             guard let self = self else { return }
             if status {
-                self.presentLSAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok)
+                self.presentLSAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok) {
+                    self.navigationController?.popViewController(animated: true)
+                }
             } else {
                 self.presentLSAlertOnMainTread(title: Strings.failed, message: message, buttonTitle: Strings.ok)
             }
