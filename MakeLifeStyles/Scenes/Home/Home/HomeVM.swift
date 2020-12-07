@@ -25,7 +25,7 @@ extension HomeVM {
     func fetchHabits(completion: @escaping (Bool) -> ()) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Habit")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: false)]
-        fetchRequest.predicate = NSPredicate(format: "days <= %@", "66")
+        fetchRequest.predicate = NSPredicate(format: "days < %@", "\(GlobalConstants.lifeStyleDays)")
         
         do {
             let habits = try context.fetch(fetchRequest)

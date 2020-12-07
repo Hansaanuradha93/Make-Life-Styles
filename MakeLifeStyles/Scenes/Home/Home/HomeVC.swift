@@ -60,7 +60,13 @@ extension HomeVC {
         let habit = viewModel.habits[indexPath.item]
         habit.days = habit.days + 1
         viewModel.updateHabit()
-        collectionView.reloadItems(at: [indexPath])
+        if (habit.days < GlobalConstants.lifeStyleDays) {
+            collectionView.reloadItems(at: [indexPath])
+        } else {
+            self.presentLSAlertOnMainTread(title: Strings.congradulations, message: Strings.youHaveNewLifeStyleNow, buttonTitle: Strings.ok) {
+                self.fetchHabits()
+            }
+        }
     }
     
     
