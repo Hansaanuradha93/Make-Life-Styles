@@ -67,7 +67,7 @@ private extension LifeStylesVC {
         view.addSubview(collectionView)
         
         collectionView.backgroundColor = .white
-        collectionView.contentInset.top = 30
+        collectionView.contentInset = UIEdgeInsets(top: 30, left: 30, bottom: 0, right: 0)
         collectionView.register(LifeStyleCell.self, forCellWithReuseIdentifier: LifeStyleCell.reuseID)
     }
 }
