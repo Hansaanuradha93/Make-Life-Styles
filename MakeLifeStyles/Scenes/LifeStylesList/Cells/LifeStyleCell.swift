@@ -6,8 +6,8 @@ class LifeStyleCell: UICollectionViewCell {
     static let reuseID = "LifeStyleCell"
     
     private let gradientLayer = CAGradientLayer()
-    private let titleLabel = LSTitleLabel(text: "Run", textColor: .white, fontSize: 40)
-    private let daysValueLabel = LSTitleLabel(text: "44", textColor: .white, fontSize: 110)
+    private let titleLabel = LSTitleLabel(textColor: .white, fontSize: 35, numberOfLines: 0)
+    private let daysValueLabel = LSTitleLabel(textColor: .white, fontSize: 110)
     private let daysLabel = LSBodyLabel(text: "DAYS", textColor: .white, fontSize: 40)
     private let iconImageView = LSImageView()
 
@@ -33,7 +33,8 @@ class LifeStyleCell: UICollectionViewCell {
 extension LifeStyleCell {
     
     func setup(habit: Habit) {
-        print(habit)
+        titleLabel.text = habit.name
+        daysValueLabel.text = "\(habit.daysValue)"
     }
 }
 
@@ -54,8 +55,7 @@ private extension LifeStyleCell {
         contentView.addSubviews(daysValueLabel, titleLabel, daysLabel, iconImageView)
         
         daysValueLabel.center(in: contentView)
-        titleLabel.anchor(top: nil, leading: nil, bottom: daysValueLabel.topAnchor, trailing: nil)
-        titleLabel.centerHorizontally(in: contentView)
+        titleLabel.anchor(top: nil, leading: contentView.leadingAnchor, bottom: daysValueLabel.topAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 0, left: 8, bottom: 0, right: 8))
         daysLabel.centerHorizontally(in: contentView)
         daysLabel.anchor(top: daysValueLabel.bottomAnchor, leading: nil, bottom: nil, trailing: nil)
         iconImageView.centerHorizontally(in: contentView)
