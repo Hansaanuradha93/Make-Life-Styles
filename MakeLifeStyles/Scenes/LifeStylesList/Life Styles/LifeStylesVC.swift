@@ -13,6 +13,12 @@ class LifeStylesVC: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchHabits()
+    }
 }
 
 
@@ -20,12 +26,13 @@ class LifeStylesVC: UIViewController {
 extension LifeStylesVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.habits.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LifeStyleCell.reuseID, for: indexPath) as! LifeStyleCell
+        cell.setup(habit: viewModel.habits[indexPath.item])
         return cell
     }
 }
@@ -33,6 +40,16 @@ extension LifeStylesVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 // MARK: - Private Methods
 private extension LifeStylesVC {
+    
+    func fetchHabits() {
+        viewModel.fetchHabits { [weak self] status in
+            guard let self = self else { return }
+            if status {
+                DispatchQueue.main.async { self.collectionView.reloadData() }
+            }
+        }
+    }
+    
     
     func createLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
