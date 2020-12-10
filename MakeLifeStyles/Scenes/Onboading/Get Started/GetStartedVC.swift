@@ -5,9 +5,9 @@ class GetStartedVC: UIViewController {
     // MARK: Properties
     private let circleImageView = LSImageView(image: Asserts.circle)
     private let heroImageView = LSImageView(image: Asserts.personOnBicycle)
-    private let titleLabel = LSTitleLabel(textColor: UIColor.appColor(color: .lightBlack), numberOfLines: 2)
-    private let descriptionLabel = LSBodyLabel(text: Strings.areYouReady, textColor: UIColor.appColor(color: .greenishBlue), numberOfLines: 3)
-    private let callToActionButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.continueString, titleColor: .white, radius: GlobalDimensions.cornerRadius)
+    private let titleLabel = LSTitleLabel(textColor: AppColor.lightBlack, numberOfLines: 2)
+    private let descriptionLabel = LSBodyLabel(text: Strings.areYouReady, textColor: AppColor.greenishBlue, numberOfLines: 3)
+    private let callToActionButton = LSButton(backgroundColor: AppColor.lightBlack, title: Strings.continueString, titleColor: .white, radius: GlobalDimensions.cornerRadius)
 
     
     // MARK: View Controller

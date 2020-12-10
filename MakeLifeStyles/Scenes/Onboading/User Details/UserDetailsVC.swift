@@ -3,16 +3,18 @@ import UIKit
 class UserDetailsVC: UIViewController {
 
     // MARK: Properties
-    let heroImageContainer = UIView()
-    let detailsContainer = UIView()
-    let circleImageView = LSImageView(image: Asserts.circle)
-    let heroImageView = LSImageView(image: Asserts.personOnScooter)
-    let nextButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.continueString, titleColor: .white, radius: GlobalDimensions.cornerRadius)
-    let backButton = LSButton(backgroundColor: UIColor.appColor(color: .darkestAsh), title: Strings.back, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius)
-    let questionNumberLabel = LSBodyLabel(text: Strings.oneDot, textColor: .white, fontSize: 25, textAlignment: .left)
-    let questionLabel = LSBodyLabel(text: Strings.nameQuestion, textColor: .white, fontSize: 25, textAlignment: .left, numberOfLines: 2)
-    let placeholderLabel = LSBodyLabel(text: Strings.enterYourName, textColor: UIColor.appColor(color: .lightAsh), fontSize: 16, textAlignment: .left)
-    let nameTextField = LSTextField(backgroundColor: UIColor.appColor(color: .darkestAsh), textColor: .white, textSize: 20, padding: 15)
+    private let heroImageContainer = UIView()
+    private let detailsContainer = UIView()
+    private let circleImageView = LSImageView(image: Asserts.circle)
+    private let heroImageView = LSImageView(image: Asserts.personOnScooter)
+    
+    private let nextButton = LSButton(backgroundColor: AppColor.lightBlack, title: Strings.continueString, titleColor: .white, radius: GlobalDimensions.cornerRadius)
+    private let backButton = LSButton(backgroundColor: AppColor.darkestAsh, title: Strings.back, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius)
+    
+    private let questionNumberLabel = LSBodyLabel(text: Strings.oneDot, textColor: .white, fontSize: 25, textAlignment: .left)
+    private let questionLabel = LSBodyLabel(text: Strings.nameQuestion, textColor: .white, fontSize: 25, textAlignment: .left, numberOfLines: 2)
+    private let placeholderLabel = LSBodyLabel(text: Strings.enterYourName, textColor: AppColor.lightAsh, fontSize: 16, textAlignment: .left)
+    private let nameTextField = LSTextField(backgroundColor: AppColor.darkestAsh, textColor: .white, textSize: 20, padding: 15)
 
     
     // MARK: View Controller
@@ -31,32 +33,32 @@ class UserDetailsVC: UIViewController {
 
 
 // MARK: - Objc Methods
-extension UserDetailsVC {
+private extension UserDetailsVC {
     
-    @objc fileprivate func handleNext() {
+    @objc func handleNext() {
         guard let name = nameTextField.text, !name.isEmpty else { return }
         UIApplication.shared.windows.first?.rootViewController = LSTabBar()
     }
     
     
-    @objc fileprivate func handleBack() {
+    @objc func handleBack() {
         navigationController?.popViewController(animated: true)
     }
     
     
-    @objc fileprivate func handleTap() {
+    @objc func handleTap() {
         view.endEditing(true)
     }
     
     
-    @objc fileprivate func handleKeyboardHide() {
+    @objc func handleKeyboardHide() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.view.transform = .identity
         })
     }
     
     
-    @objc fileprivate func handleKeyboardShow(notification: Notification) {
+    @objc func handleKeyboardShow(notification: Notification) {
         guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = value.cgRectValue
         let bottomSpace = view.frame.height - nameTextField.frame.origin.y - nameTextField.frame.height
@@ -67,15 +69,15 @@ extension UserDetailsVC {
 
 
 // MARK: - Methods
-extension UserDetailsVC {
+private extension UserDetailsVC {
     
-    fileprivate func setupNotifications() {
+    func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     
-    fileprivate func setupUI() {
+    func setupUI() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(handleNext), for: .touchUpInside)
