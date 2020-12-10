@@ -37,6 +37,7 @@ private extension UserDetailsVC {
     
     @objc func handleNext() {
         guard let name = nameTextField.text, !name.isEmpty else { return }
+        DataStore.shared.setUserStatus(isExistingUser: true)
         UIApplication.shared.windows.first?.rootViewController = LSTabBar()
     }
     

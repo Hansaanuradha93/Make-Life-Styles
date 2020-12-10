@@ -7,14 +7,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let isNewUser = DataStore.shared.getUserStatus()
+        let isExistingUser = DataStore.shared.getUserStatus()
         let controller: UIViewController!
 
-        if isNewUser {
-            DataStore.shared.setUserStatus(isNewUser: false)
-            controller = UINavigationController(rootViewController: GetStartedVC())
-        } else {
+        if isExistingUser {
             controller = LSTabBar()
+        } else {
+            DataStore.shared.setUserStatus(isExistingUser: true)
+            controller = UINavigationController(rootViewController: GetStartedVC())
         }
         
         let window = UIWindow(windowScene: windowScene)

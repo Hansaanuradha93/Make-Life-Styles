@@ -8,8 +8,8 @@ class DataStore {
     private init(){}
     
     
-    func setUserStatus(isNewUser: Bool) {
-        UserDefaults.standard.setValue(isNewUser, forKey: "user-status")
+    func setUserStatus(isExistingUser: Bool) {
+        UserDefaults.standard.setValue(isExistingUser, forKey: "user-status")
     }
     
      
@@ -17,4 +17,3 @@ class DataStore {
         return UserDefaults.standard.bool(forKey: "user-status")
     }
 }
-
