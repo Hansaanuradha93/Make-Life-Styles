@@ -11,11 +11,13 @@ class LifeStyleCell: UICollectionViewCell {
     private let daysLabel = LSBodyLabel(text: "DAYS", textColor: .white, fontSize: 40)
     private let iconImageView = LSImageView()
 
+    
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
+    
     
     required init?(coder: NSCoder) { fatalError() }
     
