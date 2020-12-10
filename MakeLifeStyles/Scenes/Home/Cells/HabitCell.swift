@@ -5,12 +5,12 @@ class HabitCell: UICollectionViewCell {
     // MARK: Properties
     static let reuseID = "HabitCell"
     
-    fileprivate let iconContainer = UIView()
-    fileprivate let iconImageView = LSImageView()
-    fileprivate let habitNameLabel = LSTitleLabel(textColor: UIColor.appColor(color: .darkestAsh), fontSize: 15)
-    fileprivate let habitDaysLabel = LSBodyLabel(textColor: UIColor.appColor(color: .darkestAsh), fontSize: 16)
+    private let iconContainer = UIView()
+    private let iconImageView = LSImageView()
+    private let habitNameLabel = LSTitleLabel(textColor: UIColor.appColor(color: .darkestAsh), fontSize: 15)
+    private let habitDaysLabel = LSBodyLabel(textColor: UIColor.appColor(color: .darkestAsh), fontSize: 16)
     
-    var shapeRing: CAShapeLayer?
+    private var shapeRing: CAShapeLayer?
     
     
     // MARK: Initializers
@@ -24,21 +24,25 @@ class HabitCell: UICollectionViewCell {
 }
 
 
-// MARK: - Methods
+// MARK: - Public Methods
 extension HabitCell {
     
     func setup(habit: Habit) {
 //        iconImageView.image = UIImage(named: habit.icon)
         iconImageView.image = iconImageView.image?.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = UIColor.appColor(color: .lightBlack)
-        habitDaysLabel.text = "\(habit.days) Days"
+        habitDaysLabel.text = "\(habit.days) \(Strings.days)"
         habitNameLabel.text = (habit.name ?? "").uppercased()
         setupShapeRing(days: Int(habit.days))
     }
+}
 
-    
-    fileprivate func setupShapeRing(days: Int) {
-        let strokeEndValue = CGFloat(Double(days) / 66.0)
+
+// MARK: - Methods
+private extension HabitCell {
+
+    func setupShapeRing(days: Int) {
+        let strokeEndValue = CGFloat(Double(days) / Double(GlobalConstants.lifeStyleDays))
         let radius = frame.width / 2 - 30
         if let shapeRing = shapeRing {
             shapeRing.removeFromSuperlayer()
@@ -49,11 +53,8 @@ extension HabitCell {
     }
     
     
-    fileprivate func setupViews() {
-        addSubview(iconContainer)
-        addSubview(iconImageView)
-        addSubview(habitDaysLabel)
-        addSubview(habitNameLabel)
+    func setupViews() {
+        contentView.addSubviews(iconContainer, iconImageView, habitDaysLabel, habitNameLabel)
 
         let width = frame.width
         let iconDimensions = width / 2 - 50
@@ -66,21 +67,5 @@ extension HabitCell {
         let radius = width / 2 - 30
         let trackRing = addRing(radius: radius, strokeColor:  UIColor.appColor(color: .lighestGreen), fillColor: .clear)
         layer.addSublayer(trackRing)
-    }
-    
-    
-    fileprivate func addRing(radius: CGFloat, strokeColor: UIColor, fillColor: UIColor, lineWidth: CGFloat = 10, strokeEnd: CGFloat = 1) -> CAShapeLayer {
-        let center = CGPoint(x: bounds.midX, y: bounds.midY - 20)
-        let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi - CGFloat.pi / 2, clockwise: true)
-        
-        let ring = CAShapeLayer()
-        ring.path = circularPath.cgPath
-        ring.strokeColor = strokeColor.cgColor
-        ring.fillColor = fillColor.cgColor
-        ring.lineCap = CAShapeLayerLineCap.round
-        ring.lineWidth = lineWidth
-        ring.strokeEnd = strokeEnd
-        
-        return ring
     }
 }
