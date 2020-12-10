@@ -8,7 +8,7 @@ class LifeStyleCell: UICollectionViewCell {
     private let gradientLayer = CAGradientLayer()
     private let titleLabel = LSTitleLabel(textColor: .white, fontSize: 35, numberOfLines: 0)
     private let daysValueLabel = LSTitleLabel(textColor: .white, fontSize: 110)
-    private let daysLabel = LSBodyLabel(text: "DAYS", textColor: .white, fontSize: 40)
+    private let daysLabel = LSBodyLabel(text: Strings.days.uppercased(), textColor: .white, fontSize: 40)
     private let iconImageView = LSImageView()
 
     
