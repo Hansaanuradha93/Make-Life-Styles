@@ -3,11 +3,11 @@ import UIKit
 class GetStartedVC: UIViewController {
     
     // MARK: Properties
-    let circleImageView = LSImageView(image: Asserts.circle)
-    let heroImageView = LSImageView(image: Asserts.personOnBicycle)
-    let titleLabel = LSTitleLabel(textColor: UIColor.appColor(color: .lightBlack), numberOfLines: 2)
-    let descriptionLabel = LSBodyLabel(text: Strings.areYouReady, textColor: UIColor.appColor(color: .greenishBlue), numberOfLines: 3)
-    let callToActionButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.continueString, titleColor: .white, radius: GlobalDimensions.cornerRadius)
+    private let circleImageView = LSImageView(image: Asserts.circle)
+    private let heroImageView = LSImageView(image: Asserts.personOnBicycle)
+    private let titleLabel = LSTitleLabel(textColor: UIColor.appColor(color: .lightBlack), numberOfLines: 2)
+    private let descriptionLabel = LSBodyLabel(text: Strings.areYouReady, textColor: UIColor.appColor(color: .greenishBlue), numberOfLines: 3)
+    private let callToActionButton = LSButton(backgroundColor: UIColor.appColor(color: .lightBlack), title: Strings.continueString, titleColor: .white, radius: GlobalDimensions.cornerRadius)
 
     
     // MARK: View Controller
@@ -19,15 +19,15 @@ class GetStartedVC: UIViewController {
 
 
 // MARK: - Methods
-extension GetStartedVC {
+private extension GetStartedVC {
     
-    @objc fileprivate func handleCallToAction() {
+    @objc func handleCallToAction() {
         let controller = UserDetailsVC()
         navigationController?.pushViewController(controller, animated: true)
     }
     
     
-    fileprivate func setupUI() {
+    func setupUI() {
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = UIColor.appColor(color: .lightYellow)
         
