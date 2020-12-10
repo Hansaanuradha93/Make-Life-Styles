@@ -38,21 +38,26 @@ extension HomeVC {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let habit = viewModel.habits[indexPath.item]
-        let controller = HabitDetailsVC(viewModel: HabitDetailsVM(habit: habit))
-        self.navigationController?.pushViewController(controller, animated: true)
+        navigateToDetails(habit: habit)
     }
 }
 
 
 // MARK: - Methods
-extension HomeVC {
+private extension HomeVC {
     
-    @objc fileprivate func handleDoubleTap(sender: UITapGestureRecognizer) {
+    @objc func handleDoubleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             let point = sender.location(in: collectionView)
             guard let indexPath = collectionView.indexPathForItem(at: point) else { return }
             updateHabit(at: indexPath)
         }
+    }
+    
+    
+    func navigateToDetails(habit: Habit) {
+        let controller = HabitDetailsVC(viewModel: HabitDetailsVM(habit: habit))
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     
@@ -70,7 +75,7 @@ extension HomeVC {
     }
     
     
-    fileprivate func fetchHabits() {
+    func fetchHabits() {
         viewModel.fetchHabits { [weak self] status in
             guard let self = self else { return }
             if status {
@@ -80,7 +85,7 @@ extension HomeVC {
     }
     
     
-    fileprivate func addGestures() {
+    func addGestures() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
         gestureRecognizer.numberOfTapsRequired = 2
         gestureRecognizer.numberOfTouchesRequired = 1
@@ -89,7 +94,7 @@ extension HomeVC {
     }
     
     
-    fileprivate func setupUI() {
+    func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
         let attributesForLargeTitle = [NSAttributedString.Key.foregroundColor : AppColor.lightBlack]
         navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
