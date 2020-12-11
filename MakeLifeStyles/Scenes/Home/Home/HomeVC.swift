@@ -64,6 +64,7 @@ private extension HomeVC {
     func updateHabit(at indexPath: IndexPath) {
         let habit = viewModel.habits[indexPath.item]
         habit.days = habit.days + 1
+        habit.updatedAt = Date()
         viewModel.updateHabit()
         if (habit.days < GlobalConstants.lifeStyleDays) {
             collectionView.reloadItems(at: [indexPath])

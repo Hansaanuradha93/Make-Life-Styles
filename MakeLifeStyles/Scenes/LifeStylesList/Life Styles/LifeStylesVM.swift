@@ -15,7 +15,7 @@ extension LifeStylesVM {
     
     func fetchHabits(completion: @escaping (Bool) -> ()) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Habit")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
         fetchRequest.predicate = NSPredicate(format: "days >= %@", "\(GlobalConstants.lifeStyleDays)")
         
         do {

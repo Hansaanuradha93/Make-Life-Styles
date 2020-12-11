@@ -40,6 +40,7 @@ extension HabitDetailsVM {
             habit.type = habitType
             habit.daysValue = numberOfDays ?? habit.daysValue
             habit.repetitionsValue = Int(goal ?? "") ?? habit.repetitionsValue
+            habit.updatedAt = Date()
             
             try context.save()
             completion(true, Strings.habitUpdatedSuccessfully)

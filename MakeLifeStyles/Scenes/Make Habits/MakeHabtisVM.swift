@@ -36,6 +36,7 @@ extension MakeHabitsVM {
         habit.initialDaysValue = numberOfDays ?? 1
         habit.repetitionsValue = Int(goal ?? "1") ?? 1
         habit.startDate = Date()
+        habit.updatedAt = Date()
         
         do {
             try context.save()
