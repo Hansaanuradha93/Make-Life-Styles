@@ -12,11 +12,13 @@ class LifeStylesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        addGestures()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        scrollToFirstHabit()
         fetchHabits()
     }
 }
@@ -41,6 +43,26 @@ extension LifeStylesVC: UICollectionViewDataSource, UICollectionViewDelegate {
 // MARK: - Private Methods
 private extension LifeStylesVC {
     
+    @objc func handleDoubleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            let point = sender.location(in: collectionView)
+            guard let indexPath = collectionView.indexPathForItem(at: point) else { return }
+            updateHabit(at: indexPath)
+            print()
+        }
+    }
+    
+    
+    func updateHabit(at indexPath: IndexPath) {
+        let habit = viewModel.habits[indexPath.item]
+        habit.days = habit.days + 1
+        habit.updatedAt = Date()
+        viewModel.updateHabit()
+        collectionView.reloadData()
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+    }
+    
+    
     func fetchHabits() {
         viewModel.fetchHabits { [weak self] status in
             guard let self = self else { return }
@@ -61,12 +83,26 @@ private extension LifeStylesVC {
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .groupPaging
+            section.orthogonalScrollingBehavior = .groupPagingCentered
             
             return section
         }
             
         return layout
+    }
+    
+    
+    func scrollToFirstHabit() {
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: false)
+    }
+    
+    
+    func addGestures() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
+        gestureRecognizer.numberOfTapsRequired = 2
+        gestureRecognizer.numberOfTouchesRequired = 1
+        gestureRecognizer.delaysTouchesBegan = true
+        view.addGestureRecognizer(gestureRecognizer)
     }
     
     
