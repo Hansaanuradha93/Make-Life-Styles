@@ -13,6 +13,15 @@ class LifeStylesVM {
 // MARK: - Private Methods
 extension LifeStylesVM {
     
+    func updateHabit() {
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
     func fetchHabits(completion: @escaping (Bool) -> ()) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Habit")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
