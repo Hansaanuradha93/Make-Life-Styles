@@ -34,7 +34,7 @@ class HabitDetailsVM {
 // MARK: - Private Methods
 extension HabitDetailsVM {
     
-    func updateHabit(completion: @escaping (Bool, String) -> ()) {
+    func updateHabit(completion: @escaping (Bool, String, String) -> ()) {
         do {
             habit.name = habitName
             habit.type = habitType
@@ -43,10 +43,14 @@ extension HabitDetailsVM {
             habit.updatedAt = Date()
             
             try context.save()
-            completion(true, Strings.habitUpdatedSuccessfully)
+            if habit.days < GlobalConstants.lifeStyleDays {
+                completion(true, Strings.successful, Strings.habitUpdatedSuccessfully)
+            } else {
+                completion(true, Strings.congradulations, Strings.youHaveNewLifeStyleNow)
+            }
         } catch let error as NSError {
             print(error.localizedDescription)
-            completion(false, Strings.somethingWentWrong)
+            completion(false, Strings.failed ,Strings.somethingWentWrong)
         }
     }
     

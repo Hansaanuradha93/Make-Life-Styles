@@ -108,20 +108,14 @@ private extension HabitDetailsVC {
 private extension HabitDetailsVC {
     
     func updateHabit() {
-        viewModel.updateHabit { [weak self] status, message in
+        viewModel.updateHabit { [weak self] status, title, message in
             guard let self = self else { return }
             if status {
-                if (self.viewModel.habit.days < GlobalConstants.lifeStyleDays) {
-                    self.presentLSAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok) {
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                } else {
-                    self.presentLSAlertOnMainTread(title: Strings.congradulations, message: Strings.youHaveNewLifeStyleNow, buttonTitle: Strings.ok) {
-                        self.navigationController?.popViewController(animated: true)
-                    }
+                self.presentLSAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok) {
+                    self.navigationController?.popViewController(animated: true)
                 }
             } else {
-                self.presentLSAlertOnMainTread(title: Strings.failed, message: message, buttonTitle: Strings.ok)
+                self.presentLSAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok)
             }
         }
         resetUI()
