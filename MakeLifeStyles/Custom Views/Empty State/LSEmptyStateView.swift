@@ -4,7 +4,7 @@ class LSEmptyStateView: UIView {
 
     // MARK: Properties
     private let messageLabel = LSTitleLabel(textColor: AppColor.lightAsh, fontSize: 28, textAlignment: .center, numberOfLines: 3)
-    private let logoImageView = LSImageView(image: Asserts.personOnBicycle, contentMode: .scaleAspectFit)
+    private let logoImageView = LSImageView(contentMode: .scaleAspectFit)
     
     
     // MARK: Initializers
@@ -14,8 +14,9 @@ class LSEmptyStateView: UIView {
     }
     
     
-    convenience init(message: String) {
+    convenience init(image: UIImage, message: String) {
         self.init(frame: .zero)
+        logoImageView.image = image
         messageLabel.text = message
     }
     

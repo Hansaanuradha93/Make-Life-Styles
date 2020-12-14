@@ -89,7 +89,7 @@ private extension HomeVC {
     func updateUI(with habit: [Habit]) {
         if self.viewModel.habits.isEmpty {
             let message = Strings.noHabitYet
-            DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+            DispatchQueue.main.async { self.showEmptyStateView(image: Asserts.personOnBicycle, with: message, in: self.view) }
             return
         }
         DispatchQueue.main.async {

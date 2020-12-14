@@ -67,8 +67,21 @@ private extension LifeStylesVC {
         viewModel.fetchHabits { [weak self] status in
             guard let self = self else { return }
             if status {
-                DispatchQueue.main.async { self.collectionView.reloadData() }
+                self.updateUI(with: self.viewModel.habits)
             }
+        }
+    }
+    
+    
+    func updateUI(with habit: [Habit]) {
+        if self.viewModel.habits.isEmpty {
+            let message = Strings.noLifestylesYet
+            DispatchQueue.main.async { self.showEmptyStateView(image: Asserts.personOnScooter, with: message, in: self.view) }
+            return
+        }
+        DispatchQueue.main.async {
+            self.view.bringSubviewToFront(self.collectionView)
+            self.collectionView.reloadData()
         }
     }
     
