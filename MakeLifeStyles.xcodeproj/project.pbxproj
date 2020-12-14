@@ -16,6 +16,7 @@
 		4743466B2572947C000474B2 /* HabitDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4743466A2572947C000474B2 /* HabitDetailsVC.swift */; };
 		4743466E25729493000474B2 /* HabitDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4743466D25729493000474B2 /* HabitDetailsVM.swift */; };
 		4746339425755AA700E68F08 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4746339325755AA700E68F08 /* UIStackView+Ext.swift */; };
+		474FC92D2587C72A0035BB1A /* LSEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FC92C2587C72A0035BB1A /* LSEmptyStateView.swift */; };
 		474FE6222565463000F3FDFC /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FE6212565463000F3FDFC /* DataStore.swift */; };
 		47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47643E2B24F0361500F133F6 /* HomeVC.swift */; };
 		47643E2F24F039B900F133F6 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47643E2D24F039B900F133F6 /* Data.xcdatamodeld */; };
@@ -56,6 +57,7 @@
 		4743466A2572947C000474B2 /* HabitDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsVC.swift; sourceTree = "<group>"; };
 		4743466D25729493000474B2 /* HabitDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsVM.swift; sourceTree = "<group>"; };
 		4746339325755AA700E68F08 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		474FC92C2587C72A0035BB1A /* LSEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSEmptyStateView.swift; sourceTree = "<group>"; };
 		474FE6212565463000F3FDFC /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		47643E2B24F0361500F133F6 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		47643E2E24F039B900F133F6 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
@@ -154,6 +156,14 @@
 				4743466D25729493000474B2 /* HabitDetailsVM.swift */,
 			);
 			path = "Habit Details";
+			sourceTree = "<group>";
+		};
+		474FC92B2587C6FC0035BB1A /* Empty State */ = {
+			isa = PBXGroup;
+			children = (
+				474FC92C2587C72A0035BB1A /* LSEmptyStateView.swift */,
+			);
+			path = "Empty State";
 			sourceTree = "<group>";
 		};
 		4760BFF724E194BB00B2B936 /* Scenes */ = {
@@ -282,6 +292,7 @@
 			children = (
 				478DBAFE24F1830400D37F39 /* Tab  Bar */,
 				47BD396F256AB59A00DBB2FC /* Alerts */,
+				474FC92B2587C6FC0035BB1A /* Empty State */,
 				47BD3974256AB63A00DBB2FC /* Views */,
 				47822B1F24EEE155005B44A3 /* Text Fields */,
 				4798D13824EA535200267A89 /* Image Views */,
@@ -449,6 +460,7 @@
 				47BD3971256AB5B900DBB2FC /* LSAlertVC.swift in Sources */,
 				472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */,
 				471D1FBF2577C6E1002AB1AE /* LifeStyleCell.swift in Sources */,
+				474FC92D2587C72A0035BB1A /* LSEmptyStateView.swift in Sources */,
 				47934B7F24F400C400EF5451 /* HabitCell.swift in Sources */,
 				478BEC8D251BA67300162592 /* MakeHabtisVM.swift in Sources */,
 				4798D13D24EA547F00267A89 /* Constants.swift in Sources */,
