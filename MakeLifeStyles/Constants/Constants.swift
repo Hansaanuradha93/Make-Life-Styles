@@ -62,6 +62,9 @@ struct Strings {
     static let habitSavedSuccessfully = "Habit Saved Successfully"
     static let habitUpdatedSuccessfully = "Habit Updated Successfully"
     static let unableToCompleteRequest = "Unable to complete request"
+    
+    // Empty State
+    static let noHabitYet = "No habits yet?\nGo and make some habits 😀"
 
     // Buttons
     static let ok = "Ok"
