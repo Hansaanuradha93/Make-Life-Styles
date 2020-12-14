@@ -80,7 +80,15 @@ private extension HomeVC {
         viewModel.fetchHabits { [weak self] status in
             guard let self = self else { return }
             if status {
-                DispatchQueue.main.async { self.collectionView.reloadData() }
+                if self.viewModel.habits.isEmpty {
+                    let message = "No habits yet?\nGo and make some habits 😀"
+                    DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.view.bringSubviewToFront(self.collectionView)
+                    self.collectionView.reloadData()
+                }
             }
         }
     }
