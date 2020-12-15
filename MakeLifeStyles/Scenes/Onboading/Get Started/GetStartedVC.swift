@@ -29,7 +29,7 @@ private extension GetStartedVC {
     
     func setupUI() {
         navigationController?.navigationBar.isHidden = true
-        view.backgroundColor = UIColor.appColor(color: .lightYellow)
+        view.backgroundColor = UIColor.appColor(color: .lighestGreen)
         
         view.addSubview(circleImageView)
         circleImageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil, size: .init(width: 35, height: 35))
