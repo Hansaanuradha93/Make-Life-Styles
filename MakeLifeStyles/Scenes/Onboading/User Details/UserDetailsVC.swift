@@ -83,7 +83,7 @@ private extension UserDetailsVC {
         backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(handleNext), for: .touchUpInside)
         
-        heroImageContainer.backgroundColor = UIColor.appColor(color: .lightYellow)
+        heroImageContainer.backgroundColor = UIColor.appColor(color: .lighestGreen)
         view.addSubview(heroImageContainer)
         heroImageContainer.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.centerYAnchor, trailing: view.trailingAnchor)
         
