@@ -3,9 +3,12 @@ import UIKit
 // MARK: Asserts
 struct Asserts {
     // Tab Bar
-    static let add = UIImage(named: "add")!
-    static let home = UIImage(named: "home")!
-    static let star = UIImage(named: "star")!
+    static let plusSquare = UIImage(systemName: "plus.square.on.square")!
+    static let plusSquareFill = UIImage(systemName: "plus.square.on.square.fill")!
+    static let house = UIImage(systemName: "house")!
+    static let houseFill = UIImage(systemName: "house.fill")!
+    static let star = UIImage(systemName: "star")!
+    static let starFill = UIImage(systemName: "star.fill")!
     
     // Screens
     static let personOnBicycle = UIImage(named: "person_on_bicycle")!
