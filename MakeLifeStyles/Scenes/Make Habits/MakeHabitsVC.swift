@@ -176,6 +176,7 @@ private extension MakeHabitsVC {
         numberOfDaysIncrementStepper.autorepeat = true
         numberOfDaysIncrementStepper.value = 1
         numberOfDaysIncrementStepper.minimumValue = 1
+        numberOfDaysIncrementStepper.maximumValue = 1000
         numberOfDaysIncrementStepper.addTarget(self, action: #selector(handleDaysIncrement), for: .valueChanged)
         
         setGoalTextField.tintColor = AppColor.lightAsh
