@@ -64,8 +64,8 @@ struct Strings {
     static let unableToCompleteRequest = "Unable to complete request"
     
     // Empty State
-    static let noHabitYet = "No habits yet?\nGo and make some habits 😀"
-    static let noLifestylesYet = "Lets make some habits into Lifestyles 😀"
+    static let noHabitYet = "No habits yet?\nGo and make some habits"
+    static let noLifestylesYet = "Lets make some habits into Lifestyles"
 
     // Buttons
     static let ok = "Ok"
