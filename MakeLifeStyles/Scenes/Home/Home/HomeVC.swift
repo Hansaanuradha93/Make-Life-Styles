@@ -69,7 +69,7 @@ private extension HomeVC {
         if (habit.days < GlobalConstants.lifeStyleDays) {
             collectionView.reloadItems(at: [indexPath])
         } else {
-            self.presentLSAlertOnMainTread(title: Strings.congradulations, message: Strings.youHaveNewLifeStyleNow, buttonTitle: Strings.ok) {
+            self.presentAlertOnMainTread(title: Strings.congradulations, message: Strings.youHaveNewLifeStyleNow, buttonTitle: Strings.ok) {
                 self.fetchHabits()
             }
         }
