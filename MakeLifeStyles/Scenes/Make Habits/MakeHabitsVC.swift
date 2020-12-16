@@ -47,7 +47,9 @@ private extension MakeHabitsVC {
         viewModel.saveHabit { [weak self] status, message in
             guard let self = self else { return }
             if status {
-                self.presentAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok)
+                self.presentAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok) {
+                    self.tabBarController?.selectedIndex = 0
+                }
             } else {
                 self.presentAlertOnMainTread(title: Strings.failed, message: message, buttonTitle: Strings.ok)
             }
