@@ -21,6 +21,7 @@ class HabitDetailsVC: UIViewController {
     private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: AppColor.lightAsh, fontSize: 18, textAlignment: .left)
     
     private let updateButton = LSButton(backgroundColor: .white, title: Strings.update, titleColor: AppColor.darkestAsh, radius: GlobalDimensions.cornerRadius)
+    private let deleteButton = LSButton(backgroundColor: .white, title: Strings.delete, titleColor: AppColor.pinkishRed, radius: GlobalDimensions.cornerRadius)
 
     private let scrollView = UIScrollView()
     private let contentView = UIView()
@@ -61,6 +62,11 @@ private extension HabitDetailsVC {
     
     @objc func updateButtonTapped() {
         updateHabit()
+    }
+    
+    
+    @objc func deleteButtonTapped() {
+        print("delete habit")
     }
     
     
@@ -224,6 +230,9 @@ private extension HabitDetailsVC {
         updateButton.isEnabled = false
         updateButton.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
+        
+        deleteButton.setRoundedBorder(borderColor: AppColor.pinkishRed, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
     
@@ -238,6 +247,7 @@ private extension HabitDetailsVC {
         buildButton.setWidth(width)
         quitButton.setWidth(width)
         updateButton.setHeight(height)
+        deleteButton.setHeight(height)
 
         let buttonSpacingView = UIView()
         buttonSpacingView.backgroundColor = .white
@@ -261,7 +271,7 @@ private extension HabitDetailsVC {
         goalStackView.spacing = spacing
         goalStackView.alignment = .fill
         
-        overrallStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, typeLabel, buttonStackView, numberOfDaysLabel, initialDaysStackView, setGoalLabel, goalStackView, updateButton])
+        overrallStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, typeLabel, buttonStackView, numberOfDaysLabel, initialDaysStackView, setGoalLabel, goalStackView, updateButton, deleteButton])
         overrallStackView.axis = .vertical
         overrallStackView.spacing = spacing
         

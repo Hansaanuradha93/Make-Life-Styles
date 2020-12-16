@@ -78,6 +78,7 @@ struct Strings {
     static let quit = "Quit"
     static let save = "Save"
     static let update = "Update"
+    static let delete = "Delete"
 }
 
 
