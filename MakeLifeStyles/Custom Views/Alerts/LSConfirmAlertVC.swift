@@ -40,21 +40,32 @@ class LSConfirmAlertVC: UIViewController {
     }
 }
 
+// MARK: - Objc Methods
+private extension LSConfirmAlertVC {
+    
+    @objc func cancelTapped() {
+        dismiss(animated: true, completion: cancel)
+    }
+    
+    
+    @objc func actionTapped() {
+        dismiss(animated: true, completion: action)
+    }
+}
+
 
 // MARK: - Private Methods
 private extension LSConfirmAlertVC {
     
-    @objc func dismissAlert() {
-        dismiss(animated: true, completion: action)
-    }
-    
-    
     func configureUI() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         titleLabel.text = alertTitle ?? Strings.somethingWentWrong
+        
         cancelButton.setTitle(cancelButtonTitle ?? Strings.cancel, for: .normal)
+        cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
         actionButton.setTitle(actionButtonTitle ?? Strings.delete, for: .normal)
-        cancelButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        actionButton.addTarget(self, action: #selector(actionTapped), for: .touchUpInside)
+        
         messageLabel.text = message ?? Strings.unableToCompleteRequest
         messageLabel.numberOfLines = 4
         
