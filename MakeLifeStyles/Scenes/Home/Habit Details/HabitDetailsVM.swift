@@ -23,6 +23,15 @@ class HabitDetailsVM {
         return (isBuildHabit ?? true) ? "Build" : "Quit"
     }
     
+    var numberOfDaysString: String {
+        if habit.daysValue == 1 {
+            return Strings.oneDay
+        } else if habit.daysValue > 1 {
+            return "\(habit.daysValue) \(Strings.days)"
+        }
+        return ""
+    }
+    
     
     // MARK: Initializers
     init(habit: Habit) {

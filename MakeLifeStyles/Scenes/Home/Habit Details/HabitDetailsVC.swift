@@ -128,11 +128,7 @@ private extension HabitDetailsVC {
         nameTextField.text = habit.name
         changeButtons(isBuildClicked: habit.habitType)
         setGoalTextField.text = "\(habit.repetitionsValue)"
-        if habit.daysValue == 1 {
-            numberOfDaysValueLabel.text = Strings.oneDay
-        } else if habit.daysValue > 1 {
-            numberOfDaysValueLabel.text = "\(habit.daysValue) \(Strings.days)"
-        }
+        numberOfDaysValueLabel.text = viewModel.numberOfDaysString
         
         viewModel.isUpdating = false
         viewModel.habitName = habit.name
