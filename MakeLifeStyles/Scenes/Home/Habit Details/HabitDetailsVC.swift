@@ -66,7 +66,9 @@ private extension HabitDetailsVC {
     
     
     @objc func deleteButtonTapped() {
-        print("delete habit")
+        presentConfirmAlertOnMainTread(title: Strings.doYouWantToDeleteThisHabit, message: Strings.youCannotUndoThisAction, cancelButtonTitle: Strings.cancel, actionButtonTitle: Strings.delete, action:  {
+            self.deleteHabit()
+        })
     }
     
     
@@ -113,15 +115,26 @@ private extension HabitDetailsVC {
 // MARK: - Private Methods
 private extension HabitDetailsVC {
     
+    func deleteHabit() {
+        viewModel.deleteHabit { (status, message) in
+            if status {
+                self.presentAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+    }
+    
+    
     func updateHabit() {
         viewModel.updateHabit { [weak self] status, title, message in
             guard let self = self else { return }
             if status {
-                self.presentLSAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok) {
+                self.presentAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok) {
                     self.navigationController?.popViewController(animated: true)
                 }
             } else {
-                self.presentLSAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok)
+                self.presentAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok)
             }
         }
         resetUI()

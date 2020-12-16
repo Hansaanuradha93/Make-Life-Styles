@@ -43,6 +43,18 @@ class HabitDetailsVM {
 // MARK: - Private Methods
 extension HabitDetailsVM {
     
+    func deleteHabit(completion: @escaping (Bool, String) -> ()) {
+        context.delete(habit)
+        
+        do {
+            try context.save()
+            completion(true, Strings.habitDeletedSuccessfully)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            completion(false,Strings.somethingWentWrong)
+        }
+    }
+    
     func updateHabit(completion: @escaping (Bool, String, String) -> ()) {
         do {
             habit.name = habitName

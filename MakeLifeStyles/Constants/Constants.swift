@@ -61,14 +61,17 @@ struct Strings {
     static let congradulations = "Congradulations"
     static let youHaveNewLifeStyleNow = "You have a new lifestyle now 🏆🏆🏆"
     static let empty = ""
-    static let somethingWentWrong = "Something went wront"
-    static let habitSavedSuccessfully = "Habit Saved Successfully"
-    static let habitUpdatedSuccessfully = "Habit Updated Successfully"
+    static let somethingWentWrong = "Something went wrong"
+    static let habitSavedSuccessfully = "Habit saved successfully"
+    static let habitUpdatedSuccessfully = "Habit updated successfully"
     static let unableToCompleteRequest = "Unable to complete request"
+    static let doYouWantToDeleteThisHabit = "Do you want to delete this habit?"
+    static let youCannotUndoThisAction = "You can not undo this action"
+    static let habitDeletedSuccessfully = "Habit deleted successfully"
     
     // Empty State
     static let noHabitYet = "No habits yet?\nGo and make some habits"
-    static let noLifestylesYet = "Lets make some habits into Lifestyles"
+    static let noLifestylesYet = "Lets make some habits into lifestyles"
 
     // Buttons
     static let ok = "Ok"
@@ -79,6 +82,7 @@ struct Strings {
     static let save = "Save"
     static let update = "Update"
     static let delete = "Delete"
+    static let cancel = "Cancel"
 }
 
 
