@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470E89832589BD7A0019BB50 /* LSConfirmAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470E89822589BD7A0019BB50 /* LSConfirmAlertVC.swift */; };
 		4715773724EC3B0E001652A8 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715773624EC3B0E001652A8 /* UserDetailsVC.swift */; };
 		471D1FBA2577C66C002AB1AE /* LifeStylesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D1FB92577C66C002AB1AE /* LifeStylesVM.swift */; };
 		471D1FBF2577C6E1002AB1AE /* LifeStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D1FBE2577C6E1002AB1AE /* LifeStyleCell.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		470E89822589BD7A0019BB50 /* LSConfirmAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSConfirmAlertVC.swift; sourceTree = "<group>"; };
 		4715773624EC3B0E001652A8 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
 		471D1FB92577C66C002AB1AE /* LifeStylesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStylesVM.swift; sourceTree = "<group>"; };
 		471D1FBE2577C6E1002AB1AE /* LifeStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleCell.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				47BD3970256AB5B900DBB2FC /* LSAlertVC.swift */,
+				470E89822589BD7A0019BB50 /* LSConfirmAlertVC.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				47822B2124EEE17B005B44A3 /* LSTextField.swift in Sources */,
 				4798D13724EA512000267A89 /* LSButton.swift in Sources */,
 				47F8E7162582855C0046D057 /* UICollectionViewCell+Ext.swift in Sources */,
+				470E89832589BD7A0019BB50 /* LSConfirmAlertVC.swift in Sources */,
 				47BD397A256AB97400DBB2FC /* UIViewController+Ext.swift in Sources */,
 				4798D13A24EA539D00267A89 /* LSImageView.swift in Sources */,
 			);
