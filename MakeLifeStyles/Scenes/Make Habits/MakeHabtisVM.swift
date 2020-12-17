@@ -7,7 +7,6 @@ class MakeHabitsVM {
     var isBuildHabit: Bool? = true
     var numberOfDays: Int? = 1
     var goal: String? = "1" { didSet { checkFormValidity() } }
-    var habit: Habit?
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -27,7 +26,7 @@ class MakeHabitsVM {
 // MARK: - Methods
 extension MakeHabitsVM {
     
-    func saveHabit(completion: @escaping (Bool, String) -> ()) {
+    func saveHabit(completion: @escaping (Bool, String, String, Int?) -> ()) {
         let habit = Habit(entity: Habit.entity(), insertInto: context)
         habit.id = UUID()
         habit.name = habitName ?? ""
@@ -38,15 +37,17 @@ extension MakeHabitsVM {
         habit.repetitionsValue = Int(goal ?? "1") ?? 1
         habit.startDate = Date()
         habit.updatedAt = Date()
-        
-        self.habit = habit
-        
+                
         do {
             try context.save()
-            completion(true, Strings.habitSavedSuccessfully)
+            if habit.days < GlobalConstants.lifeStyleDays {
+                completion(true, Strings.successful, Strings.habitUpdatedSuccessfully, 0)
+            } else {
+                completion(true, Strings.congradulations, Strings.youHaveNewLifeStyleNow, 2)
+            }
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
-            completion(false, Strings.somethingWentWrong)
+            completion(false, Strings.failed, Strings.somethingWentWrong, nil)
         }
     }
     

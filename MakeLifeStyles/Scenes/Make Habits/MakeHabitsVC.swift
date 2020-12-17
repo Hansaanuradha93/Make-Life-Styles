@@ -44,10 +44,12 @@ class MakeHabitsVC: UIViewController {
 private extension MakeHabitsVC {
     
     @objc func saveButtonTapped() {
-        viewModel.saveHabit { [weak self] status, message in
+        viewModel.saveHabit { [weak self] status, title, message, tabIndex in
             guard let self = self else { return }
             if status {
-                self.updateUI(with: message)
+                self.presentAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok) {
+                    self.tabBarController?.selectedIndex = tabIndex ?? 1
+                }
             } else {
                 self.presentAlertOnMainTread(title: Strings.failed, message: message, buttonTitle: Strings.ok)
             }
@@ -94,23 +96,6 @@ private extension MakeHabitsVC {
 
 // MARK: - Private Methods
 private extension MakeHabitsVC {
-    
-    func updateUI(with message: String) {
-        var title = Strings.successful
-        var message = message
-        var index = 0
-        
-        if let habit = viewModel.habit, habit.daysValue >= GlobalConstants.lifeStyleDays {
-            title = Strings.congradulations
-            message = Strings.youHaveNewLifeStyleNow
-            index = 2
-        }
-        
-        self.presentAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok) {
-            self.tabBarController?.selectedIndex = index
-        }
-    }
-    
     
     func resetUI() {
         view.endEditing(true)
@@ -271,7 +256,7 @@ extension MakeHabitsVC: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = textField.text,
-            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+              let rangeOfTextToReplace = Range(range, in: textFieldText) else {
                 return false
         }
         let substringToReplace = textFieldText[rangeOfTextToReplace]
