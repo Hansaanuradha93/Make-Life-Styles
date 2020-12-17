@@ -40,6 +40,23 @@ extension LifeStylesVC: UICollectionViewDataSource, UICollectionViewDelegate {
 }
 
 
+// MARK: - UIGestureRecognizerDelegate
+extension LifeStylesVC: UIGestureRecognizerDelegate {
+    
+    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+        if gestureReconizer.state != .began {
+            return
+        }
+        let point = gestureReconizer.location(in: collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: point)
+        if let index = indexPath {
+            let habit = viewModel.habits[index.item]
+            print(habit.name)
+        }
+    }
+}
+
+
 // MARK: - Private Methods
 private extension LifeStylesVC {
     
@@ -116,6 +133,12 @@ private extension LifeStylesVC {
         gestureRecognizer.numberOfTouchesRequired = 1
         gestureRecognizer.delaysTouchesBegan = true
         view.addGestureRecognizer(gestureRecognizer)
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        longPressGesture.minimumPressDuration = 0.5
+        longPressGesture.delaysTouchesBegan = true
+        longPressGesture.delegate = self
+        collectionView.addGestureRecognizer(longPressGesture)
     }
     
     
