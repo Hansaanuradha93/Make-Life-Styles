@@ -55,7 +55,7 @@ extension HabitDetailsVM {
         }
     }
     
-    func updateHabit(completion: @escaping (Bool, String, String) -> ()) {
+    func updateHabit(completion: @escaping (Bool, String, String, Int?) -> ()) {
         do {
             habit.name = habitName
             habit.type = habitType
@@ -65,13 +65,13 @@ extension HabitDetailsVM {
             
             try context.save()
             if habit.days < GlobalConstants.lifeStyleDays {
-                completion(true, Strings.successful, Strings.habitUpdatedSuccessfully)
+                completion(true, Strings.successful, Strings.habitUpdatedSuccessfully, nil)
             } else {
-                completion(true, Strings.congradulations, Strings.youHaveNewLifeStyleNow)
+                completion(true, Strings.congradulations, Strings.youHaveNewLifeStyleNow, 2)
             }
         } catch let error as NSError {
             print(error.localizedDescription)
-            completion(false, Strings.failed ,Strings.somethingWentWrong)
+            completion(false, Strings.failed ,Strings.somethingWentWrong, nil)
         }
     }
     

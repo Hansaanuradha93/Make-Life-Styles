@@ -127,17 +127,25 @@ private extension HabitDetailsVC {
     
     
     func updateHabit() {
-        viewModel.updateHabit { [weak self] status, title, message in
+        viewModel.updateHabit { [weak self] status, title, message, tabIndex in
             guard let self = self else { return }
             if status {
                 self.presentAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok) {
-                    self.navigationController?.popViewController(animated: true)
+                    self.updateUI(with: tabIndex)
                 }
             } else {
                 self.presentAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok)
             }
         }
         resetUI()
+    }
+    
+    
+    func updateUI(with tabIndex: Int?) {
+        if let tabIndex = tabIndex {
+            self.tabBarController?.selectedIndex = tabIndex
+        }
+        self.navigationController?.popViewController(animated: true)
     }
     
     
