@@ -48,11 +48,10 @@ extension LifeStylesVC: UIGestureRecognizerDelegate {
             return
         }
         let point = gestureReconizer.location(in: collectionView)
-        let indexPath = self.collectionView.indexPathForItem(at: point)
-        if let index = indexPath {
-            let habit = viewModel.habits[index.item]
-            print(habit.name)
-        }
+        guard let indexPath = self.collectionView.indexPathForItem(at: point) else { return }
+        presentConfirmAlertOnMainTread(title: Strings.doYouWantToDeleteThisHabit, message: Strings.youCannotUndoThisAction, cancelButtonTitle: Strings.cancel, actionButtonTitle: Strings.delete, action:  {
+            self.deleteHabit(at: indexPath)
+        })
     }
 }
 
@@ -66,6 +65,19 @@ private extension LifeStylesVC {
             guard let indexPath = collectionView.indexPathForItem(at: point) else { return }
             updateHabit(at: indexPath)
             print()
+        }
+    }
+    
+    
+    func deleteHabit(at indexPath: IndexPath) {
+        let habit = viewModel.habits[indexPath.item]
+        
+        viewModel.delete(habit: habit) { (status, message) in
+            if status {
+                self.presentAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok) {
+                    self.fetchHabits()
+                }
+            }
         }
     }
     
