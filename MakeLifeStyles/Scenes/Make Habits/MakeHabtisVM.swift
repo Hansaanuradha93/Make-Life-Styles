@@ -7,6 +7,7 @@ class MakeHabitsVM {
     var isBuildHabit: Bool? = true
     var numberOfDays: Int? = 1
     var goal: String? = "1" { didSet { checkFormValidity() } }
+    var habit: Habit?
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -37,6 +38,8 @@ extension MakeHabitsVM {
         habit.repetitionsValue = Int(goal ?? "1") ?? 1
         habit.startDate = Date()
         habit.updatedAt = Date()
+        
+        self.habit = habit
         
         do {
             try context.save()

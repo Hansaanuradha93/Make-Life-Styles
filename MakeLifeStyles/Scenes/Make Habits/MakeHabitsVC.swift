@@ -47,9 +47,7 @@ private extension MakeHabitsVC {
         viewModel.saveHabit { [weak self] status, message in
             guard let self = self else { return }
             if status {
-                self.presentAlertOnMainTread(title: Strings.successful, message: message, buttonTitle: Strings.ok) {
-                    self.tabBarController?.selectedIndex = 0
-                }
+                self.updateUI(with: message)
             } else {
                 self.presentAlertOnMainTread(title: Strings.failed, message: message, buttonTitle: Strings.ok)
             }
@@ -96,6 +94,23 @@ private extension MakeHabitsVC {
 
 // MARK: - Private Methods
 private extension MakeHabitsVC {
+    
+    func updateUI(with message: String) {
+        var title = Strings.successful
+        var message = message
+        var index = 0
+        
+        if let habit = viewModel.habit, habit.daysValue >= GlobalConstants.lifeStyleDays {
+            title = Strings.congradulations
+            message = Strings.youHaveNewLifeStyleNow
+            index = 2
+        }
+        
+        self.presentAlertOnMainTread(title: title, message: message, buttonTitle: Strings.ok) {
+            self.tabBarController?.selectedIndex = index
+        }
+    }
+    
     
     func resetUI() {
         view.endEditing(true)
