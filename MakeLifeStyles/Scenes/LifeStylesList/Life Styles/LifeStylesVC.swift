@@ -103,9 +103,12 @@ private extension LifeStylesVC {
     
     
     func updateUI(with habit: [Habit]) {
-        if self.viewModel.habits.isEmpty {
+        if viewModel.habits.isEmpty {
             let message = Strings.noLifestylesYet
-            DispatchQueue.main.async { self.showEmptyStateView(image: Asserts.personOnScooter, with: message, in: self.view) }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                self.showEmptyStateView(image: Asserts.personOnScooter, with: message, in: self.view)
+            }
             return
         }
         DispatchQueue.main.async {

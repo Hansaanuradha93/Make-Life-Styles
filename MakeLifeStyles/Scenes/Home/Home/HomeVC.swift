@@ -87,7 +87,7 @@ private extension HomeVC {
     
     
     func updateUI(with habit: [Habit]) {
-        if self.viewModel.habits.isEmpty {
+        if viewModel.habits.isEmpty {
             let message = Strings.noHabitYet
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
