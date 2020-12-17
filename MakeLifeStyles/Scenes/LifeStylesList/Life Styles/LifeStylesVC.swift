@@ -162,7 +162,7 @@ private extension LifeStylesVC {
         navigationController?.navigationBar.prefersLargeTitles = true
         let attributesForLargeTitle = [NSAttributedString.Key.foregroundColor : AppColor.lightBlack]
         navigationController?.navigationBar.largeTitleTextAttributes = attributesForLargeTitle
-        title = Strings.lifeStyles
+        title = Strings.lifestyles
         tabBarItem?.title = ""
         
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())

@@ -53,7 +53,7 @@ struct Strings {
     static let goal = "Goal"
     
     // Life Styles Screen
-    static let lifeStyles = "Life Styles"
+    static let lifestyles = "Lifestyles"
     
     // Common
     static let successful = "Successful"
