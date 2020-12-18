@@ -9,8 +9,13 @@ class KeyboardHandlingVC: UIViewController {
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNotifications()
         initializeHideKeyboard()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNotifications()
     }
     
     
