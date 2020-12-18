@@ -1,6 +1,6 @@
 import UIKit
 
-class HabitDetailsVC: UIViewController {
+class HabitDetailsVC: KeyboardHandlingVC {
 
     // MARK: Perperties
     private var viewModel: HabitDetailsVM!
@@ -23,7 +23,6 @@ class HabitDetailsVC: UIViewController {
     private let updateButton = LSButton(backgroundColor: .white, title: Strings.update, titleColor: AppColor.darkestAsh, radius: GlobalDimensions.cornerRadius)
     private let deleteButton = LSButton(backgroundColor: .white, title: Strings.delete, titleColor: AppColor.pinkishRed, radius: GlobalDimensions.cornerRadius)
 
-    private let scrollView = UIScrollView()
     private let contentView = UIView()
     private var overrallStackView = UIStackView()
     private var goalStackView = UIStackView()
@@ -103,11 +102,6 @@ private extension HabitDetailsVC {
         } else if value > 1 {
             numberOfDaysValueLabel.text = "\(value) \(Strings.days)"
         }
-    }
-    
-    
-    @objc func handleTap() {
-        view.endEditing(true)
     }
 }
 
@@ -223,8 +217,6 @@ private extension HabitDetailsVC {
         title = viewModel.habit.name
         tabBarItem?.title = ""
         view.backgroundColor = .white
-        
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
     
@@ -302,6 +294,7 @@ private extension HabitDetailsVC {
     
     
     func setupScrollView() {
+        scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
