@@ -1,6 +1,6 @@
 import UIKit
 
-class MakeHabitsVC: KeyboardHandlingBaseVC {
+class MakeHabitsVC: KeyboardHandlingVC {
 
     // MARK: Properties
     private let viewModel = MakeHabitsVM()
@@ -22,7 +22,6 @@ class MakeHabitsVC: KeyboardHandlingBaseVC {
     
     private let saveButton = LSButton(backgroundColor: .white, title: Strings.save, titleColor: AppColor.darkestAsh, radius: GlobalDimensions.cornerRadius)
 
-//    private var scrollView: UIScrollView!
     private let contentView = UIView()
     private var overrallStackView = UIStackView()
     private var goalStackView = UIStackView()
@@ -36,47 +35,13 @@ class MakeHabitsVC: KeyboardHandlingBaseVC {
         setupViews()
         customizeUIControlls()
         setupViewModelObserver()
-//        setupNotifications()
     }
-    
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        NotificationCenter.default.removeObserver(self)
-//    }
 }
 
 
 // MARK: - Objc Methods
 private extension MakeHabitsVC {
-    
-//    @objc func handleKeyboardHide() {
-//        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-//            self.view.transform = .identity
-//        })
-//    }
-    
-//    @objc func keyboardWillShowOrHide(notification: NSNotification) {
-//        if let scrollView = scrollView, let userInfo = notification.userInfo,
-//           let endValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey],
-//           let durationValue = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey],
-//           let curveValue = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] {
-//
-//            let endRect = view.convert((endValue as AnyObject).cgRectValue, from: view.window)
-//            let keyboardOverlap = scrollView.frame.maxY - endRect.origin.y
-//
-//            scrollView.contentInset.bottom = keyboardOverlap
-//            scrollView.verticalScrollIndicatorInsets.bottom = keyboardOverlap
-//
-//            let duration = (durationValue as AnyObject).doubleValue
-//            let options = UIView.AnimationOptions(rawValue: UInt((curveValue as AnyObject).integerValue << 16))
-//            UIView.animate(withDuration: duration!, delay: 0, options: options) {
-//                self.view.layoutIfNeeded()
-//            }
-//        }
-//    }
-    
-    
+        
     @objc func saveButtonTapped() {
         viewModel.saveHabit { [weak self] status, title, message, tabIndex in
             guard let self = self else { return }
@@ -120,22 +85,11 @@ private extension MakeHabitsVC {
             numberOfDaysValueLabel.text = "\(value) \(Strings.days)"
         }
     }
-    
-    
-    @objc func handleTap() {
-        view.endEditing(true)
-    }
 }
 
 
 // MARK: - Private Methods
 private extension MakeHabitsVC {
-    
-//    func setupNotifications() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowOrHide), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowOrHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-    
     
     func resetUI() {
         view.endEditing(true)
@@ -200,8 +154,6 @@ private extension MakeHabitsVC {
         title = Strings.create
         tabBarItem?.title = ""
         view.backgroundColor = .white
-        
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
     
@@ -304,82 +256,4 @@ extension MakeHabitsVC: UITextFieldDelegate {
         let count = textFieldText.count - substringToReplace.count + string.count
         return count <= GlobalConstants.charactorLimit
     }
-}
-
-
-class KeyboardHandlingBaseVC: UIViewController {
-
-    var scrollView: UIScrollView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        subscribeToNotification(UIResponder.keyboardWillShowNotification, selector: #selector(keyboardWillShowOrHide))
-        subscribeToNotification(UIResponder.keyboardWillHideNotification, selector: #selector(keyboardWillShowOrHide))
-
-        initializeHideKeyboard()
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        unsubscribeFromAllNotifications()
-    }
-
-}
-
-// MARK : Keyboard Dismissal Handling on Tap
-
-private extension KeyboardHandlingBaseVC {
-    
-    func initializeHideKeyboard(){
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(dismissMyKeyboard))
-        
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissMyKeyboard(){
-        view.endEditing(true)
-    }
-}
-
-// MARK : Textfield Visibility Handling with Scroll
-
-private extension KeyboardHandlingBaseVC {
-    
-    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
-        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
-    }
-    
-    func unsubscribeFromAllNotifications() {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func keyboardWillShowOrHide(notification: NSNotification) {
-        
-        // Pull a bunch of info out of the notification
-        if let scrollView = scrollView, let userInfo = notification.userInfo, let endValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey], let durationValue = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey], let curveValue = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] {
-            
-            // Transform the keyboard's frame into our view's coordinate system
-            let endRect = view.convert((endValue as AnyObject).cgRectValue, from: view.window)
-            
-            // Find out how much the keyboard overlaps the scroll view
-            // We can do this because our scroll view's frame is already in our view's coordinate system
-            let keyboardOverlap = scrollView.frame.maxY - endRect.origin.y
-            
-            // Set the scroll view's content inset to avoid the keyboard
-            // Don't forget the scroll indicator too!
-            scrollView.contentInset.bottom = keyboardOverlap
-            scrollView.scrollIndicatorInsets.bottom = keyboardOverlap
-            
-            let duration = (durationValue as AnyObject).doubleValue
-            let options = UIView.AnimationOptions(rawValue: UInt((curveValue as AnyObject).integerValue << 16))
-            UIView.animate(withDuration: duration!, delay: 0, options: options, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: nil)
-        }
-    }
-
 }

@@ -37,6 +37,7 @@
 		4798D13724EA512000267A89 /* LSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13624EA512000267A89 /* LSButton.swift */; };
 		4798D13A24EA539D00267A89 /* LSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13924EA539D00267A89 /* LSImageView.swift */; };
 		4798D13D24EA547F00267A89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4798D13C24EA547F00267A89 /* Constants.swift */; };
+		47A6DEBB258D029D006FE6E1 /* KeyboardHandlingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A6DEBA258D029D006FE6E1 /* KeyboardHandlingVC.swift */; };
 		47B8E07225697DEE00F395C3 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B8E07125697DEE00F395C3 /* HomeVM.swift */; };
 		47BD3971256AB5B900DBB2FC /* LSAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD3970256AB5B900DBB2FC /* LSAlertVC.swift */; };
 		47BD3976256AB65700DBB2FC /* LSAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD3975256AB65700DBB2FC /* LSAlertContainerView.swift */; };
@@ -81,6 +82,7 @@
 		4798D13624EA512000267A89 /* LSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSButton.swift; sourceTree = "<group>"; };
 		4798D13924EA539D00267A89 /* LSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSImageView.swift; sourceTree = "<group>"; };
 		4798D13C24EA547F00267A89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		47A6DEBA258D029D006FE6E1 /* KeyboardHandlingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlingVC.swift; sourceTree = "<group>"; };
 		47B8E07125697DEE00F395C3 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		47BD3970256AB5B900DBB2FC /* LSAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAlertVC.swift; sourceTree = "<group>"; };
 		47BD3975256AB65700DBB2FC /* LSAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAlertContainerView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				4798D13824EA535200267A89 /* Image Views */,
 				4798D13524EA511100267A89 /* Buttons */,
 				4798D13024EA4AB300267A89 /* Labels */,
+				47A6DEB9258D027F006FE6E1 /* Keyboard Handler */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -335,6 +338,14 @@
 				4798D13C24EA547F00267A89 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		47A6DEB9258D027F006FE6E1 /* Keyboard Handler */ = {
+			isa = PBXGroup;
+			children = (
+				47A6DEBA258D029D006FE6E1 /* KeyboardHandlingVC.swift */,
+			);
+			path = "Keyboard Handler";
 			sourceTree = "<group>";
 		};
 		47BD396F256AB59A00DBB2FC /* Alerts */ = {
@@ -460,6 +471,7 @@
 				471D1FBA2577C66C002AB1AE /* LifeStylesVM.swift in Sources */,
 				4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */,
 				478BEC89251BA60400162592 /* Bindable.swift in Sources */,
+				47A6DEBB258D029D006FE6E1 /* KeyboardHandlingVC.swift in Sources */,
 				47BD3971256AB5B900DBB2FC /* LSAlertVC.swift in Sources */,
 				472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */,
 				471D1FBF2577C6E1002AB1AE /* LifeStyleCell.swift in Sources */,

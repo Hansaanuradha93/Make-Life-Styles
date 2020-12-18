@@ -21,7 +21,7 @@ class KeyboardHandlingVC: UIViewController {
 }
 
 
-// MARK: - @Objc Methods
+// MARK: - Objc Methods
 private extension KeyboardHandlingVC {
     
     @objc func dismissMyKeyboard(){
