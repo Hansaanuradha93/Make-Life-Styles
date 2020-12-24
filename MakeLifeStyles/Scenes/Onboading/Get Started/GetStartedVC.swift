@@ -31,22 +31,18 @@ private extension GetStartedVC {
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = UIColor.appColor(color: .lighestGreen)
         
-        view.addSubview(circleImageView)
+        view.addSubviews(circleImageView, heroImageView, titleLabel, descriptionLabel, callToActionButton)
         circleImageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil, size: .init(width: 35, height: 35))
         circleImageView.centerHorizontallyInSuperView()
         
-        view.addSubview(heroImageView)
         heroImageView.anchor(top: circleImageView.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: view.frame.height / 2))
         
         titleLabel.attributedText = NSMutableAttributedString().normal(Strings.itsTimeToBuild, 40).bold(Strings.someHabits, 40)
-        view.addSubview(titleLabel)
         titleLabel.anchor(top: heroImageView.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 20, bottom: 0, right: 20))
         
-        view.addSubview(descriptionLabel)
         descriptionLabel.anchor(top: titleLabel.bottomAnchor, leading: titleLabel.leadingAnchor, bottom: nil, trailing: titleLabel.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0))
         
         callToActionButton.addTarget(self, action: #selector(handleCallToAction), for: .touchUpInside)
-        view.addSubview(callToActionButton)
         callToActionButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 20, bottom: 10, right: 20), size: .init(width: 0, height: GlobalDimensions.height))
     }
 }
