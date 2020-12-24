@@ -11,7 +11,6 @@ class UserDetailsVC: UIViewController {
     private let nextButton = LSButton(backgroundColor: AppColor.lightBlack, title: Strings.continueString, titleColor: .white, radius: GlobalDimensions.cornerRadius)
     private let backButton = LSButton(backgroundColor: AppColor.darkestAsh, title: Strings.back, titleColor: UIColor.appColor(color: .lightAsh), radius: GlobalDimensions.cornerRadius)
     
-    private let questionNumberLabel = LSBodyLabel(text: Strings.oneDot, textColor: .white, fontSize: 25, textAlignment: .left)
     private let questionLabel = LSBodyLabel(text: Strings.nameQuestion, textColor: .white, fontSize: 25, textAlignment: .left, numberOfLines: 2)
     private let placeholderLabel = LSBodyLabel(text: Strings.enterYourName, textColor: AppColor.lightAsh, fontSize: 16, textAlignment: .left)
     private let nameTextField = LSTextField(backgroundColor: AppColor.darkestAsh, textColor: .white, textSize: 20, padding: 15)
@@ -84,37 +83,29 @@ private extension UserDetailsVC {
         nextButton.addTarget(self, action: #selector(handleNext), for: .touchUpInside)
         
         heroImageContainer.backgroundColor = UIColor.appColor(color: .lighestGreen)
-        view.addSubview(heroImageContainer)
-        heroImageContainer.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.centerYAnchor, trailing: view.trailingAnchor)
-        
         detailsContainer.backgroundColor = UIColor.appColor(color: .darkestAsh)
-        view.addSubview(detailsContainer)
+        
+        view.addSubviews(heroImageContainer, detailsContainer)
+        heroImageContainer.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.centerYAnchor, trailing: view.trailingAnchor)
         detailsContainer.anchor(top: view.centerYAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         
-        heroImageContainer.addSubview(circleImageView)
+        heroImageContainer.addSubviews(circleImageView, heroImageView)
         circleImageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil, size: .init(width: 35, height: 35))
         circleImageView.centerHorizontallyInSuperView()
-        
-        heroImageContainer.addSubview(heroImageView)
         heroImageView.anchor(top: circleImageView.bottomAnchor, leading: view.leadingAnchor, bottom: heroImageContainer.bottomAnchor, trailing: view.trailingAnchor)
         
-        detailsContainer.addSubview(questionNumberLabel)
-        questionNumberLabel.anchor(top: detailsContainer.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 20, left: 30, bottom: 0, right: 0))
+        nameTextField.setHeight(GlobalDimensions.height)
+        nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         
-        detailsContainer.addSubview(questionLabel)
-        questionLabel.anchor(top: questionNumberLabel.topAnchor, leading: questionNumberLabel.trailingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 30))
+        let questionStackView = UIStackView(arrangedSubviews: [questionLabel, placeholderLabel, nameTextField])
+        questionStackView.axis = .vertical
+        questionStackView.spacing = 10
+        questionStackView.setCustomSpacing(20, after: placeholderLabel)
+        detailsContainer.addSubview(questionStackView)
+        questionStackView.anchor(top: detailsContainer.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 20, left: 30, bottom: 0, right: 30))
         
-        detailsContainer.addSubview(placeholderLabel)
-        placeholderLabel.anchor(top: questionLabel.bottomAnchor, leading: questionLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 5, bottom: 0, right: 0))
-        
-        detailsContainer.addSubview(nameTextField)
-        nameTextField.anchor(top: placeholderLabel.bottomAnchor, leading: questionNumberLabel.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: view.frame.width - 100, height: GlobalDimensions.height))
-        nameTextField.setRoundedBorder(borderColor: UIColor.appColor(color: .lightAsh), borderWidth: 0.5, radius: GlobalDimensions.cornerRadius)
-        
-        detailsContainer.addSubview(nextButton)
+        detailsContainer.addSubviews(nextButton, backButton)
         nextButton.anchor(top: nil, leading: view.centerXAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 10, right: 20), size: .init(width: 0, height: GlobalDimensions.height))
-        
-        detailsContainer.addSubview(backButton)
         backButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 10, bottom: 10, right: 0), size: .init(width: 100, height: GlobalDimensions.height))
     }
 }
