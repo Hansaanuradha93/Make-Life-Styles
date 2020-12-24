@@ -28,8 +28,7 @@ struct Strings {
     static let someHabits = "some habits!"
     
     // User Details Screen
-    static let oneDot = "1."
-    static let nameQuestion = "Okay firstly,\n how can I call you?"
+    static let nameQuestion = "Okay firstly,\nhow can I call you?"
     static let enterYourName = "Enter your name"
     
     // Make Habbits Screen
