@@ -31,12 +31,6 @@ Clone the project
 git clone https://github.com/Hansaanuradha93/Make-Life-Styles.git
 ```
 
-Go to the directory
-
-```
-cd Make-Life-Styles
-```
-
 Open the project on Xcode and Run it on iphone simulator or a real device
 
 ## Authors
