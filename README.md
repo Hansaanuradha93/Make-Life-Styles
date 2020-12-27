@@ -7,7 +7,7 @@ This app is available for iphones right now. Hopefully this app will be availabl
 
 Add screenshots here
 
-![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/1.PNG?raw=true)
+![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/1.PNG?raw=true align="left" width="200" hspace="10" vspace="10")
 
 ![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/2.PNG?raw=true)
 
@@ -18,6 +18,8 @@ Add screenshots here
 ![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/5.PNG?raw=true)
 
 ![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/6.PNG?raw=true)
+
+<!-- [<img src="/fastlane/framed/iPhone6Plus-01Home-d41d8cd98f00b204e9800998ecf8427e_framed.png" align="left" width="200" hspace="10" vspace="10">](/fastlane/framed/iPhone6Plus-01Home-d41d8cd98f00b204e9800998ecf8427e_framed.png) -->
 
 ## Getting Started
 
