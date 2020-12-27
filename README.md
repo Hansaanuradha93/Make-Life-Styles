@@ -12,6 +12,8 @@ This app is available for iphones right now. Hopefully this app will be availabl
 [<img src="Screenshots/5.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/5.PNG)
 [<img src="Screenshots/6.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/6.PNG)
 
+</br>
+
 ## Getting Started
 
 This app is totally developed without any third-party libraries. So it will be easier to get started.
