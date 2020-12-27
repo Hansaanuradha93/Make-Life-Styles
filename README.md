@@ -5,21 +5,12 @@ This app is available for iphones right now. Hopefully this app will be availabl
 
 ## Screenshots
 
-Add screenshots here
-
-![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/1.PNG?raw=true align="left" width="200" hspace="10" vspace="10")
-
-![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/2.PNG?raw=true)
-
-![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/3.PNG?raw=true)
-
-![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/4.PNG?raw=true)
-
-![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/5.PNG?raw=true)
-
-![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/6.PNG?raw=true)
-
 [<img src="Screenshots/1.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/1.PNG)
+[<img src="Screenshots/2.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/2.PNG)
+[<img src="Screenshots/3.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/3.PNG)
+[<img src="Screenshots/4.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/4.PNG)
+[<img src="Screenshots/5.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/5.PNG)
+[<img src="Screenshots/6.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/6.PNG)
 
 ## Getting Started
 
