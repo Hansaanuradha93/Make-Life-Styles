@@ -19,7 +19,7 @@ Add screenshots here
 
 ![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/6.PNG?raw=true)
 
-[<img src="/Screenshots/1.PNG" align="left" width="200" hspace="10" vspace="10">](/Screenshots/1.PNG)
+[<img src="Screenshots/1.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/1.PNG)
 
 ## Getting Started
 
