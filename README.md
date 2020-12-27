@@ -5,6 +5,8 @@ This app is available for iphones right now. Hopefully this app will be availabl
 
 ## Screenshots
 
+<p align="left">
+
 [<img src="Screenshots/1.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/1.PNG)
 [<img src="Screenshots/2.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/2.PNG)
 [<img src="Screenshots/3.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/3.PNG)
@@ -12,7 +14,7 @@ This app is available for iphones right now. Hopefully this app will be availabl
 [<img src="Screenshots/5.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/5.PNG)
 [<img src="Screenshots/6.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/6.PNG)
 
-</br>
+</p>
 
 ## Getting Started
 
@@ -36,4 +38,4 @@ Open the project on Xcode and Run it on iphone simulator or a real device
 
 ## Authors
 
-- **Hansa Wickramanayake** - [PurpleBooth](https://github.com/Hansaanuradha93)
+- **Hansa Wickramanayake** - [Click here](https://github.com/Hansaanuradha93)
