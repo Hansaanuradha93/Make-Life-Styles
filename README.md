@@ -9,6 +9,16 @@ Add screenshots here
 
 ![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/1.PNG?raw=true)
 
+![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/2.PNG?raw=true)
+
+![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/3.PNG?raw=true)
+
+![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/4.PNG?raw=true)
+
+![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/5.PNG?raw=true)
+
+![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/6.PNG?raw=true)
+
 ## Getting Started
 
 This app is totally developed without any third-party libraries. So it will be easier to get started.
