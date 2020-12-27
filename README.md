@@ -19,7 +19,7 @@ Add screenshots here
 
 ![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/6.PNG?raw=true)
 
-<!-- [<img src="/fastlane/framed/iPhone6Plus-01Home-d41d8cd98f00b204e9800998ecf8427e_framed.png" align="left" width="200" hspace="10" vspace="10">](/fastlane/framed/iPhone6Plus-01Home-d41d8cd98f00b204e9800998ecf8427e_framed.png) -->
+[<img src="/Screenshots/1.PNG" align="left" width="200" hspace="10" vspace="10">](/Screenshots/1.PNG)
 
 ## Getting Started
 
