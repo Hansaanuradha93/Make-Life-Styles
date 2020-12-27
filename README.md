@@ -9,19 +9,19 @@ This app is totally developed without any third-party libraries. So it will be e
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Clone the project
 
 ```
-Give the example
+git clone https://github.com/Hansaanuradha93/Make-Life-Styles.git
 ```
 
-And repeat
+Go to the directory
 
 ```
-until finished
+cd Make-Life-Styles
 ```
+
+Open the project on Xcode and Run it on simulator or a real device
 
 End with an example of getting some data out of the system or using it for a little demo
 
