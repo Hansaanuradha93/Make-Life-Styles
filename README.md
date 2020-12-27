@@ -1,7 +1,7 @@
 # Make-Life-Styles
 
-Make Lifestyles is an iOS app which helps the users to track their daily habits and life styles. The purpose of this app to motivate the users to gain useful habits and life styles into their lives. This app is free and open-source. So contributions are really welcome.
-This app is avilable for iOS right now. Hopefully this app will be avaible for android soon.
+Make Lifestyles is an iOS app which helps the users to track their daily habits and life styles. The purpose of this app is to motivate the users to gain useful habits and life styles into their lives. This app is free and open-source. So contributions are really welcome.
+This app is available for iphones right now. Hopefully this app will be available for android phones soon.
 
 ## Screenshots
 
@@ -25,7 +25,7 @@ Go to the directory
 cd Make-Life-Styles
 ```
 
-Open the project on Xcode and Run it on simulator or a real device
+Open the project on Xcode and Run it on iphone simulator or a real device
 
 ## Authors
 
