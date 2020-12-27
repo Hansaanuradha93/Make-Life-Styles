@@ -10,6 +10,16 @@ This app is available for iphones right now. Hopefully this app will be availabl
 [<img src="Screenshots/6.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/6.PNG)
 
 <br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
 
 ## Getting Started
 
