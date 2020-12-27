@@ -5,9 +5,9 @@ This app is available for iphones right now. Hopefully this app will be availabl
 
 ## Screenshots
 
-[<img src="Screenshots/3.PNG" align="left" width="250" hspace="10" vspace="10">](Screenshots/3.PNG)
-[<img src="Screenshots/5.PNG" align="left" width="250" hspace="10" vspace="10">](Screenshots/5.PNG)
-[<img src="Screenshots/6.PNG" align="left" width="250" hspace="10" vspace="10">](Screenshots/6.PNG)
+[<img src="Screenshots/3.PNG" align="left" width="200" hspace="10" vspace="10">]
+[<img src="Screenshots/5.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/5.PNG)
+[<img src="Screenshots/6.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/6.PNG)
 
 ## Getting Started
 
