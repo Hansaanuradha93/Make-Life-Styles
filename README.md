@@ -7,6 +7,8 @@ This app is available for iphones right now. Hopefully this app will be availabl
 
 Add screenshots here
 
+![alt text](https://github.com/Hansaanuradha93/Make-Life-Styles/blob/master/Screenshots/1.PNG?raw=true)
+
 ## Getting Started
 
 This app is totally developed without any third-party libraries. So it will be easier to get started.
