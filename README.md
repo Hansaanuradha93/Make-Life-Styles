@@ -5,7 +5,7 @@ This app is available for iphones right now. Hopefully this app will be availabl
 
 ## Screenshots
 
-[<img src="Screenshots/4rt5hj.gif" align="left" width="200" hspace="10" vspace="10">](Screenshots/4rt5hj.gif)
+[<img src="Screenshots/clip.gif" align="left" width="200" hspace="10" vspace="10">](Screenshots/clip.gif)
 [<img src="Screenshots/3.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/3.PNG)
 [<img src="Screenshots/5.PNG" align="left" width="200" hspace="10" vspace="10">](Screenshots/5.PNG)
 
