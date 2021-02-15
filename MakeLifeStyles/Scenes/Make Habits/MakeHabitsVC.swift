@@ -97,13 +97,13 @@ private extension MakeHabitsVC {
         viewModel.habitName = ""
         viewModel.isBuildHabit = true
         viewModel.numberOfDays = 1
-        viewModel.goal = "1"
+        viewModel.goal = Strings.one
         
         nameTextField.text = ""
         changeButtons(isBuildClicked: true)
         numberOfDaysValueLabel.text = Strings.oneDay
         numberOfDaysIncrementStepper.value = 1
-        setGoalTextField.text = "1"
+        setGoalTextField.text = Strings.one
     }
     
     
