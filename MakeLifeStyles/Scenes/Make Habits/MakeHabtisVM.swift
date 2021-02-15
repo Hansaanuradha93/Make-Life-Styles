@@ -18,7 +18,7 @@ class MakeHabitsVM {
     
     // MARK: Computed Properties
     var habitType: String {
-        return (isBuildHabit ?? true) ? "Build" : "Quit"
+        return (isBuildHabit ?? true) ? Strings.build : Strings.quit
     }
 }
 
