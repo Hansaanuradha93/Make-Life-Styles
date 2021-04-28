@@ -21,6 +21,7 @@ class UserDetailsVC: UIViewController {
         super.viewDidLoad()
         setupNotifications()
         setupUI()
+        addDebugName()
     }
     
     
@@ -70,6 +71,12 @@ private extension UserDetailsVC {
 
 // MARK: - Methods
 private extension UserDetailsVC {
+    
+    func addDebugName() {
+        #if DEBUG
+        nameTextField.text = "Hansa"
+        #endif
+    }
     
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
