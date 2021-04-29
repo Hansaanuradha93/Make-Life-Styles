@@ -103,4 +103,6 @@ struct GlobalDimensions {
 // MARK: Fonts
 struct Fonts {
     static let avenirNext = "Avenir Next"
+    static let avenirNextBold = "AvenirNext-Bold"
+    static let avenirNextRegular = "AvenirNext-Regular"
 }
