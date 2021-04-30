@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let container = NSPersistentContainer(name: "Data")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                print("Unresolved error \(error), \(error.userInfo)")
+                print("\(ErrorMessages.unresolvedError) \(error), \(error.userInfo)")
                 return
             }
         })
@@ -32,7 +32,7 @@ extension AppDelegate {
                 try context.save()
             } catch {
                 let nserror = error as NSError
-                print("Unresolved error \(nserror), \(nserror.userInfo)")
+                print("\(ErrorMessages.unresolvedError) \(nserror), \(nserror.userInfo)")
             }
         }
     }
