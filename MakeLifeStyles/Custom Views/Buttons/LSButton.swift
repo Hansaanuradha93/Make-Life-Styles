@@ -2,7 +2,7 @@ import UIKit
 
 class LSButton: UIButton {
 
-    // MARK: - Initializers
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
