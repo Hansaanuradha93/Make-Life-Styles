@@ -3,7 +3,7 @@ import UIKit
 class LSTextField: UITextField {
     
     // MARK: Properties
-    fileprivate var padding: CGFloat = 0
+    private var padding: CGFloat = 0
     
     
     // MARK: Initializers
@@ -17,7 +17,7 @@ class LSTextField: UITextField {
         self.text = text
         self.backgroundColor = backgroundColor
         self.textColor = textColor
-        self.font = UIFont(name: "AvenirNext-Regular", size: textSize)
+        self.font = UIFont(name: Fonts.avenirNextRegular, size: textSize)
         self.borderStyle = borderStyle
         self.padding = padding
         self.placeholder = placeholderText
