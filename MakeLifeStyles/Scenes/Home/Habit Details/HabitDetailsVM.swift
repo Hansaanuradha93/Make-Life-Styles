@@ -20,7 +20,7 @@ class HabitDetailsVM {
     
     // MARK: Computed Properties
     var habitType: String {
-        return (isBuildHabit ?? true) ? "Build" : "Quit"
+        return (isBuildHabit ?? true) ? HabitType.build.rawValue : HabitType.quit.rawValue
     }
     
     var numberOfDaysString: String {
