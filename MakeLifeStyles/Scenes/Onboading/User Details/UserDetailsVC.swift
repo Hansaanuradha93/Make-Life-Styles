@@ -74,7 +74,7 @@ private extension UserDetailsVC {
     
     func addDebugName() {
         #if DEBUG
-        nameTextField.text = "Hansa"
+        nameTextField.text = Strings.dummyName
         #endif
     }
     
