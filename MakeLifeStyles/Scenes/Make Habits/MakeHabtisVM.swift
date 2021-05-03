@@ -46,7 +46,7 @@ extension MakeHabitsVM {
                 completion(true, Strings.congradulations, Strings.youHaveNewLifeStyleNow, 2)
             }
         } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+            print("\(ErrorMessages.couldNotSave) \(error), \(error.userInfo)")
             completion(false, Strings.failed, Strings.somethingWentWrong, nil)
         }
     }
