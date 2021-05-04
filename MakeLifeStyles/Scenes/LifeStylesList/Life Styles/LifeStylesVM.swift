@@ -45,7 +45,7 @@ extension LifeStylesVM {
             self.habits = habits as! [Habit]
             completion(true)
         } catch let error as NSError {
-            print("Could not fetch data. \(error), \(error.userInfo)")
+            print("\(ErrorMessages.couldNotFetchData) \(error), \(error.userInfo)")
             completion(false)
         }
     }
