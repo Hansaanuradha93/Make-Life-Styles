@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: Asserts
+// MARK: - Asserts
 struct Asserts {
     // Tab Bar
     static let plusSquare = UIImage(systemName: "plus.square.on.square")!
@@ -20,7 +20,7 @@ struct Asserts {
 }
 
 
-// MARK: Strings
+// MARK: - Strings
 struct Strings {
     // Get Started Screen
     static let areYouReady = "Are you ready?\nNow we gonna build your\n morning routine!"
@@ -55,6 +55,7 @@ struct Strings {
     static let lifestyles = "Lifestyles"
     
     // Common
+    static let dummyName = "Hansa"
     static let successful = "Successful"
     static let failed = "Failed"
     static let congradulations = "Congradulations"
@@ -85,14 +86,22 @@ struct Strings {
 }
 
 
-// MARK: Globle Constants
+// MARK: - Error Messages
+struct ErrorMessages {
+    static let unresolvedError = "Unresolved error"
+    static let couldNotFetchData = "Could not fetch data."
+    static let couldNotSave = "Could not save."
+}
+
+
+// MARK: - Globle Constants
 struct GlobalConstants {
     static let charactorLimit = 15
     static let lifeStyleDays = 66
 }
 
 
-// MARK: Global Dimensions
+// MARK: - Global Dimensions
 struct GlobalDimensions {
     static let height: CGFloat = 50
     static let cornerRadius: CGFloat = height / 2
@@ -100,7 +109,7 @@ struct GlobalDimensions {
 }
 
 
-// MARK: Fonts
+// MARK: - Fonts
 struct Fonts {
     static let avenirNext = "Avenir Next"
     static let avenirNextBold = "AvenirNext-Bold"
