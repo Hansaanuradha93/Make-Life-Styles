@@ -85,7 +85,6 @@ struct Strings {
     static let cancel = "Cancel"
 }
 
-
 // MARK: - Error Messages
 struct ErrorMessages {
     static let unresolvedError = "Unresolved error"
@@ -93,13 +92,11 @@ struct ErrorMessages {
     static let couldNotSave = "Could not save."
 }
 
-
 // MARK: - Globle Constants
 struct GlobalConstants {
     static let charactorLimit = 15
     static let lifeStyleDays = 66
 }
-
 
 // MARK: - Global Dimensions
 struct GlobalDimensions {
@@ -107,7 +104,6 @@ struct GlobalDimensions {
     static let cornerRadius: CGFloat = height / 2
     static let borderWidth: CGFloat = 0.5
 }
-
 
 // MARK: - Fonts
 struct Fonts {
