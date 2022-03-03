@@ -74,19 +74,6 @@ private extension CalendarDateCell {
         numberLabel.center(in: contentView)
         
         selectionBackgroundView.center(in: numberLabel, size: .init(width: size, height: size))
-        
-//        NSLayoutConstraint.activate([
-////          numberLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-////          numberLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-//
-//          selectionBackgroundView.centerYAnchor
-//            .constraint(equalTo: numberLabel.centerYAnchor),
-//          selectionBackgroundView.centerXAnchor
-//            .constraint(equalTo: numberLabel.centerXAnchor),
-//          selectionBackgroundView.widthAnchor.constraint(equalToConstant: size),
-//          selectionBackgroundView.heightAnchor
-//            .constraint(equalTo: selectionBackgroundView.widthAnchor)
-//        ])
 
         selectionBackgroundView.layer.cornerRadius = size / 2
     }

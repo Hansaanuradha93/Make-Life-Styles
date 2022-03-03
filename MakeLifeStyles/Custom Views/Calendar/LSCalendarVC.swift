@@ -23,6 +23,12 @@ class LSCalendarVC: UIViewController {
     // MARK: Calendar Date Properties
     private let selectedDate: Date
     
+    private lazy var days = generateDaysInMonth(for: baseDate)
+
+    private var numberOfWeeksInBaseDate: Int {
+      calendar.range(of: .weekOfMonth, in: .month, for: baseDate)?.count ?? 0
+    }
+    
     private var baseDate: Date {
         didSet {
             days = generateDaysInMonth(for: baseDate)
@@ -36,12 +42,10 @@ class LSCalendarVC: UIViewController {
         dateFormatter.dateFormat = "d"
         return dateFormatter
     }()
-    
-    private lazy var days = generateDaysInMonth(for: baseDate)
-    
+        
     private let selectedDateChanged: ((Date) -> Void)
     private let calendar = Calendar(identifier: .gregorian)
-    
+
     
     // MARK: Initializers
     init(baseDate: Date, selectedDateChanged: @escaping ((Date) -> Void)) {
@@ -53,15 +57,53 @@ class LSCalendarVC: UIViewController {
     }
     
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError() }
     
     
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.reloadData()
+    }
+}
+
+
+// MARK: - UICollectionViewDataSource
+extension LSCalendarVC: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return days.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let day = days[indexPath.row]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarDateCell.reuseID, for: indexPath) as! CalendarDateCell
+        
+        cell.day = day
+        return cell
+    }
+}
+
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension LSCalendarVC: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let day = days[indexPath.row]
+        selectedDateChanged(day.date)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = Int(collectionView.frame.width / 7)
+        let height = Int(collectionView.frame.height) / numberOfWeeksInBaseDate
+        return CGSize(width: width, height: height)
     }
 }
 
@@ -71,6 +113,11 @@ private extension LSCalendarVC {
     
     func setupUI() {
         collectionView.backgroundColor = .systemGroupedBackground
+        
+        collectionView.register(CalendarDateCell.self, forCellWithReuseIdentifier: CalendarDateCell.reuseID)
+
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         view.addSubview(collectionView)
         
