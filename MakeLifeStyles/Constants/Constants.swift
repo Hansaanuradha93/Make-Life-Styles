@@ -17,6 +17,8 @@ struct Asserts {
     
     // Calendar
     static let xmarkCircleFill = UIImage(systemName: "xmark.circle.fill")!
+    static let chevronLeftCircleFill = UIImage(systemName: "chevron.left.circle.fill")!
+    static let chevronRighttCircleFill = UIImage(systemName: "chevron.right.circle.fill")!
     
     // Common
     static let placeHolder = UIImage(named: "placeholder")!
