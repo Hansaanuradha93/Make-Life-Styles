@@ -45,6 +45,8 @@
 		47BD397A256AB97400DBB2FC /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BD3979256AB97400DBB2FC /* UIViewController+Ext.swift */; };
 		47C822E72583B6F20059761A /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C822E52583B6F20059761A /* Habit+CoreDataClass.swift */; };
 		47C822EF2583B76A0059761A /* Habit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C822ED2583B76A0059761A /* Habit+CoreDataProperties.swift */; };
+		47EFA49927D06C1E0030086F /* LSCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EFA49827D06C1E0030086F /* LSCalendarVC.swift */; };
+		47EFA49D27D06E210030086F /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EFA49C27D06E210030086F /* Day.swift */; };
 		47F34FC324F56DF900DA4F64 /* MakeHabitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F34FC224F56DF900DA4F64 /* MakeHabitsVC.swift */; };
 		47F34FC624F5710F00DA4F64 /* LifeStylesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F34FC524F5710F00DA4F64 /* LifeStylesVC.swift */; };
 		47F8E7162582855C0046D057 /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F8E7152582855C0046D057 /* UICollectionViewCell+Ext.swift */; };
@@ -91,6 +93,8 @@
 		47BD3979256AB97400DBB2FC /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		47C822E52583B6F20059761A /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		47C822ED2583B76A0059761A /* Habit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		47EFA49827D06C1E0030086F /* LSCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSCalendarVC.swift; sourceTree = "<group>"; };
+		47EFA49C27D06E210030086F /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		47F34FC224F56DF900DA4F64 /* MakeHabitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeHabitsVC.swift; sourceTree = "<group>"; };
 		47F34FC524F5710F00DA4F64 /* LifeStylesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStylesVC.swift; sourceTree = "<group>"; };
 		47F8E7152582855C0046D057 /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
@@ -186,8 +190,8 @@
 		4760BFF824E194C800B2B936 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				47C822ED2583B76A0059761A /* Habit+CoreDataProperties.swift */,
-				47C822E52583B6F20059761A /* Habit+CoreDataClass.swift */,
+				47EFA49A27D06DFB0030086F /* Habit */,
+				47EFA49B27D06E0D0030086F /* Calendar */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				478DBAFE24F1830400D37F39 /* Tab  Bar */,
+				47EFA49727D069B20030086F /* Calendar */,
 				47BD396F256AB59A00DBB2FC /* Alerts */,
 				474FC92B2587C6FC0035BB1A /* Empty State */,
 				47BD3974256AB63A00DBB2FC /* Views */,
@@ -376,6 +381,31 @@
 				4743464F257283C7000474B2 /* Home */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		47EFA49727D069B20030086F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				47EFA49827D06C1E0030086F /* LSCalendarVC.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		47EFA49A27D06DFB0030086F /* Habit */ = {
+			isa = PBXGroup;
+			children = (
+				47C822ED2583B76A0059761A /* Habit+CoreDataProperties.swift */,
+				47C822E52583B6F20059761A /* Habit+CoreDataClass.swift */,
+			);
+			path = Habit;
+			sourceTree = "<group>";
+		};
+		47EFA49B27D06E0D0030086F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				47EFA49C27D06E210030086F /* Day.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		47F34FC124F56DA200DA4F64 /* Make Habits */ = {
@@ -481,6 +511,7 @@
 				474FC92D2587C72A0035BB1A /* LSEmptyStateView.swift in Sources */,
 				47934B7F24F400C400EF5451 /* HabitCell.swift in Sources */,
 				478BEC8D251BA67300162592 /* MakeHabtisVM.swift in Sources */,
+				47EFA49927D06C1E0030086F /* LSCalendarVC.swift in Sources */,
 				4798D13D24EA547F00267A89 /* Constants.swift in Sources */,
 				478DBB0024F1837200D37F39 /* LSTabBar.swift in Sources */,
 				47F34FC324F56DF900DA4F64 /* MakeHabitsVC.swift in Sources */,
@@ -494,6 +525,7 @@
 				4743466E25729493000474B2 /* HabitDetailsVM.swift in Sources */,
 				47C822E72583B6F20059761A /* Habit+CoreDataClass.swift in Sources */,
 				4798D12E24EA325200267A89 /* NSMutableAttributedString+Ext.swift in Sources */,
+				47EFA49D27D06E210030086F /* Day.swift in Sources */,
 				472CC38024E30083009C6890 /* UIColor+Ext.swift in Sources */,
 				47BD3976256AB65700DBB2FC /* LSAlertContainerView.swift in Sources */,
 				4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */,

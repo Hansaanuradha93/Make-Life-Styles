@@ -1,9 +1,13 @@
-//
-//  Day.swift
-//  MakeLifeStyles
-//
-//  Created by Hansa Anuradha on 2022-03-03.
-//  Copyright © 2022 Hansa Anuradha. All rights reserved.
-//
-
 import Foundation
+
+struct Day {
+  // 1
+  let date: Date
+  // 2
+  let number: String
+  // 3
+  let isSelected: Bool
+  // 4
+  let isWithinDisplayedMonth: Bool
+}
+

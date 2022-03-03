@@ -1,30 +1,25 @@
-//
-//  LSCalendarVC.swift
-//  MakeLifeStyles
-//
-//  Created by Hansa Anuradha on 2022-03-03.
-//  Copyright © 2022 Hansa Anuradha. All rights reserved.
-//
-
 import UIKit
 
 class LSCalendarVC: UIViewController {
+    
+    private lazy var collectionView: UICollectionView = {
+      let layout = UICollectionViewFlowLayout()
+      layout.minimumLineSpacing = 0
+      layout.minimumInteritemSpacing = 0
+      
+      let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+      collectionView.isScrollEnabled = false
+//      collectionView.translatesAutoresizingMaskIntoConstraints = false
+      return collectionView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.backgroundColor = .systemGroupedBackground
 
-        // Do any additional setup after loading the view.
+        view.addSubview(collectionView)
+        
+        collectionView.fillSuperview()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
