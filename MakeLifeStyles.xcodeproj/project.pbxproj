@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4703B21E27D0F5CD00F96E83 /* CalendarPickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4703B21D27D0F5CD00F96E83 /* CalendarPickerHeaderView.swift */; };
 		470E89832589BD7A0019BB50 /* LSConfirmAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470E89822589BD7A0019BB50 /* LSConfirmAlertVC.swift */; };
 		4715773724EC3B0E001652A8 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715773624EC3B0E001652A8 /* UserDetailsVC.swift */; };
 		471D1FBA2577C66C002AB1AE /* LifeStylesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D1FB92577C66C002AB1AE /* LifeStylesVM.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4703B21D27D0F5CD00F96E83 /* CalendarPickerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerHeaderView.swift; sourceTree = "<group>"; };
 		470E89822589BD7A0019BB50 /* LSConfirmAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSConfirmAlertVC.swift; sourceTree = "<group>"; };
 		4715773624EC3B0E001652A8 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
 		471D1FB92577C66C002AB1AE /* LifeStylesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStylesVM.swift; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4703B21C27D0F5A700F96E83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4703B21D27D0F5CD00F96E83 /* CalendarPickerHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4715773524EC3AEE001652A8 /* User Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +400,7 @@
 		47EFA49727D069B20030086F /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				4703B21C27D0F5A700F96E83 /* Views */,
 				47EFA4A027D077470030086F /* Cells */,
 				47EFA49827D06C1E0030086F /* LSCalendarVC.swift */,
 			);
@@ -523,6 +534,7 @@
 				47BD3971256AB5B900DBB2FC /* LSAlertVC.swift in Sources */,
 				472D159624FD60AA00B693DF /* CAShapeLayer+Ext.swift in Sources */,
 				471D1FBF2577C6E1002AB1AE /* LifeStyleCell.swift in Sources */,
+				4703B21E27D0F5CD00F96E83 /* CalendarPickerHeaderView.swift in Sources */,
 				474FC92D2587C72A0035BB1A /* LSEmptyStateView.swift in Sources */,
 				47934B7F24F400C400EF5451 /* HabitCell.swift in Sources */,
 				478BEC8D251BA67300162592 /* MakeHabtisVM.swift in Sources */,

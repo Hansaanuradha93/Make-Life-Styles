@@ -19,6 +19,32 @@ class LSCalendarVC: UIViewController {
         return collectionView
     }()
     
+    private lazy var headerView = CalendarPickerHeaderView { [weak self] in
+        guard let self = self else { return }
+        
+        self.dismiss(animated: true)
+    }
+
+//    private lazy var footerView = CalendarPickerFooterView(didTapLastMonthCompletionHandler: { [weak self] in
+//            guard let self = self else { return }
+//
+//            self.baseDate = self.calendar.date(
+//                byAdding: .month,
+//                value: -1,
+//                to: self.baseDate
+//            ) ?? self.baseDate
+//        }, didTapNextMonthCompletionHandler: { [weak self] in
+//            guard let self = self else { return }
+//
+//            self.baseDate = self.calendar.date(
+//                byAdding: .month,
+//                value: 1,
+//                to: self.baseDate
+//            ) ?? self.baseDate
+//        }
+//    )
+
+    
     
     // MARK: Calendar Date Properties
     private let selectedDate: Date
@@ -33,7 +59,7 @@ class LSCalendarVC: UIViewController {
         didSet {
             days = generateDaysInMonth(for: baseDate)
             collectionView.reloadData()
-//            headerView.baseDate = baseDate
+            headerView.baseDate = baseDate
         }
     }
     
@@ -63,7 +89,8 @@ class LSCalendarVC: UIViewController {
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        style()
+        layout()
     }
     
     
@@ -111,7 +138,7 @@ extension LSCalendarVC: UICollectionViewDelegateFlowLayout {
 // MARK: - Private Methods
 private extension LSCalendarVC {
     
-    func setupUI() {
+    func style() {
         collectionView.backgroundColor = .systemGroupedBackground
         
         collectionView.register(CalendarDateCell.self, forCellWithReuseIdentifier: CalendarDateCell.reuseID)
@@ -119,9 +146,32 @@ private extension LSCalendarVC {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        view.addSubview(collectionView)
+        headerView.baseDate = baseDate
+    }
+    
+    
+    func layout() {
+        view.addSubviews(collectionView, headerView)
+//        view.addSubview(footerView)
         
-        collectionView.fillSuperview()
+        headerView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: 85))
+
+        
+        collectionView.anchor(top: headerView.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: view.frame.height / 2))
+        
+        
+//        constraints.append(contentsOf: [
+//          headerView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+//          headerView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+//          headerView.bottomAnchor.constraint(equalTo: collectionView.topAnchor),
+//          headerView.heightAnchor.constraint(equalToConstant: 85),
+
+//          footerView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+//          footerView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+//          footerView.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
+//          footerView.heightAnchor.constraint(equalToConstant: 60)
+//        ])
+
     }
 }
 
