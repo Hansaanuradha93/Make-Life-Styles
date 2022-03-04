@@ -6,7 +6,7 @@ class CalendarPickerHeaderView: UIView {
 
     // MARK: Properties
     lazy var monthLabel: UILabel = {
-        let label = LSTitleLabel(text: "Month", textColor: AppColor.lightBlack, fontSize: 26, textAlignment: .left)
+        let label = LSTitleLabel(text: "Month", textColor: AppColor.lightBlack, fontSize: 20, textAlignment: .left)
         label.accessibilityTraits = .header
         label.isAccessibilityElement = true
         return label
@@ -38,7 +38,7 @@ class CalendarPickerHeaderView: UIView {
     lazy var separatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = AppColor.lightBlack.withAlphaComponent(0.2)
+        view.backgroundColor = AppColor.lightAsh.withAlphaComponent(0.2)
         return view
     }()
     
@@ -89,7 +89,7 @@ private extension CalendarPickerHeaderView {
     
     
     func initialSetup() {
-        backgroundColor = AppColor.lighestGreen
+        backgroundColor = AppColor.lightYellow
         
         addSubviews(monthLabel, closeButton, dayOfWeekStackView, separatorView)
         
@@ -105,10 +105,7 @@ private extension CalendarPickerHeaderView {
     
     
     func layout() {
-        monthLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: closeButton.leadingAnchor, padding: .init(top: 15, left: 15, bottom: 0, right: 5))
-        
-        closeButton.anchor(top: nil, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 15), size: .init(width: 28, height: 28))
-        closeButton.centerVertically(in: monthLabel)
+        monthLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 15, left: 20, bottom: 0, right: 0))
         
         separatorView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, size: .init(width: 0, height: 1))
         

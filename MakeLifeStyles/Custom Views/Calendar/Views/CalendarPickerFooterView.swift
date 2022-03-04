@@ -6,7 +6,7 @@ class CalendarPickerFooterView: UIView {
     lazy var separatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.label.withAlphaComponent(0.2)
+        view.backgroundColor = AppColor.lightAsh.withAlphaComponent(0.2)
         return view
     }()
     
@@ -97,7 +97,7 @@ private extension CalendarPickerFooterView {
     
     
     func initialSetup() {
-        backgroundColor = AppColor.lighestGreen
+        backgroundColor = AppColor.lightYellow
         
         addSubviews(separatorView, previousMonthButton, nextMonthButton)
     }

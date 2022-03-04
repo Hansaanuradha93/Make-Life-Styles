@@ -8,12 +8,12 @@ class CalendarDateCell: UICollectionViewCell {
     private lazy var selectionBackgroundView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.backgroundColor = .systemRed
+        view.backgroundColor = AppColor.pinkishRed
         return view
     }()
     
     private lazy var numberLabel: UILabel = {
-        let label = LSBodyLabel(textColor: AppColor.lightBlack, fontSize: 18, textAlignment: .center)
+        let label = LSBodyLabel(textColor: AppColor.lightBlack, fontSize: 16, textAlignment: .center)
         return label
     }()
     
@@ -94,7 +94,7 @@ private extension CalendarDateCell {
         accessibilityTraits.insert(.selected)
         accessibilityHint = nil
         
-        numberLabel.textColor = isSmallScreenSize ? .systemRed : .white
+        numberLabel.textColor = isSmallScreenSize ? AppColor.pinkishRed : .white
         selectionBackgroundView.isHidden = isSmallScreenSize
     }
     
@@ -103,7 +103,7 @@ private extension CalendarDateCell {
         accessibilityTraits.remove(.selected)
         accessibilityHint = "Tap to select"
         
-        numberLabel.textColor = isWithinDisplayedMonth ? .label : .secondaryLabel
+        numberLabel.textColor = isWithinDisplayedMonth ? AppColor.lightBlack : AppColor.lightAsh
         selectionBackgroundView.isHidden = true
     }
 }
