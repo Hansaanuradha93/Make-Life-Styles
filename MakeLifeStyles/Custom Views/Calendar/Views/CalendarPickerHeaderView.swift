@@ -12,22 +12,6 @@ class CalendarPickerHeaderView: UIView {
         return label
     }()
     
-    lazy var closeButton: UIButton = {
-        let button = LSButton()
-        
-        let configuration = UIImage.SymbolConfiguration(scale: .large)
-        let image = Asserts.xmarkCircleFill
-        image.withConfiguration(configuration)
-        button.setImage(image, for: .normal)
-        
-        button.tintColor = AppColor.lightBlack
-        button.contentMode = .scaleAspectFill
-        button.isUserInteractionEnabled = true
-        button.isAccessibilityElement = true
-        button.accessibilityLabel = "Close Picker"
-        return button
-    }()
-    
     lazy var dayOfWeekStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,15 +40,10 @@ class CalendarPickerHeaderView: UIView {
         }
     }
     
-    var exitButtonTappedCompletionHandler: (() -> Void)
-    
     
     // MARK: Initializers
-    init(exitButtonTappedCompletionHandler: @escaping (() -> Void)) {
-        self.exitButtonTappedCompletionHandler = exitButtonTappedCompletionHandler
-        
+    init() {
         super.init(frame: CGRect.zero)
-                
         initialSetup()
     }
     
@@ -83,15 +62,10 @@ class CalendarPickerHeaderView: UIView {
 // MARK: - Private Methods
 private extension CalendarPickerHeaderView {
     
-    @objc private func didTapExitButton() {
-        exitButtonTappedCompletionHandler()
-    }
-    
-    
     func initialSetup() {
         backgroundColor = AppColor.lightYellow
         
-        addSubviews(monthLabel, closeButton, dayOfWeekStackView, separatorView)
+        addSubviews(monthLabel, dayOfWeekStackView, separatorView)
         
         for dayNumber in 1...7 {
             let dayLabel = LSTitleLabel(textColor: AppColor.darkestAsh, fontSize: 12, textAlignment: .center)
@@ -100,7 +74,6 @@ private extension CalendarPickerHeaderView {
             dayOfWeekStackView.addArrangedSubview(dayLabel)
         }
         
-        closeButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
     }
     
     

@@ -11,44 +11,22 @@ class CalendarPickerFooterView: UIView {
     }()
     
     lazy var previousMonthButton: UIButton = {
-        let button = LSButton(backgroundColor: .clear, titleColor: AppColor.lightBlack, fontSize: 17)
-        button.titleLabel?.textAlignment = .left
+        let button = LSButton(backgroundColor: .clear, titleColor: AppColor.lightBlack)
         
         let chevronImage = Asserts.chevronLeftCircleFill
-        let imageAttachment = NSTextAttachment(image: chevronImage)
-        let attributedString = NSMutableAttributedString()
-        
-        attributedString.append(
-            NSAttributedString(attachment: imageAttachment)
-        )
-        
-        attributedString.append(
-            NSAttributedString(string: " Previous")
-        )
-        
-        button.setAttributedTitle(attributedString, for: .normal)
+        button.tintColor = AppColor.lightBlack
+        button.setImage(chevronImage, for: .normal)
         
         button.addTarget(self, action: #selector(didTapPreviousMonthButton), for: .touchUpInside)
         return button
     }()
     
     lazy var nextMonthButton: UIButton = {
-        let button = LSButton(backgroundColor: .clear, titleColor: AppColor.lightBlack, fontSize: 17)
-        button.titleLabel?.textAlignment = .left
+        let button = LSButton(backgroundColor: .clear, titleColor: AppColor.lightBlack)
         
         let chevronImage = Asserts.chevronRighttCircleFill
-        let imageAttachment = NSTextAttachment(image: chevronImage)
-        let attributedString = NSMutableAttributedString()
-        
-        attributedString.append(
-            NSAttributedString(attachment: imageAttachment)
-        )
-        
-        attributedString.append(
-            NSAttributedString(string: "Next")
-        )
-        
-        button.setAttributedTitle(attributedString, for: .normal)
+        button.tintColor = AppColor.lightBlack
+        button.setImage(chevronImage, for: .normal)
                 
         button.addTarget(self, action: #selector(didTapNextMonthButton), for: .touchUpInside)
         return button

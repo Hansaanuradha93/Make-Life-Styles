@@ -19,20 +19,18 @@ class LSCalendarVC: UIViewController {
         return collectionView
     }()
     
-    private lazy var headerView = CalendarPickerHeaderView { [weak self] in
-        guard let self = self else { return }
-        
-        self.dismiss(animated: true)
-    }
+    private lazy var headerView = CalendarPickerHeaderView()
 
     private lazy var footerView = CalendarPickerFooterView(didTapLastMonthCompletionHandler: { [weak self] in
             guard let self = self else { return }
 
             self.baseDate = self.calendar.date(byAdding: .month, value: -1, to: self.baseDate) ?? self.baseDate
-        }, didTapNextMonthCompletionHandler: { [weak self] in
+        
+        },didTapNextMonthCompletionHandler: { [weak self] in
             guard let self = self else { return }
 
             self.baseDate = self.calendar.date(byAdding: .month, value: 1, to: self.baseDate) ?? self.baseDate
+            
         }
     )
     
