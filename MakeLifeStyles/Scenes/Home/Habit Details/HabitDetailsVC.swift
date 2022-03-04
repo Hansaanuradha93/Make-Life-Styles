@@ -8,14 +8,6 @@ class HabitDetailsVC: KeyboardHandlingVC {
     private let nameLabel = LSBodyLabel(text: Strings.habit, textColor: AppColor.darkestAsh, fontSize: 20, textAlignment: .left)
     private let nameTextField = LSTextField(textColor: AppColor.lightAsh, textSize: 20, padding: 16)
     
-    private let typeLabel = LSBodyLabel(text: Strings.habitType, textColor: AppColor.darkestAsh, fontSize: 20, textAlignment: .left)
-    private let buildButton = LSButton(backgroundColor: AppColor.lightBlack, title: Strings.build, titleColor: .white, radius: GlobalDimensions.cornerRadius, fontSize: 14)
-    private let quitButton = LSButton(backgroundColor: .white, title: Strings.quit, titleColor: AppColor.lightBlack, radius: GlobalDimensions.cornerRadius, fontSize: 14)
-    
-    private let numberOfDaysLabel = LSBodyLabel(text: Strings.numberOfDays, textColor: AppColor.darkestAsh, fontSize: 20, textAlignment: .left, numberOfLines: 0)
-    private let numberOfDaysValueLabel = LSBodyLabel(text: Strings.oneDay, textColor: AppColor.lightAsh, fontSize: 18, textAlignment: .left, numberOfLines: 0)
-    private let numberOfDaysIncrementStepper = UIStepper()
-    
     private let setGoalLabel = LSBodyLabel(text: Strings.goal, textColor: AppColor.darkestAsh, fontSize: 20, textAlignment: .left)
     private let setGoalTextField = LSTextField(text: Strings.one, backgroundColor: .white, textColor: AppColor.lightAsh, textSize: 20, padding: 16)
     private let timePerWeekLabel = LSBodyLabel(text: Strings.moreTimesPerDay, textColor: AppColor.lightAsh, fontSize: 18, textAlignment: .left)
@@ -46,10 +38,9 @@ class HabitDetailsVC: KeyboardHandlingVC {
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupHeaders()
         setupScrollView()
-        setupViews()
-        customizeUIControlls()
+        style()
+        layout()
         setupViewModelObserver()
         setData()
     }
@@ -75,33 +66,6 @@ private extension HabitDetailsVC {
         viewModel.isUpdating = true
         viewModel.habitName = nameTextField.text
         viewModel.goal = setGoalTextField.text
-    }
-    
-    
-    @objc func quitButtonTapped() {
-        changeButtons(isBuildClicked: false)
-        viewModel.isUpdating = true
-        viewModel.isBuildHabit = false
-    }
-    
-    
-    @objc func buildButtonTapped() {
-        changeButtons(isBuildClicked: true)
-        viewModel.isUpdating = true
-        viewModel.isBuildHabit = true
-    }
-    
-    
-    @objc func handleDaysIncrement(_ sender: UIStepper) {
-        let value = Int(sender.value)
-        viewModel.isUpdating = true
-        viewModel.numberOfDays = value
-        
-        if value == 1 {
-            numberOfDaysValueLabel.text = Strings.oneDay
-        } else if value > 1 {
-            numberOfDaysValueLabel.text = "\(value) \(Strings.days)"
-        }
     }
 }
 
@@ -147,9 +111,7 @@ private extension HabitDetailsVC {
         let habit = viewModel.habit
         
         nameTextField.text = habit.name
-        changeButtons(isBuildClicked: habit.habitType)
         setGoalTextField.text = "\(habit.repetitionsValue)"
-        numberOfDaysValueLabel.text = viewModel.numberOfDaysString
         
         viewModel.isUpdating = false
         viewModel.habitName = habit.name
@@ -174,6 +136,7 @@ private extension HabitDetailsVC {
     func setupViewModelObserver() {
         viewModel.bindalbeIsFormValid.bind { [weak self] isFormValid in
             guard let self = self, let isFormValid = isFormValid else { return }
+            
             if isFormValid {
                 self.updateButton.backgroundColor = AppColor.lightBlack
                 self.updateButton.setTitleColor(.white, for: .normal)
@@ -183,57 +146,22 @@ private extension HabitDetailsVC {
                 self.updateButton.setTitleColor(AppColor.lightBlack, for: .normal)
                 self.updateButton.setRoundedBorder(borderColor: AppColor.lightBlack, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
             }
+            
             self.updateButton.isEnabled = isFormValid
         }
     }
     
     
-    func changeButtons(isBuildClicked: Bool) {
-        UIView.animate(withDuration: 0.3) {
-            if isBuildClicked {
-                self.buildButton.backgroundColor = AppColor.lightBlack
-                self.buildButton.setTitleColor(.white, for: .normal)
-                self.quitButton.backgroundColor = .white
-                self.quitButton.setTitleColor(AppColor.lightBlack, for: .normal)
-                self.setupViews()
-            } else {
-                self.buildButton.backgroundColor = .white
-                self.buildButton.setTitleColor(AppColor.lightBlack, for: .normal)
-                self.quitButton.backgroundColor = AppColor.lightBlack
-                self.quitButton.setTitleColor(.white, for: .normal)
-                self.removeGoalView()
-            }
-        }
-    }
-    
-    
-    func removeGoalView() {
-        overrallStackView.removeFully(view: setGoalLabel)
-        overrallStackView.removeFully(view: goalStackView)
-    }
-    
-    
-    func setupHeaders() {
+    func style() {
         title = viewModel.habit.name
         tabBarItem?.title = ""
         view.backgroundColor = .white
-    }
-    
-    
-    func customizeUIControlls() {
+        
         nameTextField.smartInsertDeleteType = .no
         nameTextField.delegate = self
         nameTextField.tintColor = AppColor.lightAsh
         nameTextField.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
         nameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
-        
-        buildButton.addTarget(self, action: #selector(buildButtonTapped), for: .touchUpInside)
-        quitButton.addTarget(self, action: #selector(quitButtonTapped), for: .touchUpInside)
-        
-        numberOfDaysIncrementStepper.autorepeat = true
-        numberOfDaysIncrementStepper.value = Double(viewModel.habit.daysValue)
-        numberOfDaysIncrementStepper.minimumValue = 1
-        numberOfDaysIncrementStepper.addTarget(self, action: #selector(handleDaysIncrement), for: .valueChanged)
         
         setGoalTextField.tintColor = AppColor.lightAsh
         setGoalTextField.setRoundedBorder(borderColor: AppColor.lightAsh, borderWidth: GlobalDimensions.borderWidth, radius: GlobalDimensions.cornerRadius)
@@ -249,7 +177,7 @@ private extension HabitDetailsVC {
     }
     
     
-    func setupViews() {
+    func layout() {
         let spacing: CGFloat = 20
         let width: CGFloat = 70
         let height: CGFloat = GlobalDimensions.height
@@ -257,25 +185,18 @@ private extension HabitDetailsVC {
         nameTextField.setHeight(height)
         setGoalTextField.setWidth(width)
         setGoalTextField.setHeight(height)
-        buildButton.setWidth(width)
-        quitButton.setWidth(width)
         updateButton.setHeight(height)
         deleteButton.setHeight(height)
-
-        let buttonSpacingView = UIView()
-        buttonSpacingView.backgroundColor = .white
-                
-        let buttonStackView = UIStackView(arrangedSubviews: [buildButton, quitButton, buttonSpacingView])
-        buttonStackView.spacing = spacing
-        buttonStackView.alignment = .fill
-        buttonStackView.setHeight(height)
         
-        let initialDaysSpacingView = UIView()
-        initialDaysSpacingView.backgroundColor = .white
+        let calendarContainerView = UIView()
+        let calendarVC = LSCalendarVC(baseDate: Date(), selectedDateChanged: { date in
+            print("date: \(date)")
+        })
         
-        let initialDaysStackView = UIStackView(arrangedSubviews: [numberOfDaysValueLabel, initialDaysSpacingView, numberOfDaysIncrementStepper])
-        initialDaysStackView.spacing = spacing
-        initialDaysStackView.alignment = .fill
+        addChild(calendarVC)
+        calendarVC.view.frame = calendarContainerView.frame
+        calendarContainerView.addSubview(calendarVC.view)
+        calendarVC.didMove(toParent: self)
         
         let goalSpacingView = UIView()
         goalSpacingView.backgroundColor = .white
@@ -284,12 +205,15 @@ private extension HabitDetailsVC {
         goalStackView.spacing = spacing
         goalStackView.alignment = .fill
         
-        overrallStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, typeLabel, buttonStackView, numberOfDaysLabel, initialDaysStackView, setGoalLabel, goalStackView, updateButton, deleteButton])
+        overrallStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, setGoalLabel, goalStackView, updateButton, deleteButton])
         overrallStackView.axis = .vertical
         overrallStackView.spacing = spacing
         
-        contentView.addSubview(overrallStackView)
-        overrallStackView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 30, left: spacing, bottom: 0, right: spacing))
+        contentView.addSubviews(calendarContainerView, overrallStackView)
+        
+        calendarContainerView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, size: .init(width: 0, height: 450))
+        
+        overrallStackView.anchor(top: calendarContainerView.bottomAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 30, left: spacing, bottom: 0, right: spacing))
     }
     
     
@@ -318,6 +242,7 @@ extension HabitDetailsVC: UITextFieldDelegate {
             let rangeOfTextToReplace = Range(range, in: textFieldText) else {
                 return false
         }
+        
         let substringToReplace = textFieldText[rangeOfTextToReplace]
         let count = textFieldText.count - substringToReplace.count + string.count
         return count <= GlobalConstants.charactorLimit
