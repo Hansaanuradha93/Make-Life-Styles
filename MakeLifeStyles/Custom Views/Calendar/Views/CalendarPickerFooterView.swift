@@ -67,17 +67,7 @@ class CalendarPickerFooterView: UIView {
         
         super.init(frame: CGRect.zero)
         
-        backgroundColor = .systemGroupedBackground
-        
-        layer.maskedCorners = [
-            .layerMinXMaxYCorner,
-            .layerMaxXMaxYCorner
-        ]
-        
-        layer.cornerCurve = .continuous
-        layer.cornerRadius = 15
-        
-        addSubviews(separatorView, previousMonthButton, nextMonthButton)
+        initialSetup()
     }
     
     
@@ -103,6 +93,21 @@ private extension CalendarPickerFooterView {
     
     @objc func didTapNextMonthButton() {
         didTapNextMonthCompletionHandler()
+    }
+    
+    
+    func initialSetup() {
+        backgroundColor = AppColor.lighestGreen
+        
+        layer.maskedCorners = [
+            .layerMinXMaxYCorner,
+            .layerMaxXMaxYCorner
+        ]
+        
+        layer.cornerCurve = .continuous
+        layer.cornerRadius = 15
+        
+        addSubviews(separatorView, previousMonthButton, nextMonthButton)
     }
     
     

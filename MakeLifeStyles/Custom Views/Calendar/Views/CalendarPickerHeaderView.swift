@@ -65,29 +65,7 @@ class CalendarPickerHeaderView: UIView {
         
         super.init(frame: CGRect.zero)
                 
-        backgroundColor = .systemGroupedBackground
-        
-        layer.maskedCorners = [
-            .layerMinXMinYCorner,
-            .layerMaxXMinYCorner
-        ]
-        
-        layer.cornerCurve = .continuous
-        layer.cornerRadius = 15
-        
-        addSubviews(monthLabel, closeButton, dayOfWeekStackView, separatorView)
-        
-        for dayNumber in 1...7 {
-            let dayLabel = UILabel()
-            dayLabel.font = .systemFont(ofSize: 12, weight: .bold)
-            dayLabel.textColor = .secondaryLabel
-            dayLabel.textAlignment = .center
-            dayLabel.text = dayOfWeekLetter(for: dayNumber)
-            dayLabel.isAccessibilityElement = false
-            dayOfWeekStackView.addArrangedSubview(dayLabel)
-        }
-        
-        closeButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
+        initialSetup()
     }
     
     
@@ -107,6 +85,30 @@ private extension CalendarPickerHeaderView {
     
     @objc private func didTapExitButton() {
         exitButtonTappedCompletionHandler()
+    }
+    
+    
+    func initialSetup() {
+        backgroundColor = AppColor.lighestGreen
+        
+        layer.maskedCorners = [
+            .layerMinXMinYCorner,
+            .layerMaxXMinYCorner
+        ]
+        
+        layer.cornerCurve = .continuous
+        layer.cornerRadius = 15
+        
+        addSubviews(monthLabel, closeButton, dayOfWeekStackView, separatorView)
+        
+        for dayNumber in 1...7 {
+            let dayLabel = LSTitleLabel(textColor: AppColor.darkestAsh, fontSize: 12, textAlignment: .center)
+            dayLabel.text = dayOfWeekLetter(for: dayNumber)
+            dayLabel.isAccessibilityElement = false
+            dayOfWeekStackView.addArrangedSubview(dayLabel)
+        }
+        
+        closeButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
     }
     
     
