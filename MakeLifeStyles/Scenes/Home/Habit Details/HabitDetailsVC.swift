@@ -188,6 +188,16 @@ private extension HabitDetailsVC {
         updateButton.setHeight(height)
         deleteButton.setHeight(height)
         
+        let calendarContainerView = UIView()
+        let calendarVC = LSCalendarVC(baseDate: Date(), selectedDateChanged: { date in
+            print("date: \(date)")
+        })
+        
+        addChild(calendarVC)
+        calendarVC.view.frame = calendarContainerView.frame
+        calendarContainerView.addSubview(calendarVC.view)
+        calendarVC.didMove(toParent: self)
+        
         let goalSpacingView = UIView()
         goalSpacingView.backgroundColor = .white
         
@@ -199,8 +209,11 @@ private extension HabitDetailsVC {
         overrallStackView.axis = .vertical
         overrallStackView.spacing = spacing
         
-        contentView.addSubview(overrallStackView)
-        overrallStackView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 30, left: spacing, bottom: 0, right: spacing))
+        contentView.addSubviews(calendarContainerView, overrallStackView)
+        
+        calendarContainerView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, size: .init(width: 0, height: 400))
+        
+        overrallStackView.anchor(top: calendarContainerView.bottomAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 30, left: spacing, bottom: 0, right: spacing))
     }
     
     

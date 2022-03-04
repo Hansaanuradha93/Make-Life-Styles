@@ -91,14 +91,6 @@ private extension CalendarPickerHeaderView {
     func initialSetup() {
         backgroundColor = AppColor.lighestGreen
         
-        layer.maskedCorners = [
-            .layerMinXMinYCorner,
-            .layerMaxXMinYCorner
-        ]
-        
-        layer.cornerCurve = .continuous
-        layer.cornerRadius = 15
-        
         addSubviews(monthLabel, closeButton, dayOfWeekStackView, separatorView)
         
         for dayNumber in 1...7 {

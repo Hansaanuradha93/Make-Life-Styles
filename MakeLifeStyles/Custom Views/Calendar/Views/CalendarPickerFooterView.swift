@@ -99,14 +99,6 @@ private extension CalendarPickerFooterView {
     func initialSetup() {
         backgroundColor = AppColor.lighestGreen
         
-        layer.maskedCorners = [
-            .layerMinXMaxYCorner,
-            .layerMaxXMaxYCorner
-        ]
-        
-        layer.cornerCurve = .continuous
-        layer.cornerRadius = 15
-        
         addSubviews(separatorView, previousMonthButton, nextMonthButton)
     }
     
