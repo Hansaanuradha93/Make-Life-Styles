@@ -24,7 +24,7 @@ class CalendarPickerFooterView: UIView {
         return buttonView
     }()
     
-    private var previousOrientation: UIDeviceOrientation = UIDevice.current.orientation
+//    private var previousOrientation: UIDeviceOrientation = UIDevice.current.orientation
     
     let didTapLastMonthCompletionHandler: (() -> Void)
     let didTapNextMonthCompletionHandler: (() -> Void)

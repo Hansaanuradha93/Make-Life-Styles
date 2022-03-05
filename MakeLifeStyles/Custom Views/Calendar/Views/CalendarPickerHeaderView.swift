@@ -14,16 +14,35 @@ class CalendarPickerHeaderView: UIView {
     
     lazy var dayOfWeekStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         return stackView
     }()
     
     lazy var separatorView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = AppColor.lightAsh.withAlphaComponent(0.2)
         return view
+    }()
+    
+    lazy var previousMonthButton: LSImageButton = {
+        let buttonView = LSImageButton(image: Asserts.chevronLeftCircleFill, tintColor: AppColor.lightAsh.withAlphaComponent(0.5))
+        
+        buttonView.button.addTarget(self, action: #selector(didTapPreviousMonthButton), for: .touchUpInside)
+        return buttonView
+    }()
+    
+    lazy var nextMonthButton: LSImageButton = {
+        let buttonView = LSImageButton(image: Asserts.chevronRighttCircleFill, tintColor: AppColor.lightAsh.withAlphaComponent(0.5))
+                
+        buttonView.button.addTarget(self, action: #selector(didTapNextMonthButton), for: .touchUpInside)
+        return buttonView
+    }()
+    
+    private lazy var buttonStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [previousMonthButton, nextMonthButton])
+        stackView.distribution = .fillEqually
+        stackView.spacing = 10
+        return stackView
     }()
     
     private lazy var dateFormatter: DateFormatter = {
@@ -40,10 +59,17 @@ class CalendarPickerHeaderView: UIView {
         }
     }
     
+    let didTapLastMonthCompletionHandler: (() -> Void)
+    let didTapNextMonthCompletionHandler: (() -> Void)
+    
     
     // MARK: Initializers
-    init() {
+    init(didTapLastMonthCompletionHandler: @escaping (() -> Void), didTapNextMonthCompletionHandler: @escaping (() -> Void)) {
+        self.didTapLastMonthCompletionHandler = didTapLastMonthCompletionHandler
+        self.didTapNextMonthCompletionHandler = didTapNextMonthCompletionHandler
+        
         super.init(frame: CGRect.zero)
+        
         initialSetup()
     }
     
@@ -62,10 +88,20 @@ class CalendarPickerHeaderView: UIView {
 // MARK: - Private Methods
 private extension CalendarPickerHeaderView {
     
+    @objc func didTapPreviousMonthButton() {
+        didTapLastMonthCompletionHandler()
+    }
+    
+    
+    @objc func didTapNextMonthButton() {
+        didTapNextMonthCompletionHandler()
+    }
+    
+    
     func initialSetup() {
         backgroundColor = .systemBackground
         
-        addSubviews(monthLabel, dayOfWeekStackView, separatorView)
+        addSubviews(buttonStackView, monthLabel, dayOfWeekStackView, separatorView)
         
         for dayNumber in 1...7 {
             let dayLabel = LSTitleLabel(textColor: AppColor.darkestAsh, fontSize: 12, textAlignment: .center)
@@ -78,7 +114,14 @@ private extension CalendarPickerHeaderView {
     
     
     func layout() {
-        monthLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 15, left: 20, bottom: 0, right: 20))
+        
+        let buttonDimension: CGFloat = 35
+        let buttonStackViewWidth: CGFloat = 2 * buttonDimension + 20
+        
+        buttonStackView.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 20), size: .init(width: buttonStackViewWidth, height: buttonDimension + 5))
+        
+        monthLabel.anchor(top: nil, leading: leadingAnchor, bottom: nil, trailing: buttonStackView.leadingAnchor, padding: .init(top: 0, left: 20, bottom: 0, right: 0))
+        monthLabel.centerVertically(in: buttonStackView)
         
         separatorView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, size: .init(width: 0, height: 1))
         

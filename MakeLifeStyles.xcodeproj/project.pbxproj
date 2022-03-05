@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4703B21E27D0F5CD00F96E83 /* CalendarPickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4703B21D27D0F5CD00F96E83 /* CalendarPickerHeaderView.swift */; };
-		4703B22027D10D6F00F96E83 /* CalendarPickerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4703B21F27D10D6F00F96E83 /* CalendarPickerFooterView.swift */; };
 		470E89832589BD7A0019BB50 /* LSConfirmAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470E89822589BD7A0019BB50 /* LSConfirmAlertVC.swift */; };
 		4715773724EC3B0E001652A8 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4715773624EC3B0E001652A8 /* UserDetailsVC.swift */; };
 		471D1FBA2577C66C002AB1AE /* LifeStylesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D1FB92577C66C002AB1AE /* LifeStylesVM.swift */; };
@@ -59,7 +58,6 @@
 
 /* Begin PBXFileReference section */
 		4703B21D27D0F5CD00F96E83 /* CalendarPickerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerHeaderView.swift; sourceTree = "<group>"; };
-		4703B21F27D10D6F00F96E83 /* CalendarPickerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerFooterView.swift; sourceTree = "<group>"; };
 		470E89822589BD7A0019BB50 /* LSConfirmAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSConfirmAlertVC.swift; sourceTree = "<group>"; };
 		4715773624EC3B0E001652A8 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
 		471D1FB92577C66C002AB1AE /* LifeStylesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStylesVM.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				4703B21D27D0F5CD00F96E83 /* CalendarPickerHeaderView.swift */,
-				4703B21F27D10D6F00F96E83 /* CalendarPickerFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -535,7 +532,6 @@
 				47643E2C24F0361500F133F6 /* HomeVC.swift in Sources */,
 				471D1FBA2577C66C002AB1AE /* LifeStylesVM.swift in Sources */,
 				4798D13224EA4B4100267A89 /* LSTitleLabel.swift in Sources */,
-				4703B22027D10D6F00F96E83 /* CalendarPickerFooterView.swift in Sources */,
 				478BEC89251BA60400162592 /* Bindable.swift in Sources */,
 				47A6DEBB258D029D006FE6E1 /* KeyboardHandlingVC.swift in Sources */,
 				47BD3971256AB5B900DBB2FC /* LSAlertVC.swift in Sources */,
