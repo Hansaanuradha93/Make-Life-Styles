@@ -2,36 +2,34 @@ import UIKit
 
 class CalendarPickerHeaderView: UIView {
     
-    // TODO: finalize colors
-
     // MARK: Properties
-    lazy var monthLabel: UILabel = {
+    private lazy var monthLabel: UILabel = {
         let label = LSTitleLabel(text: "Month", textColor: AppColor.lightBlack, fontSize: 20, textAlignment: .left)
         label.accessibilityTraits = .header
         label.isAccessibilityElement = true
         return label
     }()
     
-    lazy var dayOfWeekStackView: UIStackView = {
+    private lazy var dayOfWeekStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
         return stackView
     }()
     
-    lazy var separatorView: UIView = {
+    private lazy var separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = AppColor.lightAsh.withAlphaComponent(0.2)
         return view
     }()
     
-    lazy var previousMonthButton: LSImageButton = {
+    private lazy var previousMonthButton: LSImageButton = {
         let buttonView = LSImageButton(image: Asserts.chevronLeftCircleFill, tintColor: AppColor.lightAsh.withAlphaComponent(0.5))
         
         buttonView.button.addTarget(self, action: #selector(didTapPreviousMonthButton), for: .touchUpInside)
         return buttonView
     }()
     
-    lazy var nextMonthButton: LSImageButton = {
+    private lazy var nextMonthButton: LSImageButton = {
         let buttonView = LSImageButton(image: Asserts.chevronRighttCircleFill, tintColor: AppColor.lightAsh.withAlphaComponent(0.5))
                 
         buttonView.button.addTarget(self, action: #selector(didTapNextMonthButton), for: .touchUpInside)
@@ -59,8 +57,8 @@ class CalendarPickerHeaderView: UIView {
         }
     }
     
-    let didTapLastMonthCompletionHandler: (() -> Void)
-    let didTapNextMonthCompletionHandler: (() -> Void)
+    private let didTapLastMonthCompletionHandler: (() -> Void)
+    private let didTapNextMonthCompletionHandler: (() -> Void)
     
     
     // MARK: Initializers
@@ -114,7 +112,6 @@ private extension CalendarPickerHeaderView {
     
     
     func layout() {
-        
         let buttonDimension: CGFloat = 35
         let buttonStackViewWidth: CGFloat = 2 * buttonDimension + 20
         
