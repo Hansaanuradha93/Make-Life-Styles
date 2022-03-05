@@ -64,12 +64,11 @@ private extension CalendarDateCell {
         isAccessibilityElement = true
         accessibilityTraits = .button
         
-        contentView.addSubview(selectionBackgroundView)
-        contentView.addSubview(numberLabel)
+        contentView.addSubviews(selectionBackgroundView, numberLabel)
         
         NSLayoutConstraint.deactivate(selectionBackgroundView.constraints)
 
-        let size = traitCollection.horizontalSizeClass == .compact ? min(min(frame.width, frame.height) - 10, 60) : 45
+        let size = traitCollection.horizontalSizeClass == .compact ? min(min(frame.width, frame.height) - 10, 40) : 25
         
         numberLabel.center(in: contentView)
         

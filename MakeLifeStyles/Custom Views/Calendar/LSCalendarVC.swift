@@ -131,6 +131,7 @@ private extension LSCalendarVC {
     
     func style() {
         collectionView.backgroundColor = .systemBackground
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         
         collectionView.register(CalendarDateCell.self, forCellWithReuseIdentifier: CalendarDateCell.reuseID)
 

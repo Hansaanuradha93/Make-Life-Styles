@@ -122,7 +122,7 @@ private extension CalendarPickerHeaderView {
         
         separatorView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, size: .init(width: 0, height: 1))
         
-        dayOfWeekStackView.anchor(top: nil, leading: leadingAnchor, bottom: separatorView.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 0))
+        dayOfWeekStackView.anchor(top: nil, leading: leadingAnchor, bottom: separatorView.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 10, bottom: 5, right: 10))
     }
     
     
