@@ -98,10 +98,9 @@ extension LSCalendarVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let day = days[indexPath.row]
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarDateCell.reuseID, for: indexPath) as! CalendarDateCell
-        
+
+        let day = days[indexPath.row]
         cell.day = day
         return cell
     }

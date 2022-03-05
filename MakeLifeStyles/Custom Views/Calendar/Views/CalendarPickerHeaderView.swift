@@ -63,7 +63,7 @@ class CalendarPickerHeaderView: UIView {
 private extension CalendarPickerHeaderView {
     
     func initialSetup() {
-        backgroundColor = AppColor.lightYellow
+        backgroundColor = .systemBackground
         
         addSubviews(monthLabel, dayOfWeekStackView, separatorView)
         
@@ -78,7 +78,7 @@ private extension CalendarPickerHeaderView {
     
     
     func layout() {
-        monthLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 15, left: 20, bottom: 0, right: 0))
+        monthLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 15, left: 20, bottom: 0, right: 20))
         
         separatorView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, size: .init(width: 0, height: 1))
         

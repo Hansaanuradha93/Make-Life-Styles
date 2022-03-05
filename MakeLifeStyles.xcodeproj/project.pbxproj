@@ -53,6 +53,7 @@
 		47EFA4A227D077600030086F /* CalendarDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EFA4A127D077600030086F /* CalendarDateCell.swift */; };
 		47F34FC324F56DF900DA4F64 /* MakeHabitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F34FC224F56DF900DA4F64 /* MakeHabitsVC.swift */; };
 		47F34FC624F5710F00DA4F64 /* LifeStylesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F34FC524F5710F00DA4F64 /* LifeStylesVC.swift */; };
+		47F6DF8D27D2282C00E39FA0 /* LSImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F6DF8C27D2282C00E39FA0 /* LSImageButton.swift */; };
 		47F8E7162582855C0046D057 /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F8E7152582855C0046D057 /* UICollectionViewCell+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		47EFA4A127D077600030086F /* CalendarDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCell.swift; sourceTree = "<group>"; };
 		47F34FC224F56DF900DA4F64 /* MakeHabitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeHabitsVC.swift; sourceTree = "<group>"; };
 		47F34FC524F5710F00DA4F64 /* LifeStylesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStylesVC.swift; sourceTree = "<group>"; };
+		47F6DF8C27D2282C00E39FA0 /* LSImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSImageButton.swift; sourceTree = "<group>"; };
 		47F8E7152582855C0046D057 /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				4798D13624EA512000267A89 /* LSButton.swift */,
+				47F6DF8C27D2282C00E39FA0 /* LSImageButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				47EFA49D27D06E210030086F /* Day.swift in Sources */,
 				472CC38024E30083009C6890 /* UIColor+Ext.swift in Sources */,
 				47BD3976256AB65700DBB2FC /* LSAlertContainerView.swift in Sources */,
+				47F6DF8D27D2282C00E39FA0 /* LSImageButton.swift in Sources */,
 				4765A46124E06BFA00585E27 /* SceneDelegate.swift in Sources */,
 				472CC37E24E2FFEB009C6890 /* UIView+Ext.swift in Sources */,
 				4746339425755AA700E68F08 /* UIStackView+Ext.swift in Sources */,
