@@ -51,14 +51,14 @@ class CalendarPickerHeaderView: UIView {
         return dateFormatter
     }()
     
+    private let didTapLastMonthCompletionHandler: (() -> Void)
+    private let didTapNextMonthCompletionHandler: (() -> Void)
+    
     var baseDate = Date() {
         didSet {
             monthLabel.text = dateFormatter.string(from: baseDate)
         }
     }
-    
-    private let didTapLastMonthCompletionHandler: (() -> Void)
-    private let didTapNextMonthCompletionHandler: (() -> Void)
     
     
     // MARK: Initializers
