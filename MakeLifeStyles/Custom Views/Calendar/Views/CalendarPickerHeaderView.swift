@@ -2,44 +2,45 @@ import UIKit
 
 class CalendarPickerHeaderView: UIView {
     
-    // TODO: finalize colors
-
     // MARK: Properties
-    lazy var monthLabel: UILabel = {
+    private lazy var monthLabel: UILabel = {
         let label = LSTitleLabel(text: "Month", textColor: AppColor.lightBlack, fontSize: 20, textAlignment: .left)
         label.accessibilityTraits = .header
         label.isAccessibilityElement = true
         return label
     }()
     
-    lazy var closeButton: UIButton = {
-        let button = LSButton()
-        
-        let configuration = UIImage.SymbolConfiguration(scale: .large)
-        let image = Asserts.xmarkCircleFill
-        image.withConfiguration(configuration)
-        button.setImage(image, for: .normal)
-        
-        button.tintColor = AppColor.lightBlack
-        button.contentMode = .scaleAspectFill
-        button.isUserInteractionEnabled = true
-        button.isAccessibilityElement = true
-        button.accessibilityLabel = "Close Picker"
-        return button
-    }()
-    
-    lazy var dayOfWeekStackView: UIStackView = {
+    private lazy var dayOfWeekStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         return stackView
     }()
     
-    lazy var separatorView: UIView = {
+    private lazy var separatorView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = AppColor.lightAsh.withAlphaComponent(0.2)
         return view
+    }()
+    
+    private lazy var previousMonthButton: LSImageButton = {
+        let buttonView = LSImageButton(image: Asserts.chevronLeftCircleFill, tintColor: AppColor.lightAsh.withAlphaComponent(0.5))
+        
+        buttonView.button.addTarget(self, action: #selector(didTapPreviousMonthButton), for: .touchUpInside)
+        return buttonView
+    }()
+    
+    private lazy var nextMonthButton: LSImageButton = {
+        let buttonView = LSImageButton(image: Asserts.chevronRighttCircleFill, tintColor: AppColor.lightAsh.withAlphaComponent(0.5))
+                
+        buttonView.button.addTarget(self, action: #selector(didTapNextMonthButton), for: .touchUpInside)
+        return buttonView
+    }()
+    
+    private lazy var buttonStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [previousMonthButton, nextMonthButton])
+        stackView.distribution = .fillEqually
+        stackView.spacing = 10
+        return stackView
     }()
     
     private lazy var dateFormatter: DateFormatter = {
@@ -50,21 +51,23 @@ class CalendarPickerHeaderView: UIView {
         return dateFormatter
     }()
     
+    private let didTapLastMonthCompletionHandler: (() -> Void)
+    private let didTapNextMonthCompletionHandler: (() -> Void)
+    
     var baseDate = Date() {
         didSet {
             monthLabel.text = dateFormatter.string(from: baseDate)
         }
     }
     
-    var exitButtonTappedCompletionHandler: (() -> Void)
-    
     
     // MARK: Initializers
-    init(exitButtonTappedCompletionHandler: @escaping (() -> Void)) {
-        self.exitButtonTappedCompletionHandler = exitButtonTappedCompletionHandler
+    init(didTapLastMonthCompletionHandler: @escaping (() -> Void), didTapNextMonthCompletionHandler: @escaping (() -> Void)) {
+        self.didTapLastMonthCompletionHandler = didTapLastMonthCompletionHandler
+        self.didTapNextMonthCompletionHandler = didTapNextMonthCompletionHandler
         
         super.init(frame: CGRect.zero)
-                
+        
         initialSetup()
     }
     
@@ -83,15 +86,20 @@ class CalendarPickerHeaderView: UIView {
 // MARK: - Private Methods
 private extension CalendarPickerHeaderView {
     
-    @objc private func didTapExitButton() {
-        exitButtonTappedCompletionHandler()
+    @objc func didTapPreviousMonthButton() {
+        didTapLastMonthCompletionHandler()
+    }
+    
+    
+    @objc func didTapNextMonthButton() {
+        didTapNextMonthCompletionHandler()
     }
     
     
     func initialSetup() {
-        backgroundColor = AppColor.lightYellow
+        backgroundColor = .systemBackground
         
-        addSubviews(monthLabel, closeButton, dayOfWeekStackView, separatorView)
+        addSubviews(buttonStackView, monthLabel, dayOfWeekStackView, separatorView)
         
         for dayNumber in 1...7 {
             let dayLabel = LSTitleLabel(textColor: AppColor.darkestAsh, fontSize: 12, textAlignment: .center)
@@ -100,16 +108,21 @@ private extension CalendarPickerHeaderView {
             dayOfWeekStackView.addArrangedSubview(dayLabel)
         }
         
-        closeButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
     }
     
     
     func layout() {
-        monthLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 15, left: 20, bottom: 0, right: 0))
+        let buttonDimension: CGFloat = 35
+        let buttonStackViewWidth: CGFloat = 2 * buttonDimension + 20
+        
+        buttonStackView.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 20), size: .init(width: buttonStackViewWidth, height: buttonDimension + 5))
+        
+        monthLabel.anchor(top: nil, leading: leadingAnchor, bottom: nil, trailing: buttonStackView.leadingAnchor, padding: .init(top: 0, left: 20, bottom: 0, right: 0))
+        monthLabel.centerVertically(in: buttonStackView)
         
         separatorView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, size: .init(width: 0, height: 1))
         
-        dayOfWeekStackView.anchor(top: nil, leading: leadingAnchor, bottom: separatorView.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 0))
+        dayOfWeekStackView.anchor(top: nil, leading: leadingAnchor, bottom: separatorView.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 10, bottom: 5, right: 10))
     }
     
     

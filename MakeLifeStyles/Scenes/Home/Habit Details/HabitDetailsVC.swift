@@ -211,9 +211,9 @@ private extension HabitDetailsVC {
         
         contentView.addSubviews(calendarContainerView, overrallStackView)
         
-        calendarContainerView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, size: .init(width: 0, height: 450))
+        calendarContainerView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 20, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 400))
         
-        overrallStackView.anchor(top: calendarContainerView.bottomAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 30, left: spacing, bottom: 0, right: spacing))
+        overrallStackView.anchor(top: calendarContainerView.bottomAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 20, left: spacing, bottom: 0, right: spacing))
     }
     
     

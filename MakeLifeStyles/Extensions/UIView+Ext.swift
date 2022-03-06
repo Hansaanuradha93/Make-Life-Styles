@@ -15,6 +15,12 @@ extension UIView {
     }
     
     
+    func setRoundedCorners(radius: CGFloat) {
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
+    }
+    
+    
     func addSubviews(_ views: UIView...) {
         for view in views { addSubview(view) }
     }

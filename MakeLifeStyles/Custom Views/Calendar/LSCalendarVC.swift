@@ -9,6 +9,18 @@ class LSCalendarVC: UIViewController {
     
     
     // MARK: UI Properties
+    private lazy var headerView = CalendarPickerHeaderView { [weak self] in
+        guard let self = self else { return }
+
+        self.baseDate = self.calendar.date(byAdding: .month, value: -1, to: self.baseDate) ?? self.baseDate
+        
+    } didTapNextMonthCompletionHandler: { [weak self] in
+        
+        guard let self = self else { return }
+
+        self.baseDate = self.calendar.date(byAdding: .month, value: 1, to: self.baseDate) ?? self.baseDate
+    }
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
@@ -19,22 +31,11 @@ class LSCalendarVC: UIViewController {
         return collectionView
     }()
     
-    private lazy var headerView = CalendarPickerHeaderView { [weak self] in
-        guard let self = self else { return }
-        
-        self.dismiss(animated: true)
-    }
-
-    private lazy var footerView = CalendarPickerFooterView(didTapLastMonthCompletionHandler: { [weak self] in
-            guard let self = self else { return }
-
-            self.baseDate = self.calendar.date(byAdding: .month, value: -1, to: self.baseDate) ?? self.baseDate
-        }, didTapNextMonthCompletionHandler: { [weak self] in
-            guard let self = self else { return }
-
-            self.baseDate = self.calendar.date(byAdding: .month, value: 1, to: self.baseDate) ?? self.baseDate
-        }
-    )
+    private lazy var separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColor.lightAsh.withAlphaComponent(0.2)
+        return view
+    }()
     
     
     // MARK: Calendar Date Properties
@@ -100,10 +101,9 @@ extension LSCalendarVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let day = days[indexPath.row]
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarDateCell.reuseID, for: indexPath) as! CalendarDateCell
-        
+
+        let day = days[indexPath.row]
         cell.day = day
         return cell
     }
@@ -131,6 +131,7 @@ private extension LSCalendarVC {
     
     func style() {
         collectionView.backgroundColor = .systemBackground
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         
         collectionView.register(CalendarDateCell.self, forCellWithReuseIdentifier: CalendarDateCell.reuseID)
 
@@ -142,13 +143,13 @@ private extension LSCalendarVC {
     
     
     func layout() {
-        view.addSubviews(collectionView, headerView, footerView)
+        view.addSubviews(headerView, collectionView, separatorView)
         
         headerView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: 85))
         
-        footerView.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, size: .init(width: 0, height: 60))
-        
-        collectionView.anchor(top: headerView.bottomAnchor, leading: view.leadingAnchor, bottom: footerView.topAnchor, trailing: view.trailingAnchor)
+        separatorView.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, size: .init(width: 0, height: 1))
+
+        collectionView.anchor(top: headerView.bottomAnchor, leading: view.leadingAnchor, bottom: separatorView.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 0))
     }
 }
 
