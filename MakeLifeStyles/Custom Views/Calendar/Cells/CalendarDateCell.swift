@@ -24,7 +24,6 @@ class CalendarDateCell: UICollectionViewCell {
         return dateFormatter
     }()
     
-    
     private var isSmallScreenSize: Bool {
         let isCompact = traitCollection.horizontalSizeClass == .compact
         let smallWidth = UIScreen.main.bounds.width <= 350
@@ -49,7 +48,6 @@ class CalendarDateCell: UICollectionViewCell {
     // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
