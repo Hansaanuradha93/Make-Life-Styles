@@ -55,6 +55,7 @@ class CalendarDateCell: UICollectionViewCell {
     required init?(coder: NSCoder) { fatalError() }
 }
 
+
 // MARK: - Private Methods
 private extension CalendarDateCell {
     
@@ -104,4 +105,3 @@ private extension CalendarDateCell {
         selectionBackgroundView.isHidden = true
     }
 }
-
