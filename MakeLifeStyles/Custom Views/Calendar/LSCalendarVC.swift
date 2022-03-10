@@ -213,8 +213,8 @@ private extension LSCalendarVC {
         guard additionalDays > 0 else { return [] }
         
         let days: [Day] = (1...additionalDays).map {
-                generateDay(offsetBy: $0, for: lastDayInMonth, isWithinDisplayedMonth: false)
-            }
+            generateDay(offsetBy: $0, for: lastDayInMonth, isWithinDisplayedMonth: false)
+        }
         
         return days
     }
