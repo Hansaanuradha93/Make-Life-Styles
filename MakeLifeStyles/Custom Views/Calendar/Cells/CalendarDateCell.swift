@@ -99,7 +99,7 @@ private extension CalendarDateCell {
 
     func applyDefaultStyle(isWithinDisplayedMonth: Bool) {
         accessibilityTraits.remove(.selected)
-        accessibilityHint = "Tap to select"
+        accessibilityHint = Strings.tapToSelect
         
         numberLabel.textColor = isWithinDisplayedMonth ? AppColor.lightBlack : AppColor.lightAsh
         selectionBackgroundView.isHidden = true
