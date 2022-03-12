@@ -87,6 +87,10 @@ struct Strings {
     static let update = "Update"
     static let delete = "Delete"
     static let cancel = "Cancel"
+    
+    // Calendar
+    static let month = "Month"
+    static let tapToSelect = "Tap to select"
 }
 
 
