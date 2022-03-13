@@ -4,7 +4,7 @@ class CalendarPickerHeaderView: UIView {
     
     // MARK: Properties
     private lazy var monthLabel: UILabel = {
-        let label = LSTitleLabel(text: "Month", textColor: AppColor.lightBlack, fontSize: 20, textAlignment: .left)
+        let label = LSTitleLabel(text: Strings.month, textColor: AppColor.lightBlack, fontSize: 20, textAlignment: .left)
         label.accessibilityTraits = .header
         label.isAccessibilityElement = true
         return label
